@@ -1,15 +1,36 @@
-﻿using System.Xml.Linq;
+﻿using System.Text;
+using System.Xml.Linq;
 
 internal class Program
 {
     private static void Main(string[] args)
     {
+        Console.InputEncoding = Encoding.Unicode;
+        Console.OutputEncoding = Encoding.Unicode;
 
-        Calculator();
-        DefineInterval();
-        Dictionary();
-        Parity1();
-        Parity2();
+        Console.WriteLine("Выберите операцию:\n\t0 - Калькулятор\n\t1 - Определение интервала числа\n\t2 - Переводчик\n\t3 - Проверка числа на четность, алгоритм 1\n\t4 - Проверка числа на четность, алгоритм 2");
+        byte func = Convert.ToByte(Console.ReadLine());
+        if (func > 4)
+        {
+            Console.WriteLine("Вы ввели неправильный номер операции =(");
+        }
+        else
+        {
+            switch (func)
+            {
+                case 0: Calculator(); break;
+
+                case 1: DefineInterval(); break;
+
+                case 2: Dictionary(); break;
+
+                case 3: Parity1(); break;
+
+                case 4: Parity2(); break;
+
+                default: Console.WriteLine("Непредвиденная ошибка"); break;
+            }
+        }
 
         //Задание 1 - калькулятор
         static void Calculator()
