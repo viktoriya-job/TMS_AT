@@ -8,6 +8,7 @@ internal class Program
         Calculator();
         DefineInterval();
         Dictionary();
+        Parity1();
 
         //Задание 1 - калькулятор
         static void Calculator()
@@ -124,6 +125,19 @@ internal class Program
                 default:
                     Console.WriteLine("слово отсутствует в словаре"); break;
             }
+        }
+
+        //Задание 4 - определить четность число. Алгоритм 1
+        static void Parity1()
+        {
+            Console.Write("Введите целое число: ");
+
+            int num = Convert.ToInt32(Console.ReadLine());
+
+            if (num % 2 == 0)
+                Console.WriteLine($"Число {num} - четное");
+            else
+                Console.WriteLine($"Число {num} - нечетное");
         }
 
     }
