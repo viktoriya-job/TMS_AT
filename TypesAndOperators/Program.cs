@@ -7,6 +7,7 @@ internal class Program
 
         Calculator();
         DefineInterval();
+        Dictionary();
 
         //Задание 1 - калькулятор
         static void Calculator()
@@ -78,6 +79,51 @@ internal class Program
             else
                 Console.WriteLine($"Число {num} не входит ни в один из интервалов  [-40,-10];[-9,0];[1,10];[11,40]");
 
+        }
+
+        //Задание 3 - переводчик с русского на английский
+        static void Dictionary()
+        {
+            Console.Write("Введите слово на русском языке: ");
+            string russianWord = Console.ReadLine();
+
+            Console.Write($"Русский яз.\t\tАнглийский яз.\n{russianWord}\t\t\t");
+
+            switch (russianWord)
+            {
+                case "тепло":
+                    Console.WriteLine("warm"); break;
+
+                case "холодно":
+                    Console.WriteLine("cold"); break;
+
+                case "мороз":
+                    Console.WriteLine("frosty"); break;
+
+                case "снег":
+                    Console.WriteLine("snow"); break;
+
+                case "дождь":
+                    Console.WriteLine("rain"); break;
+
+                case "ветер":
+                    Console.WriteLine("wind"); break;
+
+                case "гроза":
+                    Console.WriteLine("storm"); break;
+
+                case "туман":
+                    Console.WriteLine("fog"); break;
+
+                case "облачно":
+                    Console.WriteLine("cloudy"); break;
+
+                case "жарко":
+                    Console.WriteLine("hot"); break;
+
+                default:
+                    Console.WriteLine("слово отсутствует в словаре"); break;
+            }
         }
 
     }
