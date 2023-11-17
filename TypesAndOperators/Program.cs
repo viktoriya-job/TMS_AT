@@ -4,38 +4,52 @@ internal class Program
 {
     private static void Main(string[] args)
     {
-        /*
-        const int MINUTES_IN_HOUR = 60;
-        string name = "Vika";
-        Console.WriteLine($"Hello {name} \t How are you? \n Great!");
 
-        var flag = false;
-        var i = 10.0;
-        var fl = 10.1;
+        Calculator();
 
-        int j = Convert.ToInt32(i);
-        */
+        //Задание 1 - калькулятор
+        static void Calculator()
+        {
+            Console.Write("Введите первое число:\t\t");
+            float num1 = Convert.ToSingle(Console.ReadLine());
 
-        /*
-        //Решение задачи: купить продукты, купить мороженое, если хватит остатка
-        //Подготовка данных
+            Console.Write("Введите оператор (+ - * /)\t");
+            char operat = Convert.ToChar(Console.ReadLine());
 
-        //Свойства хлеба
-        bool isWhiteBradFresh = true;
-        ushort wHiteBredPrice = 150;
+            if (operat != '+' && operat != '-' && operat != '*' && operat != '/')
+                Console.WriteLine($"Ошибка: Введен некорректный оператор [{operat}]");
 
-        //Свойства масла
-        ushort butterPrice = 230;
+            else
+            {
+                Console.Write("Введите второе число:\t\t");
+                float num2 = Convert.ToSingle(Console.ReadLine());
 
-        //Свойства молока
-        ushort milkPrice = 170;
-        float milkFatPercentage = 1.2f;
-        */
+                if (operat == '/' && num2 == 0)
+                    Console.WriteLine($"Ошибка: Попытка деления на 0");
 
-        //конвертация во float
-        int k = 10;
-        float j = Convert.ToSingle(k);
-        Console.WriteLine(j);
+                else
+                {
+                    Console.Write($"Результат:\t\t\t{num1}{operat}{num2}=");
+                    switch (operat)
+                    {
+                        case '+':
+                            Console.WriteLine(num1 + num2); break;
+
+                        case '-':
+                            Console.WriteLine(num1 - num2); break;
+
+                        case '*':
+                            Console.WriteLine(num1 * num2); break;
+
+                        case '/':
+                            Console.WriteLine(num1 / num2); break;
+
+                        default:
+                            Console.WriteLine("Непредвиденная ошибка"); break;
+                    }
+                }
+            }
+        }
 
     }
 }
