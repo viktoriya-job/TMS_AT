@@ -45,6 +45,7 @@ namespace TypesAndOperators
                     case 8: Task8.BubbleSort(); break;
                     case 9: Task9.MultiplyTwoMatrices(); break;
                     case 10: Task10.SumOfAllMatrixElements(); break;
+                    case 11: Task11.MatrixDiagonals(); break;
                 }
             }
 
