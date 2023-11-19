@@ -12,8 +12,11 @@ namespace TypesAndOperators
         {
             Random random = new Random();
 
+            //Получим от пользователя число элементов будущего масссива
             Console.Write("Введите число элементов массива: ");
             byte lengthArray = Convert.ToByte(Console.ReadLine());
+
+            //Создадим массив, заполним его случайными элементами и выведем
             int[] array = new int[lengthArray];
 
             Console.Write("Исходный массив:\t");
@@ -23,6 +26,8 @@ namespace TypesAndOperators
                 Console.Write($"{array[i]} ");
             }
 
+            //Органируем пузырьковую сортировку - соседние элементы меняются местами по возрастанию,
+            //в каждой итерации "становится на место" последний из обрабатываемых элементов 
             while (lengthArray > 0)
             {
                 for (byte j = 0; j < lengthArray - 1; j++)
@@ -37,6 +42,7 @@ namespace TypesAndOperators
                 lengthArray--;
             }
 
+            //Выведем полученный массив
             Console.Write("\nОтсортированный массив:\t");
             foreach (int element in array)
                 Console.Write($"{element} ");

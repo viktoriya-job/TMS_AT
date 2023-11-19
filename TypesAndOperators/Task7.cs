@@ -10,15 +10,19 @@ namespace TypesAndOperators
     {
         public static void SortedArrayOfNames()
         {
+            //Создадим и заполним строковый одномерный массив
             string[] arrayOfMyCats = { "Mars", "Bars", "MariyaBarsikovna", "Kseniya", "Lisya", "Mosya", "Kuzya", "Pantera" };
 
+            //Выведем исходный массив
             Console.Write("Just my cats :\t");
             foreach (string element in arrayOfMyCats)
                 Console.Write($"{element} ");
 
-            Console.Write("\nSorted cats) :\t");
-
+            //Отсортируем массив
             Array.Sort(arrayOfMyCats);
+
+            //Выведем обновленный массив
+            Console.Write("\nSorted cats) :\t");
 
             foreach (string element1 in arrayOfMyCats)
                 Console.Write($"{element1} ");

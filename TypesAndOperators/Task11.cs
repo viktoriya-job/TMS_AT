@@ -31,16 +31,10 @@ namespace TypesAndOperators
             for (byte diag1_i = 0; diag1_i < matrix.GetLength(0); diag1_i++)
             {
                 for (byte diag1_j = 0; diag1_j < matrix.GetLength(1); diag1_j++)
-                {
                     if (diag1_i == diag1_j)
-                    {
                         Console.Write($"{matrix[diag1_i, diag1_j]}\t");
-                    }
                     else
-                    {
                         Console.Write("-\t");
-                    }
-                }
                 Console.WriteLine();
             }
 
@@ -49,20 +43,12 @@ namespace TypesAndOperators
             for (byte diag2_i = 0; diag2_i < matrix.GetLength(0); diag2_i++)
             {
                 for (byte diag2_j = 0; diag2_j < matrix.GetLength(1); diag2_j++)
-                {
                     if (diag2_i == matrix.GetLength(1) - diag2_j-1)
-                    {
                         Console.Write($"{matrix[diag2_i, diag2_j]}\t");
-                    }
                     else
-                    {
                         Console.Write("-\t");
-                    }
-                }
                 Console.WriteLine();
             }
-
-
         }
     }
 }

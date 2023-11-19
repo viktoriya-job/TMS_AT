@@ -14,7 +14,7 @@ namespace TypesAndOperators
 
             int[,] matrix = new int[4, 5];
 
-            //заполним матрицу случайными числами и выведем ее
+            //Заполним матрицу случайными элементами и выведем ее
             Console.WriteLine("Матрица: ");
             for (byte i = 0; i < matrix.GetLength(0); i++)
             {

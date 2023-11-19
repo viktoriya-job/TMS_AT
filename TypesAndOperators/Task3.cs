@@ -15,6 +15,7 @@ namespace TypesAndOperators
             Console.Write("Введите количество элементов массива: ");
             byte lengthArray = Convert.ToByte(Console.ReadLine());
 
+            //Создадим одномерный массив нужной длины, заполним его случайными числами и выведем
             int[] array = new int[lengthArray];
 
             for (byte i = 0; i < array.GetLength(0); i++)
@@ -23,12 +24,16 @@ namespace TypesAndOperators
                 Console.Write($"{array[i]} ");
             }
 
+            //Отсортируем массив
             Array.Sort(array);
+
+            //Выведем отсортированный массив
             Console.WriteLine($"\nОтсортированный массив: ");
 
             foreach (int element in array)
                 Console.Write($"{element} ");
 
+            //Выведем искомые величины
             Console.WriteLine($"\nMAX\t: {array[array.GetLength(0) - 1]}");
             Console.WriteLine($"MIN\t: {array[0]}");
             Console.WriteLine($"Average\t: {array[array.GetLength(0) / 2]}");

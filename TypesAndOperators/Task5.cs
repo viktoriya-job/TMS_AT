@@ -14,12 +14,16 @@ namespace TypesAndOperators
 
             Console.Write("Введите количество элементов массива из интервала (5, 10]: ");
             byte lengthArray = Convert.ToByte(Console.ReadLine());
+
+            //Дождемся, пока пользователь введет нужное число
             while (lengthArray <= 5 || lengthArray > 10)
             {
                 Console.Write($"Число {lengthArray} не входит в требуемый интервал (5, 10]. Пожалуйста, повторите ввод:  ");
                 lengthArray = Convert.ToByte(Console.ReadLine());
             }
-            Console.Write("Массив1: ");
+
+            //Заполним массив случайными числами и выведем его
+            Console.WriteLine("Исходный массив: ");
             int[] array = new int[lengthArray];
 
             for (byte i = 0; i < array.GetLength(0); i++)
@@ -28,25 +32,32 @@ namespace TypesAndOperators
                 Console.Write($"{array[i]} ");
             }
 
+            //Выясним, сколько в массиве четных элементов
             byte numberOfEvenElements = 0;
             foreach (int element in array)
-            {
                 if (element % 2 == 0)
                     numberOfEvenElements++;
-                if (numberOfEvenElements > 0) break;
-            }
 
+            //В массиве может не быть четных элементов
             if (numberOfEvenElements == 0)
-                Console.WriteLine("\nВ массиве 1 нет четных элементов");
-
+                Console.WriteLine("\nВ исходном массиве нет четных элементов");
             else
             {
-                Console.Write("\nМассив2: ");
+                //Создадим новый массив и запишем в него только четные элементы
+                int[] arrayNew = new int[numberOfEvenElements];
+
+                byte temp = 0;
                 foreach (int element2 in array)
-                {
                     if (element2 % 2 == 0)
-                        Console.Write($"{element2} ");
-                }
+                    {
+                        arrayNew[temp] = element2;
+                        temp++;
+                    }
+
+                //Выведем полученный массив
+                Console.WriteLine("\nПолученный массив четных элементов: ");
+                foreach (int element3 in arrayNew)
+                    Console.Write($"{element3} ");
             }
         }
     }

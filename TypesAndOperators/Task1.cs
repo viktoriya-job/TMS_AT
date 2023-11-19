@@ -14,6 +14,7 @@ namespace TypesAndOperators
 
             Console.WriteLine("Введите число, вхождение которого в следующем массиве нужно проверить: \n");
 
+            //Создадим массив, заполним его случайными элементами и выведем
             int[] array = new int[10];
             for (byte i = 0; i < array.GetLength(0); i++)
             {
