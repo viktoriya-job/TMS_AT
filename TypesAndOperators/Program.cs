@@ -3,6 +3,7 @@ using System.Net.NetworkInformation;
 using System.Reflection.Metadata;
 using System.Security.Cryptography;
 using System.Threading.Channels;
+using System.Threading.Tasks;
 using TypesAndOperators;
 
 namespace TypesAndOperators
@@ -40,6 +41,7 @@ namespace TypesAndOperators
                     case 4: Task4.MathAverageInArrays(); break;
                     case 5: Task5.EvenArrayFromAnother(); break;
                     case 6: Task6.ReplaceOddArrayElementsWithZero(); break;
+                    case 7: Task7.SortedArrayOfNames(); break;
                 }
             }
 
