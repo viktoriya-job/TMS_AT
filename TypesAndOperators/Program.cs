@@ -43,6 +43,7 @@ namespace TypesAndOperators
                     case 6: Task6.ReplaceOddArrayElementsWithZero(); break;
                     case 7: Task7.SortedArrayOfNames(); break;
                     case 8: Task8.BubbleSort(); break;
+                    case 9: Task9.MultiplyTwoMatrices(); break;
                 }
             }
 
