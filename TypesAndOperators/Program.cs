@@ -27,6 +27,7 @@ internal class Program
             switch (task)
             {
                 case 1: Task1.IsNumberIncludedInArray(); break;
+                case 2: Task2.RemoveSomeArrayElements(); break;
             }
         }
 
