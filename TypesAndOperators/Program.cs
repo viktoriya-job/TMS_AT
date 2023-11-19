@@ -31,6 +31,7 @@ internal class Program
                 case 2: Task2.RemoveSomeArrayElements(); break;
                 case 3: Task3.MaxMinAverageInArray(); break;
                 case 4: Task4.MathAverageInArrays(); break;
+                case 5: Task5.EvenArrayFromAnother(); break;
             }
         }
 
