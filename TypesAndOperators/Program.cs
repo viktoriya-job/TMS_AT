@@ -42,6 +42,7 @@ namespace TypesAndOperators
                     case 5: Task5.EvenArrayFromAnother(); break;
                     case 6: Task6.ReplaceOddArrayElementsWithZero(); break;
                     case 7: Task7.SortedArrayOfNames(); break;
+                    case 8: Task8.BubbleSort(); break;
                 }
             }
 
