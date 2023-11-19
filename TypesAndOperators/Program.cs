@@ -30,6 +30,7 @@ internal class Program
                 case 1: Task1.IsNumberIncludedInArray(); break;
                 case 2: Task2.RemoveSomeArrayElements(); break;
                 case 3: Task3.MaxMinAverageInArray(); break;
+                case 4: Task4.MathAverageInArrays(); break;
             }
         }
 
