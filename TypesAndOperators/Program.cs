@@ -8,9 +8,15 @@ internal class Program
         Console.InputEncoding = Encoding.Unicode;
         Console.OutputEncoding = Encoding.Unicode;
 
-        Console.WriteLine("Выберите операцию:\n\t0 - Калькулятор\n\t1 - Определение интервала числа\n\t2 - Переводчик\n\t3 - Проверка числа на четность, алгоритм 1\n\t4 - Проверка числа на четность, алгоритм 2");
+        Console.WriteLine("Выберите операцию:" +
+            "\n\t0 - Калькулятор" +
+            "\n\t1 - Определение интервала числа" +
+            "\n\t2 - Переводчик" +
+            "\n\t3 - Проверка числа на четность, алгоритм 1" +
+            "\n\t4 - Проверка числа на четность, алгоритм 2" +
+            "\n\t5 - Проверка числа на четность, алгоритм 3");
         byte func = Convert.ToByte(Console.ReadLine());
-        if (func > 4)
+        if (func > 5)
         {
             Console.WriteLine("Вы ввели неправильный номер операции =(");
         }
@@ -27,6 +33,8 @@ internal class Program
                 case 3: Parity1(); break;
 
                 case 4: Parity2(); break;
+
+                case 5: Parity3(); break;
 
                 default: Console.WriteLine("Непредвиденная ошибка"); break;
             }
@@ -50,7 +58,7 @@ internal class Program
                 float num2 = Convert.ToSingle(Console.ReadLine());
 
                 if (operat == '/' && num2 == 0)
-                    Console.WriteLine($"Ошибка: Попытка деления на 0");
+                    Console.WriteLine("Ошибка: Попытка деления на 0");
 
                 else
                 {
@@ -162,7 +170,7 @@ internal class Program
                 Console.WriteLine($"Число {num} - нечетное");
         }
 
-        //Задание 4 - определить четность число. Алгоритм 1
+        //Задание 4 - определить четность число. Алгоритм 2
         static void Parity2()
         {
             Console.Write("Введите целое число: ");
@@ -170,6 +178,20 @@ internal class Program
             int num = Convert.ToInt32(Console.ReadLine());
 
             if (num / 2 * 2 == num)
+                Console.WriteLine($"Число {num} - четное");
+            else
+                Console.WriteLine($"Число {num} - нечетное");
+        }
+
+        //Задание 4 - определить четность число. Алгоритм 3
+        static void Parity3()
+        {
+            Console.Write("Введите целое число: ");
+
+            int num = Convert.ToInt32(Console.ReadLine());
+
+            //Получим последнюю цифру числа и проверим, делится ли она на 2
+            if (num % 10 == 0 || num % 10 == 2 || num % 10 == 4 || num % 10 == 6 || num % 10 == 8)
                 Console.WriteLine($"Число {num} - четное");
             else
                 Console.WriteLine($"Число {num} - нечетное");
