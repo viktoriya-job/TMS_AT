@@ -10,10 +10,10 @@ namespace TypesAndOperators
     {
         public static void MultiplyTwoMatrices()
         {
-            //Создадим исходные двуменые массивы - матрицы
+            //Создадим исходные двумерные массивы - матрицы
             int[,] matrix1 = { { 1, 0, 0, 0 }, { 0, 1, 0, 0 }, { 0, 0, 0, 0 } };
             int[,] matrix2 = { { 1, 2, 3 }, { 1, 1, 1 }, { 0, 0, 0 }, { 2, 1, 0 } };
-            int[,] resultMatrix = { { 0,0,0},{0,0,0 },{0,0,0 } };
+            int[,] resultMatrix = new int[3,3];
 
             //Организуем перемножение двух матриц
             for (byte matr1 = 0; matr1 < matrix1.GetLength(0); matr1++)
@@ -21,7 +21,7 @@ namespace TypesAndOperators
                     for (byte inter = 0; inter < matrix1.GetLength(1); inter++)
                         resultMatrix[matr1,matr2] += matrix1[matr1, inter] * matrix2[inter,matr2];
 
-            //Выводем исходные матрицы и результат их умножения
+            //Выведем исходные матрицы и результат их умножения
             Console.WriteLine("\nМатрица 1: ");
             for (byte i1 = 0; i1 < matrix1.GetLength(0); i1++)
             {

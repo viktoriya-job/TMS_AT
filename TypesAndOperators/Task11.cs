@@ -28,11 +28,11 @@ namespace TypesAndOperators
 
             //Выведем только главную диагональ матрицы
             Console.WriteLine("\nГлавная диагональ:");
-            for (byte diag1_i = 0; diag1_i < matrix.GetLength(0); diag1_i++)
+            for (byte diagonal1_i = 0; diagonal1_i < matrix.GetLength(0); diagonal1_i++)
             {
-                for (byte diag1_j = 0; diag1_j < matrix.GetLength(1); diag1_j++)
-                    if (diag1_i == diag1_j)
-                        Console.Write($"{matrix[diag1_i, diag1_j]}\t");
+                for (byte diagonal1_j = 0; diagonal1_j < matrix.GetLength(1); diagonal1_j++)
+                    if (diagonal1_i == diagonal1_j)
+                        Console.Write($"{matrix[diagonal1_i, diagonal1_j]}\t");
                     else
                         Console.Write("-\t");
                 Console.WriteLine();
@@ -40,11 +40,11 @@ namespace TypesAndOperators
 
             //Выведем только побочную диагональ матрицы
             Console.WriteLine("\nПобочная диагональ:");
-            for (byte diag2_i = 0; diag2_i < matrix.GetLength(0); diag2_i++)
+            for (byte diagonal2_i = 0; diagonal2_i < matrix.GetLength(0); diagonal2_i++)
             {
-                for (byte diag2_j = 0; diag2_j < matrix.GetLength(1); diag2_j++)
-                    if (diag2_i == matrix.GetLength(1) - diag2_j-1)
-                        Console.Write($"{matrix[diag2_i, diag2_j]}\t");
+                for (byte diagonal2_j = 0; diagonal2_j < matrix.GetLength(1); diagonal2_j++)
+                    if (diagonal2_i == matrix.GetLength(1) - diagonal2_j-1)
+                        Console.Write($"{matrix[diagonal2_i, diagonal2_j]}\t");
                     else
                         Console.Write("-\t");
                 Console.WriteLine();

@@ -49,7 +49,7 @@ namespace TypesAndOperators
                     Console.WriteLine("Остался пустой массив");
                 else
                 {
-                    //Создадим новый массив ссокращенной длины и перезапишем туда элементы слева направо
+                    //Создадим новый массив сокращенной длины и перезапишем туда элементы слева направо
                     Console.WriteLine($"Из массива удалено число {num}:");
                     int[] arrayNew = new int[lengthArray];
                     for (byte k = 0; k < lengthArray; k++)
