@@ -8,13 +8,15 @@ internal class Program
         Console.InputEncoding = Encoding.Unicode;
         Console.OutputEncoding = Encoding.Unicode;
 
-        Console.WriteLine("Выберите операцию:" +
-            "\n\t0 - Калькулятор" +
-            "\n\t1 - Определение интервала числа" +
-            "\n\t2 - Переводчик" +
-            "\n\t3 - Проверка числа на четность, алгоритм 1" +
-            "\n\t4 - Проверка числа на четность, алгоритм 2" +
-            "\n\t5 - Проверка числа на четность, алгоритм 3");
+        Console.WriteLine("""
+            Выберите операцию:" +
+                0 - Калькулятор
+                1 - Определение интервала числа
+                2 - Переводчик
+                3 - Проверка числа на четность, алгоритм
+                4 - Проверка числа на четность, алгоритм
+                5 - Проверка числа на четность, алгоритм
+            """);
         byte func = Convert.ToByte(Console.ReadLine());
         if (func > 5)
         {
@@ -43,10 +45,14 @@ internal class Program
         //Задание 1 - калькулятор
         static void Calculator()
         {
-            Console.Write("Введите первое число:\t\t");
+            Console.Write("""
+                Введите первое число:       
+                """);
             float num1 = Convert.ToSingle(Console.ReadLine());
 
-            Console.Write("Введите оператор (+ - * /)\t");
+            Console.Write("""
+                Введите оператор (+ - * /): 
+                """);
             char operat = Convert.ToChar(Console.ReadLine());
 
             if (operat != '+' && operat != '-' && operat != '*' && operat != '/')
@@ -54,7 +60,9 @@ internal class Program
 
             else
             {
-                Console.Write("Введите второе число:\t\t");
+                Console.Write("""
+                Введите второе число:       
+                """);
                 float num2 = Convert.ToSingle(Console.ReadLine());
 
                 if (operat == '/' && num2 == 0)
@@ -62,7 +70,9 @@ internal class Program
 
                 else
                 {
-                    Console.Write($"Результат:\t\t\t{num1}{operat}{num2}=");
+                    Console.Write($"""
+                        Результат:                  
+                        """);
                     switch (operat)
                     {
                         case '+':
@@ -118,7 +128,10 @@ internal class Program
             Console.Write("Введите слово на русском языке: ");
             string russianWord = Console.ReadLine();
 
-            Console.Write($"Русский яз.\t\tАнглийский яз.\n{russianWord}\t\t\t");
+            Console.Write("""
+                Русский яз.		Английский яз.
+                {russianWord}           
+                """);
 
             switch (russianWord)
             {
