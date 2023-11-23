@@ -2,9 +2,9 @@
 
 namespace StringApp // Note: actual namespace depends on the project name.
     {
-        static class LeccTen
+        static class Auxiliary
         {
-            static void Main(string[] args)
+            static void Main1(string[] args)
             {
                 Console.WriteLine("Hello, World!");
 
@@ -397,7 +397,6 @@ namespace StringApp // Note: actual namespace depends on the project name.
                 // Получаем емкость после установки
                 int updatedCapacity = sbCapacity.Capacity;
                 Console.WriteLine($"Updated Capacity: {updatedCapacity}");
-
 
             }
         }
