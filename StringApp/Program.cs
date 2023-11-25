@@ -8,6 +8,7 @@ namespace StringApp
     {
         private static void Main(string[] args)
         {
+            Console.WriteLine("Hello, World!");
             // The string below contains combining characters.
             //String s = "a\u0304\u0308bc\u0327";
 
