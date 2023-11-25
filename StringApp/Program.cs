@@ -41,31 +41,55 @@ namespace StringApp
                         break;
 
                     case 2:
-                        using (var stream = new StreamReader($"{path}\\Files\\InputData_task2.txt")) //наверняка можно считывать сразу в массив, не разобралась пока
+                        using (var stream = new StreamReader($"{path}\\Files\\InputData_task2.txt"))
                         {
                             string text = stream.ReadToEnd();
                             string[] words = text.Split(" ");
                             Task2.CollectStringFromArray(words);
-
                         }
                         break;
 
                     case 3:
-                        using (var stream = new StreamReader($"{path}\\Files\\InputData_task3.txt")) //наверняка можно считывать сразу в массив, не разобралась пока
+                        using (var stream = new StreamReader($"{path}\\Files\\InputData_task3.txt"))
                         {
                             string inputString = stream.ReadToEnd();
                             Task3.SplitString(inputString, "abc");
-
                         }
                         break;
 
                     case 4:
+                        Console.WriteLine(Task4.ReplaceWordInString("Плохой день", "Плохой", "Хороший", "!!!!!", "?")); //вводные закостылены, сорри, тороплюсь)
+                        break;
+
+                    case 5:
                         {
-                            Console.WriteLine(Task4.ReplaceWordInString("Плохой день", "Плохой", "Хороший", "!!!!!", "?")); //не считываю из файла, сорри, тороплюсь
+                            var substring = "abc";
+                            var beginSubstring = "555";
+                            var endSubstring = "1a2b";
+
+                            string[] docNumbers = File.ReadAllLines($"{path}\\Files\\InputData_task5.txt");
+
+                            for (byte dn = 0; dn<docNumbers.Length; dn++)
+                            {
+                                docNumbers[dn] = docNumbers[dn].Trim();
+                                Console.WriteLine($"Номер документа: {docNumbers[dn]}");
+
+                                if (Task5.IsCorrectDocNumber(docNumbers[dn]))
+                                {
+                                    Console.WriteLine($"Подзадача 1: {Task5.FirstTwoDigitalBlocksInDocNumber(docNumbers[dn])}");
+                                    Console.WriteLine($"Подзадача 2: {Task5.ReplaceDocNumberLettersWithAsterisk(docNumbers[dn])}");
+                                    Console.WriteLine($"Подзадача 3: {Task5.OnlyLettersOfDocNumberInLowercase(docNumbers[dn])}");
+                                    Console.WriteLine($"Подзадача 4: {Task5.OnlyLettersOfDocNumberInUppercase(docNumbers[dn])}");
+                                    Console.WriteLine($"Подзадача 5: {Task5.IsDocNumberContainSubString(docNumbers[dn], substring)}");
+                                    Console.WriteLine($"Подзадача 6: {Task5.IsDocNumberBeginWithSubstring(docNumbers[dn], beginSubstring)}");
+                                    Console.WriteLine($"Подзадача 7: {Task5.IsDocNumberEndWithSubstring(docNumbers[dn], endSubstring)}");
+                                }
+                                else
+                                    Console.WriteLine("Номер документа введен неверно");
+                                Console.WriteLine();
+                            }
                             break;
                         }
-
-
                 }
 
             }
