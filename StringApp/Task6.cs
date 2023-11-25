@@ -14,7 +14,7 @@ namespace StringApp
             if (inputString.Length <= 100)
                 return new Regex(@"\s+").Replace(inputString, " ");
             else
-                return "Строка содержит больше 100 символов";
+                return $"Строка содержит больше 100 символов. Длина строки {inputString.Length}";
         }
     }
 }

@@ -67,13 +67,17 @@ namespace StringApp
                             var beginSubstring = "555";
                             var endSubstring = "1a2b";
 
+                            //считывание не в потоке - при большом объеме данных нужно переделать на считывание в потоке и преобразование в массив
                             string[] docNumbers = File.ReadAllLines($"{path}\\Files\\InputData_task5.txt");
 
+                            //выведем все обработанные номера документов в цикле
                             for (byte dn = 0; dn < docNumbers.Length; dn++)
                             {
+                                //уберем лишние символы в начале и конце элемента перед обработкой
                                 docNumbers[dn] = docNumbers[dn].Trim();
                                 Console.WriteLine($"Номер документа: {docNumbers[dn]}");
 
+                                //обработаем номер, только если он введен корректно
                                 if (Task5.IsCorrectDocNumber(docNumbers[dn]))
                                 {
                                     Console.WriteLine($"Подзадача 1: {Task5.FirstTwoDigitalBlocksInDocNumber(docNumbers[dn])}");
@@ -88,10 +92,10 @@ namespace StringApp
                                     Console.WriteLine("Номер документа введен неверно");
                                 Console.WriteLine();
                             }
-                                break;
-                        } 
+                            break;
+                        }
 
-                        case 6:
+                    case 6:
                         using (var stream = new StreamReader($"{path}\\Files\\InputData_task6.txt"))
                         {
                             string inputString = stream.ReadToEnd();
@@ -99,11 +103,15 @@ namespace StringApp
                         }
                         break;
 
+                    case 7:
+                        using (var stream = new StreamReader($"{path}\\Files\\InputData_task6.txt"))
+                        {
+                            string inputString = stream.ReadToEnd();
+                            Console.WriteLine(Task7.SortWordsInString(inputString));
+                        }
+                        break;
                 }
-
             }
-
-
         }
     }
 }
