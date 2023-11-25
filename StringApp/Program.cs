@@ -50,14 +50,21 @@ namespace StringApp
                         }
                         break;
 
-                        case 3:
+                    case 3:
                         using (var stream = new StreamReader($"{path}\\Files\\InputData_task3.txt")) //наверняка можно считывать сразу в массив, не разобралась пока
                         {
                             string inputString = stream.ReadToEnd();
-                            Task3.SplitString(inputString,"abc");
+                            Task3.SplitString(inputString, "abc");
 
                         }
                         break;
+
+                    case 4:
+                        {
+                            Console.WriteLine(Task4.ReplaceWordInString("Плохой день", "Плохой", "Хороший", "!!!!!", "?")); //не считываю из файла, сорри, тороплюсь
+                            break;
+                        }
+
 
                 }
 
