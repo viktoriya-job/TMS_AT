@@ -10,11 +10,14 @@ namespace StringApp
     internal class Task5
     {
         const string errorTextIfDocNumberIsIncorrect = "Номер документа введен неверно";
+
+        //проверить ворректность формата
         public static bool IsCorrectDocNumber(string docNumber)
         {
             return Regex.IsMatch(docNumber, @"^\d{4}-[a-z]{3}-\d{4}-[a-z]{3}-\d[a-z]\d[a-z]", RegexOptions.IgnoreCase);
         }
 
+        //Вывести в одну строку два первых блока по 4 цифры
         public static string FirstTwoDigitalBlocksInDocNumber(string docNumber)
         {
             if (IsCorrectDocNumber(docNumber))
@@ -34,6 +37,7 @@ namespace StringApp
             else return errorTextIfDocNumberIsIncorrect;
         }
 
+        //Вывести номер документа, но блоки из трех букв заменить на***
         public static string ReplaceDocNumberLettersWithAsterisk(string docNumber)
         {
             if (IsCorrectDocNumber(docNumber))
@@ -42,6 +46,8 @@ namespace StringApp
                 return errorTextIfDocNumberIsIncorrect;
         }
 
+        //Вывести только одни буквы из номера документа в
+        //формате yyy/yyy/y/y в нижнем регистре
         public static string OnlyLettersOfDocNumberInLowercase(string docNumber)
         {
             if (IsCorrectDocNumber(docNumber))
@@ -64,6 +70,8 @@ namespace StringApp
                 return errorTextIfDocNumberIsIncorrect;
         }
 
+        //Вывести только одни буквы из номера документа в
+        //формате yyy/yyy/y/y в верхнем регистре
         public static string OnlyLettersOfDocNumberInUppercase(string docNumber)
         {
             if (IsCorrectDocNumber(docNumber))
@@ -85,6 +93,7 @@ namespace StringApp
                 return errorTextIfDocNumberIsIncorrect;
         }
 
+        //Проверить, содержит ли номер документа последовательность
         public static string IsDocNumberContainSubString(string docNumber, string subString)
         {
             if (IsCorrectDocNumber(docNumber))
@@ -96,6 +105,7 @@ namespace StringApp
                 return errorTextIfDocNumberIsIncorrect;
         }
 
+        //Проверить, начинается ли номер документа с последовательности
         public static string IsDocNumberBeginWithSubstring(string docNumber, string subString)
         {
             if (IsCorrectDocNumber(docNumber))
@@ -109,6 +119,8 @@ namespace StringApp
                 return errorTextIfDocNumberIsIncorrect;
         }
 
+        //Проверить, заканчивается ли номер документа на последовательность
+
         public static string IsDocNumberEndWithSubstring(string docNumber, string subString)
         {
             if (IsCorrectDocNumber(docNumber))
@@ -121,6 +133,5 @@ namespace StringApp
             else
                 return errorTextIfDocNumberIsIncorrect;
         }
-
     }
 }

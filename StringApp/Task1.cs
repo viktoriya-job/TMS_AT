@@ -11,14 +11,17 @@ namespace StringApp
     {
         public static string ReplaceSomesubstringAndRemoveAllDigits(string inputString, string replacementSubstring, string targetSubstring)
         {
+            //создадим экземпляр StringBuilder, передав ему строку с уже выполненной заменой
+            //надо понимать, что строки типа te213st не будут преобразованы в testing, так как по условию задачи сначала - замена, потом - удаление цифр
             var stringBuilder = new StringBuilder(inputString.Replace(replacementSubstring, targetSubstring));
+
+            //в цикле удалим все цифры
             for (int i = 0; i < stringBuilder.Length; i++)
                 if (Char.IsDigit(stringBuilder[i]))
                 {
                     stringBuilder.Remove(i, 1);
                     i--; // при удалении элемента пропускаем символ - вернем счетчик, иначе не обработаются идущие подряд символы 
                 }
-
             if (stringBuilder.Length > 0)
                 return stringBuilder.ToString();
             else

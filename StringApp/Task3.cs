@@ -19,7 +19,7 @@ namespace StringApp
                     Console.Write($"{str} ");
             }
             else
-                Console.WriteLine("Заданный разделитель не задан в исходной строке");
+                Console.WriteLine("Заданный разделитель отсутствует в исходной строке");
         }
     }
 }

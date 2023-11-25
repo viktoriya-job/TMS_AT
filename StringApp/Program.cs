@@ -32,6 +32,7 @@ namespace StringApp
                 switch (task)
                 {
                     case 1:
+                        //Создадим изолированный поток для считывания из файла
                         using (var stream = new StreamReader($"{path}\\Files\\InputData_task1.txt"))
                         {
                             string inputString = stream.ReadToEnd();
@@ -58,7 +59,7 @@ namespace StringApp
                         break;
 
                     case 4:
-                        Console.WriteLine(Task4.ReplaceWordInString("Плохой день", "Плохой", "Хороший", "!!!!!", "?")); //вводные закостылены, сорри, тороплюсь)
+                        Console.WriteLine(Task4.ReplaceWordInString("Плохой день", "Плохой", "Хороший", "!!!!!!!!!", "?")); //вводные закостылены, сорри, тороплюсь)
                         break;
 
                     case 5:

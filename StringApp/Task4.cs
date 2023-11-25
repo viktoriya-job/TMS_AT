@@ -12,6 +12,7 @@ namespace StringApp
         {
             if (inputString.Contains(substringToRemove))
             {
+                //код можно сделать более читабельным, введя переменные  
                 return inputString.Substring(inputString.LastIndexOf(substringToRemove) + substringToRemove.Length).Insert(0, substringToInsert1).Insert(inputString.Length - substringToRemove.Length + substringToInsert1.Length, substringToInsert2.Remove(substringToInsert2.Length-1).Insert(substringToInsert2.Length-1,replacementLastPart));
             }
             else
