@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Text;
 using System.Globalization;
+using System.Reflection;
 
 namespace StringApp
 {
@@ -8,7 +9,6 @@ namespace StringApp
     {
         private static void Main(string[] args)
         {
-
 
         }
     }
