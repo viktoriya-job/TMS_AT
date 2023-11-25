@@ -69,7 +69,7 @@ namespace StringApp
 
                             string[] docNumbers = File.ReadAllLines($"{path}\\Files\\InputData_task5.txt");
 
-                            for (byte dn = 0; dn<docNumbers.Length; dn++)
+                            for (byte dn = 0; dn < docNumbers.Length; dn++)
                             {
                                 docNumbers[dn] = docNumbers[dn].Trim();
                                 Console.WriteLine($"Номер документа: {docNumbers[dn]}");
@@ -88,8 +88,17 @@ namespace StringApp
                                     Console.WriteLine("Номер документа введен неверно");
                                 Console.WriteLine();
                             }
-                            break;
+                                break;
+                        } 
+
+                        case 6:
+                        using (var stream = new StreamReader($"{path}\\Files\\InputData_task6.txt"))
+                        {
+                            string inputString = stream.ReadToEnd();
+                            Console.WriteLine(Task6.NormalizeString(inputString));
                         }
+                        break;
+
                 }
 
             }
