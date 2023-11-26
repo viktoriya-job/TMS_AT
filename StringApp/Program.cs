@@ -33,7 +33,7 @@ namespace StringApp
                 {
                     case 1:
                         //Создадим изолированный поток для считывания из файла
-                        using (var stream = new StreamReader($"{path}\\Files\\InputData_task1.txt"))
+                        using (var stream = new StreamReader($"{path}{Path.DirectorySeparatorChar}Files{Path.DirectorySeparatorChar}InputData_task1.txt"))
                         {
                             string inputString = stream.ReadToEnd();
                             Console.WriteLine($"Входная строка/текст из файла: \n{inputString}");
@@ -42,7 +42,7 @@ namespace StringApp
                         break;
 
                     case 2:
-                        using (var stream = new StreamReader($"{path}\\Files\\InputData_task2.txt"))
+                        using (var stream = new StreamReader($"{path}{Path.DirectorySeparatorChar}Files{Path.DirectorySeparatorChar}InputData_task2.txt"))
                         {
                             string text = stream.ReadToEnd();
                             string[] words = text.Split(" ");
@@ -51,7 +51,7 @@ namespace StringApp
                         break;
 
                     case 3:
-                        using (var stream = new StreamReader($"{path}\\Files\\InputData_task3.txt"))
+                        using (var stream = new StreamReader($"{path}{Path.DirectorySeparatorChar}Files{Path.DirectorySeparatorChar}InputData_task3.txt"))
                         {
                             string inputString = stream.ReadToEnd();
                             Task3.SplitString(inputString, "abc");
@@ -69,7 +69,7 @@ namespace StringApp
                             var endSubstring = "1a2b";
 
                             //считывание не в потоке - при большом объеме данных нужно переделать на считывание в потоке и преобразование в массив
-                            string[] docNumbers = File.ReadAllLines($"{path}\\Files\\InputData_task5.txt");
+                            string[] docNumbers = File.ReadAllLines($"{path}{Path.DirectorySeparatorChar}Files{Path.DirectorySeparatorChar}InputData_task5.txt");
 
                             //выведем все обработанные номера документов в цикле
                             for (byte dn = 0; dn < docNumbers.Length; dn++)
@@ -97,7 +97,7 @@ namespace StringApp
                         }
 
                     case 6:
-                        using (var stream = new StreamReader($"{path}\\Files\\InputData_task6.txt"))
+                        using (var stream = new StreamReader($"{path}{Path.DirectorySeparatorChar}Files{Path.DirectorySeparatorChar}InputData_task6.txt"))
                         {
                             string inputString = stream.ReadToEnd();
                             Console.WriteLine(Task6.NormalizeString(inputString));
@@ -105,7 +105,7 @@ namespace StringApp
                         break;
 
                     case 7:
-                        using (var stream = new StreamReader($"{path}\\Files\\InputData_task6.txt"))
+                        using (var stream = new StreamReader($"{path}{Path.DirectorySeparatorChar}Files{Path.DirectorySeparatorChar}InputData_task6.txt"))
                         {
                             string inputString = stream.ReadToEnd();
                             Console.WriteLine(Task7.SortWordsInString(inputString));
