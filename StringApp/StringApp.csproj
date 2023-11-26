@@ -24,25 +24,25 @@
     <Resource Include="bin\Debug\net8.0\Files\InputData_task6.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Files\InputData_task1.txt">
+    <Content Include="Files\InputData_task1.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
+    </Content>
     <None Remove="Files\InputData_task2.txt" />
-    <Resource Include="Files\InputData_task2.txt">
+    <Content Include="Files\InputData_task2.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
+    </Content>
     <None Remove="Files\InputData_task3.txt" />
-    <Resource Include="Files\InputData_task3.txt">
+    <Content Include="Files\InputData_task3.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
+    </Content>
     <None Remove="Files\InputData_task5.txt" />
-    <Resource Include="Files\InputData_task5.txt">
+    <Content Include="Files\InputData_task5.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
+    </Content>
     <None Remove="Files\InputData_task6.txt" />
-    <Resource Include="Files\InputData_task6.txt">
+    <Content Include="Files\InputData_task6.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
+    </Content>
   </ItemGroup>
 
 </Project>
