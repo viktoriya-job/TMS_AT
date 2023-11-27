@@ -13,27 +13,27 @@ namespace TypesAndOperators
             Random random = new Random();
 
             Console.Write("Введите количество элементов массива из интервала (5, 10]: ");
-            byte lengthArray = Convert.ToByte(Console.ReadLine());
+            int lengthArray = Convert.ToInt32(Console.ReadLine());
 
             //Дождемся, пока пользователь введет нужное число
             while (lengthArray <= 5 || lengthArray > 10)
             {
                 Console.Write($"Число {lengthArray} не входит в требуемый интервал (5, 10]. Пожалуйста, повторите ввод:  ");
-                lengthArray = Convert.ToByte(Console.ReadLine());
+                lengthArray = Convert.ToInt32(Console.ReadLine());
             }
 
             //Заполним массив случайными числами и выведем его
             Console.WriteLine("Исходный массив: ");
             int[] array = new int[lengthArray];
 
-            for (byte i = 0; i < array.GetLength(0); i++)
+            for (int i = 0; i < array.GetLength(0); i++)
             {
                 array[i] = random.Next(100);
                 Console.Write($"{array[i]} ");
             }
 
             //Выясним, сколько в массиве четных элементов
-            byte numberOfEvenElements = 0;
+            int numberOfEvenElements = 0;
             foreach (int element in array)
                 if (element % 2 == 0)
                     numberOfEvenElements++;
@@ -46,7 +46,7 @@ namespace TypesAndOperators
                 //Создадим новый массив и запишем в него только четные элементы
                 int[] arrayNew = new int[numberOfEvenElements];
 
-                byte temp = 0;
+                int temp = 0;
                 foreach (int element2 in array)
                     if (element2 % 2 == 0)
                     {

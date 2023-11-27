@@ -16,7 +16,7 @@ namespace TypesAndOperators
 
             //Создадим массив, заполним его случайными элементами и выведем
             int[] array = new int[10];
-            for (byte i = 0; i < array.GetLength(0); i++)
+            for (int i = 0; i < array.GetLength(0); i++)
             {
                 array[i] = random.Next(100);
                 Console.Write($"{array[i]} ");

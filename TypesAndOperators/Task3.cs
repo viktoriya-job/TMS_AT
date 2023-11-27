@@ -13,12 +13,12 @@ namespace TypesAndOperators
             Random random = new Random();
 
             Console.Write("Введите количество элементов массива: ");
-            byte lengthArray = Convert.ToByte(Console.ReadLine());
+            int lengthArray = Convert.ToByte(Console.ReadLine());
 
             //Создадим одномерный массив нужной длины, заполним его случайными числами и выведем
             int[] array = new int[lengthArray];
 
-            for (byte i = 0; i < array.GetLength(0); i++)
+            for (int i = 0; i < array.GetLength(0); i++)
             {
                 array[i] = random.Next(-100, 100);
                 Console.Write($"{array[i]} ");

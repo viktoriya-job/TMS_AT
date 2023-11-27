@@ -19,7 +19,7 @@ namespace TypesAndOperators
             sumArray1 = sumArray2 = 0;
 
             //Заполним массивы случайными элементами
-            for (byte i = 0; i < 5; i++)
+            for (int i = 0; i < 5; i++)
             {
                 array1[i] = random.Next(-100, 100);
                 array2[i] = random.Next(-100, 100);

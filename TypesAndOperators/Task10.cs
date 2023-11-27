@@ -16,9 +16,9 @@ namespace TypesAndOperators
 
             //Заполним матрицу случайными элементами и выведем ее
             Console.WriteLine("Матрица: ");
-            for (byte i = 0; i < matrix.GetLength(0); i++)
+            for (int i = 0; i < matrix.GetLength(0); i++)
             {
-                for (byte j = 0; j < matrix.GetLength(1); j++)
+                for (int j = 0; j < matrix.GetLength(1); j++)
                 {
                     matrix[i, j] = random.Next(100);
                     Console.Write($"{matrix[i, j]} ");

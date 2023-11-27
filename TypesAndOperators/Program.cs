@@ -38,7 +38,7 @@ namespace TypesAndOperators
                 switch (task)
                 {
                     case 1: Task1.IsNumberIncludedInArray(); break;
-                    case 2: Task2.RemoveSomeArrayElements(); break;
+                    case 2: Task2.RemoveSomeArrayElements2(); break;
                     case 3: Task3.MaxMinAverageInArray(); break;
                     case 4: Task4.MathAverageInArrays(); break;
                     case 5: Task5.EvenArrayFromAnother(); break;

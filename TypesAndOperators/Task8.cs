@@ -30,7 +30,7 @@ namespace TypesAndOperators
             //в каждой итерации "становится на место" последний из обрабатываемых элементов 
             while (lengthArray > 0)
             {
-                for (byte j = 0; j < lengthArray - 1; j++)
+                for (int j = 0; j < lengthArray - 1; j++)
                 {
                     if (array[j] > array[j + 1])
                     {

@@ -16,9 +16,9 @@ namespace TypesAndOperators
             // Заполним матрицу случайными числами и выведем ее
             Console.WriteLine("Исходная матрица: ");
 
-            for (byte i = 0; i < matrix.GetLength(0); i++)
+            for (int i = 0; i < matrix.GetLength(0); i++)
             {
-                for (byte j = 0; j < matrix.GetLength(1); j++)
+                for (int j = 0; j < matrix.GetLength(1); j++)
                 {
                     matrix[i, j] = random.Next(100);
                     Console.Write($"{matrix[i, j]}\t");
@@ -32,15 +32,15 @@ namespace TypesAndOperators
 
             int[] temp = new int[5];
 
-            for (byte sort_i = 0; sort_i < matrix.GetLength(0); sort_i++)
+            for (int sort_i = 0; sort_i < matrix.GetLength(0); sort_i++)
             {
-                for (byte sort_j = 0; sort_j < matrix.GetLength(1); sort_j++)
+                for (int sort_j = 0; sort_j < matrix.GetLength(1); sort_j++)
                     temp[sort_j] = matrix[sort_i, sort_j];
 
                 Array.Sort(temp);
 
                 //В одном цикле перезапишем элементы строки матрицы элементами отсортированного массива и выведем строку матрицы
-                for (byte sort_h = 0; sort_h < matrix.GetLength(1); sort_h++)
+                for (int sort_h = 0; sort_h < matrix.GetLength(1); sort_h++)
                 {
                     matrix[sort_i, sort_h] = temp[sort_h];
                     Console.Write($"{matrix[sort_i, sort_h]}\t");

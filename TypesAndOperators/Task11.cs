@@ -16,9 +16,9 @@ namespace TypesAndOperators
 
             //Заполним матрицу случайными числами и выведем ее
             Console.WriteLine("Матрица: ");
-            for (byte i = 0; i < matrix.GetLength(0); i++)
+            for (int i = 0; i < matrix.GetLength(0); i++)
             {
-                for (byte j = 0; j < matrix.GetLength(1); j++)
+                for (int j = 0; j < matrix.GetLength(1); j++)
                 {
                     matrix[i, j] = random.Next(100);
                     Console.Write($"{matrix[i,j]}\t");
@@ -28,9 +28,9 @@ namespace TypesAndOperators
 
             //Выведем только главную диагональ матрицы
             Console.WriteLine("\nГлавная диагональ:");
-            for (byte diagonal1_i = 0; diagonal1_i < matrix.GetLength(0); diagonal1_i++)
+            for (int diagonal1_i = 0; diagonal1_i < matrix.GetLength(0); diagonal1_i++)
             {
-                for (byte diagonal1_j = 0; diagonal1_j < matrix.GetLength(1); diagonal1_j++)
+                for (int diagonal1_j = 0; diagonal1_j < matrix.GetLength(1); diagonal1_j++)
                     if (diagonal1_i == diagonal1_j)
                         Console.Write($"{matrix[diagonal1_i, diagonal1_j]}\t");
                     else

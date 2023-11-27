@@ -16,14 +16,14 @@ namespace TypesAndOperators
             int[] array = new int[10];
 
             Console.WriteLine("Исходный массив:\t");
-            for (byte i = 0; i < array.GetLength(0); i++)
+            for (int i = 0; i < array.GetLength(0); i++)
             {
                 array[i] = random.Next(100);
                 Console.Write($"{array[i]}\t");
             }
 
             //Пройдем по всем элементам с нечетным индексом и обнулим их
-            for (byte j = 0; j < array.GetLength(0); j += 2)
+            for (int j = 0; j < array.GetLength(0); j += 2)
                 array[j] = 0;
 
             //Выведем результат
