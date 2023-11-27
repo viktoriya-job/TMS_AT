@@ -28,28 +28,36 @@ namespace TypesAndOperators
                 11 - Задача 11: Вывести диагонали двумерного массива
                 12 - Задача 12: Отсортировать каждую строку двумерного целочисленного массива
                 """);
-            byte task = Convert.ToByte(Console.ReadLine());
-
-            if (task == 0 || task > 12)
-                Console.WriteLine("Вы ввели неправильный номер");
-
-            else
+            try
             {
-                switch (task)
+                byte task = Convert.ToByte(Console.ReadLine());
+
+
+                if (task == 0 || task > 12)
+                    Console.WriteLine("Вы ввели неправильный номер");
+
+                else
                 {
-                    case 1: Task1.IsNumberIncludedInArray(); break;
-                    case 2: Task2.RemoveSomeArrayElements2(); break;
-                    case 3: Task3.MaxMinAverageInArray(); break;
-                    case 4: Task4.MathAverageInArrays(); break;
-                    case 5: Task5.EvenArrayFromAnother(); break;
-                    case 6: Task6.ReplaceOddArrayElementsWithZero(); break;
-                    case 7: Task7.SortedArrayOfNames(); break;
-                    case 8: Task8.BubbleSort(); break;
-                    case 9: Task9.MultiplyTwoMatrices(); break;
-                    case 10: Task10.SumOfAllMatrixElements(); break;
-                    case 11: Task11.MatrixDiagonals(); break;
-                    case 12: Task12.SortingMatrixRows(); break;
+                    switch (task)
+                    {
+                        case 1: Task1.IsNumberIncludedInArray(); break;
+                        case 2: Task2.RemoveSomeArrayElements2(); break;
+                        case 3: Task3.MaxMinAverageInArray(); break;
+                        case 4: Task4.MathAverageInArrays(); break;
+                        case 5: Task5.EvenArrayFromAnother(); break;
+                        case 6: Task6.ReplaceOddArrayElementsWithZero(); break;
+                        case 7: Task7.SortedArrayOfNames(); break;
+                        case 8: Task8.BubbleSort(); break;
+                        case 9: Task9.MultiplyTwoMatrices(); break;
+                        case 10: Task10.SumOfAllMatrixElements(); break;
+                        case 11: Task11.MatrixDiagonals(); break;
+                        case 12: Task12.SortingMatrixRows(); break;
+                    }
                 }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Произошла ошибка - введено некорректное число.\n{ex}");
             }
 
             //Lection8_Arrays
