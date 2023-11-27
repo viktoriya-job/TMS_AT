@@ -38,8 +38,6 @@ internal class Program
                 case 4: Parity2(); break;
 
                 case 5: Parity3(); break;
-
-                default: Console.WriteLine("Непредвиденная ошибка"); break;
             }
         }
 
@@ -87,9 +85,6 @@ internal class Program
 
                         case '/':
                             Console.WriteLine(num1 / num2); break;
-
-                        default:
-                            Console.WriteLine("Непредвиденная ошибка"); break;
                     }
                 }
             }
