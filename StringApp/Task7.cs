@@ -16,6 +16,7 @@ namespace StringApp
             else
             {
                 string[] words = new Regex(@"\s+").Replace(inputString, " ").Split(" ");
+
                 if (words.Length > 20)
                     return $"Количество слов в строке превышает 20. Всего слов: {words.Length}";
 
