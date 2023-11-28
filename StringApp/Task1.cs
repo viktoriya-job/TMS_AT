@@ -16,12 +16,18 @@ namespace StringApp
             var stringBuilder = new StringBuilder(inputString.Replace(replacementSubstring, targetSubstring));
 
             //в цикле удалим все цифры
-            for (int i = 0; i < stringBuilder.Length; i++)
+            int i = 0;
+
+            while (i < stringBuilder.Length)
+            {
                 if (Char.IsDigit(stringBuilder[i]))
                 {
                     stringBuilder.Remove(i, 1);
-                    i--; // при удалении элемента пропускаем символ - вернем счетчик, иначе не обработаются идущие подряд символы 
+                    continue;
                 }
+                i++;
+            }
+
             if (stringBuilder.Length > 0)
                 return stringBuilder.ToString();
             else
