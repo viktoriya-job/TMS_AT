@@ -9,7 +9,7 @@ namespace StringApp
 {
     internal class Task1
     {
-        public static string ReplaceSomesubstringAndRemoveAllDigits(string inputString, string replacementSubstring, string targetSubstring)
+        public static string ReplaceSomeSubstringAndRemoveAllDigits(string inputString, string replacementSubstring, string targetSubstring)
         {
             //создадим экземпляр StringBuilder, передав ему строку с уже выполненной заменой
             //надо понимать, что строки типа te213st не будут преобразованы в testing, так как по условию задачи сначала - замена, потом - удаление цифр

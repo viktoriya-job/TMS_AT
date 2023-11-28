@@ -23,9 +23,9 @@ namespace StringApp
             if (IsCorrectDocNumber(docNumber))
             {
                 var regex = new Regex(@"\d{4}");
-
                 var stringBuilder = new StringBuilder();
                 MatchCollection matchCollect = regex.Matches(docNumber);
+
                 if (matchCollect.Count > 0) //излишне, но оставила для себя - не забыть о полезной конструкции
                 {
                     foreach (Match match in matchCollect)

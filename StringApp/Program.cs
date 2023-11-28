@@ -39,7 +39,7 @@ namespace StringApp
                             {
                                 string inputString = stream.ReadToEnd();
                                 Console.WriteLine($"Входная строка/текст из файла: \n{inputString}");
-                                Console.WriteLine($"\nОбработанная строка/текст: \n{Task1.ReplaceSomesubstringAndRemoveAllDigits(inputString, "test", "testing")}");
+                                Console.WriteLine($"\nОбработанная строка/текст: \n{Task1.ReplaceSomeSubstringAndRemoveAllDigits(inputString, "test", "testing")}");
                             }
                             break;
 
