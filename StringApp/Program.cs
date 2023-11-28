@@ -29,36 +29,36 @@ namespace StringApp
                 if (task == 0 || task > 7)
                     Console.WriteLine("Вы ввели неправильный номер");
 
-            else
-            {
-                switch (task)
+                else
                 {
-                    case 1:
-                        //Создадим изолированный поток для считывания из файла
-                        using (var stream = new StreamReader($"{path}\\Files\\InputData_task1.txt"))
-                        {
-                            string inputString = stream.ReadToEnd();
-                            Console.WriteLine($"Входная строка/текст из файла: \n{inputString}");
-                            Console.WriteLine($"\nОбработанная строка/текст: \n{Task1.ReplaceSomesubstringAndRemoveAllDigits(inputString, "test", "testing")}");
-                        }
-                        break;
+                    switch (task)
+                    {
+                        case 1:
+                            //Создадим изолированный поток для считывания из файла
+                            using (var stream = new StreamReader($"{path}\\Files\\InputData_task1.txt"))
+                            {
+                                string inputString = stream.ReadToEnd();
+                                Console.WriteLine($"Входная строка/текст из файла: \n{inputString}");
+                                Console.WriteLine($"\nОбработанная строка/текст: \n{Task1.ReplaceSomesubstringAndRemoveAllDigits(inputString, "test", "testing")}");
+                            }
+                            break;
 
-                    case 2:
-                        using (var stream = new StreamReader($"{path}{Path.DirectorySeparatorChar}Files{Path.DirectorySeparatorChar}InputData_task2.txt"))
-                        {
-                            string text = stream.ReadToEnd();
-                            string[] words = text.Split(" ");
-                            Task2.CollectStringFromArray(words);
-                        }
-                        break;
+                        case 2:
+                            using (var stream = new StreamReader($"{path}{Path.DirectorySeparatorChar}Files{Path.DirectorySeparatorChar}InputData_task2.txt"))
+                            {
+                                string text = stream.ReadToEnd();
+                                string[] words = text.Split(" ");
+                                Task2.CollectStringFromArray(words);
+                            }
+                            break;
 
-                    case 3:
-                        using (var stream = new StreamReader($"{path}{Path.DirectorySeparatorChar}Files{Path.DirectorySeparatorChar}InputData_task3.txt"))
-                        {
-                            string inputString = stream.ReadToEnd();
-                            Task3.SplitString(inputString, "abc");
-                        }
-                        break;
+                        case 3:
+                            using (var stream = new StreamReader($"{path}{Path.DirectorySeparatorChar}Files{Path.DirectorySeparatorChar}InputData_task3.txt"))
+                            {
+                                string inputString = stream.ReadToEnd();
+                                Task3.SplitString(inputString, "abc");
+                            }
+                            break;
 
                         case 4:
                             Console.WriteLine(Task4.ReplaceWordInString("Плохой день", "Плохой", "Хороший", "!!!!!!!!!", "?")); //вводные закостылены, сорри, тороплюсь)
@@ -70,8 +70,8 @@ namespace StringApp
                                 var beginSubstring = "555";
                                 var endSubstring = "1a2b";
 
-                            //считывание не в потоке - при большом объеме данных нужно переделать на считывание в потоке и преобразование в массив
-                            string[] docNumbers = File.ReadAllLines($"{path}{Path.DirectorySeparatorChar}Files{Path.DirectorySeparatorChar}InputData_task5.txt");
+                                //считывание не в потоке - при большом объеме данных нужно переделать на считывание в потоке и преобразование в массив
+                                string[] docNumbers = File.ReadAllLines($"{path}{Path.DirectorySeparatorChar}Files{Path.DirectorySeparatorChar}InputData_task5.txt");
 
                                 //выведем все обработанные номера документов в цикле
                                 for (byte dn = 0; dn < docNumbers.Length; dn++)
@@ -98,22 +98,27 @@ namespace StringApp
                                 break;
                             }
 
-                    case 6:
-                        using (var stream = new StreamReader($"{path}{Path.DirectorySeparatorChar}Files{Path.DirectorySeparatorChar}InputData_task6.txt"))
-                        {
-                            string inputString = stream.ReadToEnd();
-                            Console.WriteLine(Task6.NormalizeString(inputString));
-                        }
-                        break;
+                        case 6:
+                            using (var stream = new StreamReader($"{path}{Path.DirectorySeparatorChar}Files{Path.DirectorySeparatorChar}InputData_task6.txt"))
+                            {
+                                string inputString = stream.ReadToEnd();
+                                Console.WriteLine(Task6.NormalizeString(inputString));
+                            }
+                            break;
 
-                    case 7:
-                        using (var stream = new StreamReader($"{path}{Path.DirectorySeparatorChar}Files{Path.DirectorySeparatorChar}InputData_task6.txt"))
-                        {
-                            string inputString = stream.ReadToEnd();
-                            Console.WriteLine(Task7.SortWordsInString(inputString));
-                        }
-                        break;
+                        case 7:
+                            using (var stream = new StreamReader($"{path}{Path.DirectorySeparatorChar}Files{Path.DirectorySeparatorChar}InputData_task6.txt"))
+                            {
+                                string inputString = stream.ReadToEnd();
+                                Console.WriteLine(Task7.SortWordsInString(inputString));
+                            }
+                            break;
+                    }
                 }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Ошибка: введено некорректное значение\n{ex}");
             }
         }
     }
