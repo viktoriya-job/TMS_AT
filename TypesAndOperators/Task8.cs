@@ -14,7 +14,7 @@ namespace TypesAndOperators
 
             //Получим от пользователя число элементов будущего масссива
             Console.Write("Введите число элементов массива: ");
-            byte lengthArray = Convert.ToByte(Console.ReadLine());
+            int lengthArray = Convert.ToInt32(Console.ReadLine());
 
             //Создадим массив, заполним его случайными элементами и выведем
             int[] array = new int[lengthArray];
@@ -46,7 +46,48 @@ namespace TypesAndOperators
             Console.Write("\nОтсортированный массив:\t");
             foreach (int element in array)
                 Console.Write($"{element} ");
+        }
 
+        public static void BubbleSort2()
+        {
+            Random random = new Random();
+
+            //Получим от пользователя число элементов будущего масссива
+            Console.Write("Введите число элементов массива: ");
+            int lengthArray = Convert.ToInt32(Console.ReadLine());
+
+            //Создадим массив, заполним его случайными элементами и выведем
+            int[] array = new int[lengthArray];
+
+            Console.Write("Исходный массив:\t");
+            for (int i = 0; i < lengthArray; i++)
+            {
+                array[i] = random.Next(-100, 100);
+                Console.Write($"{array[i]} ");
+            }
+
+            //Органируем пузырьковую сортировку - соседние элементы меняются местами по возрастанию,
+            //в каждой итерации "становится на место" первый из обрабатываемых элементов 
+            int begin = 0;
+
+            while (begin < lengthArray)
+            {
+                for (int j = lengthArray - 1; j > begin; j--)
+                {
+                    if (array[j] < array[j - 1])
+                    {
+                        int temp = array[j];
+                        array[j] = array[j - 1];
+                        array[j - 1] = temp;
+                    }
+                }
+                begin++;
+            }
+
+            //Выведем полученный массив
+            Console.Write("\nОтсортированный массив:\t");
+            foreach (int element in array)
+                Console.Write($"{element} ");
         }
     }
 }

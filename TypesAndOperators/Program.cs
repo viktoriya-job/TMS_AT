@@ -12,7 +12,6 @@ namespace TypesAndOperators
     {
         private static void Main(string[] args)
         {
-
             Console.WriteLine("""
                 Выберите задачу:
                 1 -  Задача 1: Определить, входит ли заданное число в массив
@@ -32,10 +31,8 @@ namespace TypesAndOperators
             {
                 byte task = Convert.ToByte(Console.ReadLine());
 
-
                 if (task == 0 || task > 12)
                     Console.WriteLine("Вы ввели неправильный номер");
-
                 else
                 {
                     switch (task)
@@ -47,7 +44,7 @@ namespace TypesAndOperators
                         case 5: Task5.EvenArrayFromAnother(); break;
                         case 6: Task6.ReplaceOddArrayElementsWithZero(); break;
                         case 7: Task7.SortedArrayOfNames(); break;
-                        case 8: Task8.BubbleSort(); break;
+                        case 8: Task8.BubbleSort2(); break;
                         case 9: Task9.MultiplyTwoMatrices(); break;
                         case 10: Task10.SumOfAllMatrixElements(); break;
                         case 11: Task11.MatrixDiagonals(); break;
