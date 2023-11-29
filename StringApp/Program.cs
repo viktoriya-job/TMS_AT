@@ -61,8 +61,15 @@ namespace StringApp
                             break;
 
                         case 4:
-                            Console.WriteLine(Task4.ReplaceWordInString("Плохой день", "Плохой", "Хороший", "!!!!!!!!!", "?")); //вводные закостылены, сорри, тороплюсь)
-                            break;
+                            {
+                                string sourceString = "Плохой день";
+                                string stringToRemove = "Плохой";
+                                string stringToInsertAtBegin = "Хороший";
+                                string stringToInsertAtEnd = "!!!!!!!!!";
+                                string stringToReplaceAtEnd = "?";
+                                Console.WriteLine(Task4.RemoveAndInsertSomeSubstrings(sourceString, stringToRemove, stringToInsertAtBegin, stringToInsertAtEnd, stringToReplaceAtEnd));
+                                break;
+                            }
 
                         case 5:
                             {
