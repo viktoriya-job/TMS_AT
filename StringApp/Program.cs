@@ -35,7 +35,7 @@ namespace StringApp
                     {
                         case 1:
                             //Создадим изолированный поток для считывания из файла
-                            using (var stream = new StreamReader($"{path}\\Files\\InputData_task1.txt"))
+                            using (var stream = new StreamReader($"{path}{Path.DirectorySeparatorChar}Files{Path.DirectorySeparatorChar}InputData_task1.txt"))
                             {
                                 string inputString = stream.ReadToEnd();
                                 Console.WriteLine($"Входная строка/текст из файла: \n{inputString}");
