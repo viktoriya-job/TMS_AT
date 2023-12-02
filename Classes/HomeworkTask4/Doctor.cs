@@ -23,6 +23,7 @@ namespace Classes.Homework
         {
             ExaminePatient();
         }
+
         private void ExaminePatient()
         {
             Console.WriteLine("Проведен осмотр");
