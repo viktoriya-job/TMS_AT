@@ -73,6 +73,29 @@ namespace Classes
             //Задача 3
             PrintTaskNumber(3);
 
+            var cashMachine = new CashMachine(100, 100, 100);
+            cashMachine.GetInfo();
+
+            PrintGreenText("Успешные операции внесения наличных");
+            cashMachine.DepositMoney(10, 0, 0);
+            cashMachine.DepositMoney(10, 10, 10);
+            cashMachine.GetInfo();
+
+            PrintGreenText("Не успешные попытки снятия наличных");
+            cashMachine.WithdrawMoney(25000);
+            Console.WriteLine();
+            cashMachine.WithdrawMoney(180);
+
+            PrintGreenText("Успешное снятие наличных");
+            cashMachine.WithdrawMoney(13590);
+            cashMachine.GetInfo();
+
+
+            /////////////////////////////////////////////////////////////
+            //Задача 4
+            PrintTaskNumber(4);
+
+
             TreatmentPlan treatmentPlan1 = new TreatmentPlan(1);
             TreatmentPlan treatmentPlan2 = new TreatmentPlan(2);
             TreatmentPlan treatmentPlan3 = new TreatmentPlan(3);
@@ -86,11 +109,18 @@ namespace Classes
             patient.AppointDoctor(treatmentPlan3);
 
         }
-    
-    static void PrintTaskNumber(int number)
+
+        static void PrintTaskNumber(int number)
         {
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine($"\n{new string('=', 15)} Задача {number} {new string('=', 15)}\n");
+            Console.ForegroundColor = ConsoleColor.White;
+        }
+
+        static void PrintGreenText(string text)
+        {
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine($"\n{text}\n");
             Console.ForegroundColor = ConsoleColor.White;
         }
     }
