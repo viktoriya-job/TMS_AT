@@ -17,6 +17,8 @@ namespace Classes.Homework
             Nominal = nominal;
         }
     }
+
+
     internal class CashMachine
     {
         Banknote banknote20 = new Banknote(20);
