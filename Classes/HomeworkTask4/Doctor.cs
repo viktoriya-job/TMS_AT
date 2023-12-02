@@ -8,36 +8,34 @@ using static System.Net.Mime.MediaTypeNames;
 
 namespace Classes.Homework
 {
-    internal class Doctor: Person
+    internal class Doctor : Person
     {
+        public string QualificationCategory {get; set;}
+
+
+        public Doctor(string name, string qualificationCategory) : base(name)
+        {
+            QualificationCategory = qualificationCategory;
+        }
+
+
         public virtual void Treat()
         {
             ExaminePatient();
-            OrderTest(new string[] { "ОАК", "ОАМ" });
-            PerformTreatment();
         }
-        public void ExaminePatient()
+        private void ExaminePatient()
         {
             Console.WriteLine("Проведен осмотр");
         }
-        
-        public void OrderTest(params string[] tests)
-        {
-            Console.Write("Назначены анализы: ");
-            foreach (string test in tests)
-                Console.Write($"{test} ");
-            Console.WriteLine();
-        }
-
-
-        public void PerformTreatment()
-        {
-            Console.WriteLine("Выполнено лечение");
-        }
     }
+
 
     internal class DoctorTherapist : Doctor
     {
+        public DoctorTherapist(string name, string qualificationCategory) : base(name, qualificationCategory)
+        {
+        }
+
         public override void Treat()
         {
             base.Treat();
@@ -53,22 +51,32 @@ namespace Classes.Homework
         }
     }
 
+
     internal class DoctorSurgeon : Doctor
     {
+        public DoctorSurgeon(string name, string qualificationCategory) : base(name, qualificationCategory)
+        {
+        }
+
         public override void Treat()
         {
             base.Treat();
-            OrderXRay();
+            PerformSurgery();
         }
 
-        public void OrderXRay()
+        private void PerformSurgery()
         {
-            Console.WriteLine("Назначена рентгенография");
+            Console.WriteLine("Проведена операция");
         }
     }
 
+
     internal class DoctorDentist : Doctor
     {
+        public DoctorDentist(string name, string qualificationCategory) : base(name, qualificationCategory)
+        {
+        }
+
         public void Treat(string xRayProjection)
         {
             base.Treat();

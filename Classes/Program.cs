@@ -95,18 +95,50 @@ namespace Classes
             //Задача 4
             PrintTaskNumber(4);
 
-
+            PrintGreenText("Пациент 1");
+            //Создадим и заполним план лечения
             TreatmentPlan treatmentPlan1 = new TreatmentPlan(1);
-            TreatmentPlan treatmentPlan2 = new TreatmentPlan(2);
-            TreatmentPlan treatmentPlan3 = new TreatmentPlan(3);
-            Patient patient = new Patient("Алексей Александрович");
-            Console.WriteLine($"Пациент: {patient.Name}");
+            treatmentPlan1.AddEntriesToTreatmentPlan(new string[] { "Исправление дефектов после ранее перенесенных операций", "Исправление состояний после травм", "Европеизация век" });
 
-            patient.AppointDoctor(treatmentPlan1);
-            Console.WriteLine();
-            patient.AppointDoctor(treatmentPlan2);
-            Console.WriteLine();
-            patient.AppointDoctor(treatmentPlan3);
+            //Создадим пациента, установив план лечения (ограниченная система, где у пациента только один план лечения)
+            Patient patient1 = new Patient("Мария Барсиковна Чернохвостова", treatmentPlan1);
+
+            Console.WriteLine($"Пациент: {patient1.Name}");
+            treatmentPlan1.PrintTreatmentPlan();
+
+            //Назначим врача
+            patient1.AppointDoctor();
+
+
+            PrintGreenText("Пациент 2");
+            //Создадим и заполним план лечения
+            TreatmentPlan treatmentPlan2 = new TreatmentPlan(2);
+            treatmentPlan2.AddEntriesToTreatmentPlan(new string[] { "Лечение кариеса неосложненное", "Лечение пульпита" });
+
+            //Создадим пациента, после установим ему план лечения
+            Patient patient2 = new Patient("Марсик Барсикович Чернохвостов");
+            patient2.PatientTreatmentPlan = treatmentPlan2;
+
+            Console.WriteLine($"Пациент: {patient2.Name}");
+            treatmentPlan2.PrintTreatmentPlan();
+
+            //Назначим врача
+            patient2.AppointDoctor();
+
+
+            PrintGreenText("Пациент 3");
+            //Создадим и заполним план лечения
+            TreatmentPlan treatmentPlan3 = new TreatmentPlan(3);
+            treatmentPlan3.AddEntriesToTreatmentPlan(new string[] { "Лечение ожирения первой степени" });
+
+            //Создадим пациента
+            Patient patient3 = new Patient("Кузьма Барсикович Чернохвостов", treatmentPlan3);
+
+            Console.WriteLine($"Пациент: {patient3.Name}");
+            treatmentPlan3.PrintTreatmentPlan();
+
+            //Назначим врача
+            patient3.AppointDoctor();
 
         }
 

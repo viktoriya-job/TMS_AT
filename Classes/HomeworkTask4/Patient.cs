@@ -7,32 +7,40 @@ using Classes.Models;
 
 namespace Classes.Homework
 {
-    internal class Patient: Person
+    internal class Patient : Person
     {
-        public Patient(string name) : base(name) {}
+        public TreatmentPlan PatientTreatmentPlan { get; set; }
 
-        public void AppointDoctor(TreatmentPlan patientTreatmentPlan)
+
+        public Patient(string name) : base(name) { }
+
+        public Patient(string name, TreatmentPlan patientTreatmentPlan) : base(name)
         {
-            switch (patientTreatmentPlan.TreatmentPlanCode)
+            PatientTreatmentPlan = patientTreatmentPlan;
+        }
+
+
+        public void AppointDoctor()
+        {
+            switch (PatientTreatmentPlan.TreatmentPlanCode)
             {
                 case 1:
-                    DoctorSurgeon surgeon = new DoctorSurgeon();
+                    DoctorSurgeon surgeon = new DoctorSurgeon("Котовский Е.А.", "Врач высшей категории");
+                    Console.WriteLine($"\nЛечение проводит хирург {surgeon.Name} {surgeon.QualificationCategory}");
                     surgeon.Treat();
-                    Console.WriteLine("Лечение проводит хирург");
                     break;
 
                 case 2:
-                    DoctorDentist dentist = new DoctorDentist();
-                    dentist.Treat("А");
-                    Console.WriteLine("Лечение проводит дантист");
+                    DoctorDentist dentist = new DoctorDentist("Манулов К.И.", "Врач первой категории");
+                    Console.WriteLine($"\nЛечение проводит дантист {dentist.Name} {dentist.QualificationCategory}");
+                    dentist.Treat("Аll");
                     break;
 
                 default:
-                    DoctorTherapist therapist = new DoctorTherapist();
+                    DoctorTherapist therapist = new DoctorTherapist("Фыркова К.Б.", "Врач высшей категории");
+                    Console.WriteLine($"\nЛечение проводит терапевт {therapist.Name} {therapist.QualificationCategory}");
                     therapist.Treat();
-                    Console.WriteLine("Лечение проводит терапевт");
                     break;
-
             }
         }
     }
