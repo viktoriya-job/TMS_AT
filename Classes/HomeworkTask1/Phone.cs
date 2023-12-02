@@ -46,11 +46,11 @@ namespace Classes.Homework
         public void PrintInfo()
         {
             Console.WriteLine($"""
-
+                {CreditCard.lineSeparator}
                 Номер телефона: {Number}
                 Модель: {Model}
                 Вес: {Weight}
-
+                {CreditCard.lineSeparator}
                 """);
         }
     }

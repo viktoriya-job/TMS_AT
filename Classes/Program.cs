@@ -14,8 +14,9 @@ namespace Classes
         {
             Console.OutputEncoding = Encoding.Unicode;
 
+            /////////////////////////////////////////////////////////////
             //Задача 1
-            Console.WriteLine($"\n{new string('=', 15)} Задача 1 {new string('=', 15)}\n");
+            PrintTaskNumber(1);
 
             Phone phone1 = new Phone();
             Phone phone2 = new Phone("890111110011", "Redmi");
@@ -47,9 +48,30 @@ namespace Classes
                 "8 (901) 111-11-21",
                 "8 (901) 111-11-22");
 
-            Console.WriteLine($"\n{new string('=', 15)} Задача 1 {new string('=', 15)}\n");
+
+            /////////////////////////////////////////////////////////////
+            //Задача 2
+            PrintTaskNumber(2);
+
+            CreditCard creditCard1 = new CreditCard("4000 0012 3456 7899", 0);
+            CreditCard creditCard2 = new CreditCard("5110 0001 3456 7579", 10000);
+            CreditCard creditCard3 = new CreditCard("5610591081018250", 160000);
+
+            //Выведем информацию по картам
+            creditCard1.GetInfo();
+            creditCard2.GetInfo();
+            creditCard3.GetInfo();
+
+            //Проведем заданные манипуляции -
+            //положить деньги на первые две карты, снять деньги с третьей карты
+            creditCard1.TopUpAccount(10000);
+            creditCard2.TopUpAccount(100000);
+            creditCard3.TopDownAccount(120000);
 
 
+            /////////////////////////////////////////////////////////////
+            //Задача 3
+            PrintTaskNumber(3);
 
             TreatmentPlan treatmentPlan1 = new TreatmentPlan(1);
             TreatmentPlan treatmentPlan2 = new TreatmentPlan(2);
@@ -63,6 +85,13 @@ namespace Classes
             Console.WriteLine();
             patient.AppointDoctor(treatmentPlan3);
 
+        }
+    
+    static void PrintTaskNumber(int number)
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine($"\n{new string('=', 15)} Задача {number} {new string('=', 15)}\n");
+            Console.ForegroundColor = ConsoleColor.White;
         }
     }
 }
