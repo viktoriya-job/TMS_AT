@@ -24,7 +24,7 @@ namespace OOP.TransportHierarchy
             set
             {
                 if (value < DateTime.Now)
-                    PrintRedText("Дата отправления не может быть меньше текущей");
+                    Program.PrintRedText("Дата отправления не может быть меньше текущей");
                 else
                     departureTime = value;
             }
@@ -40,20 +40,18 @@ namespace OOP.TransportHierarchy
             set
             {
                 if (value < 1)
-                    PrintRedText("Число мест должно быть больше 0");
+                    Program.PrintRedText("Число мест должно быть больше 0");
                 else
                     seatsNumber = value;
             }
         }
         public Transport() { }
 
-        public virtual string  GetTransportInfo() => TransportType;
+        public virtual string GetTransportInfo() => TransportType;
 
-        public static void PrintRedText(string Text)
-        {
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine(Text);
-            Console.ForegroundColor = ConsoleColor.White;
-        }
+        //Следующий метод нельзя переопределить, так как он не virtual / abstract
+        //sead здесь не подходит, так как он используется, если метод уже override
+        public string GetTransportSubType() => TransportSubType;
+
     }
 }
