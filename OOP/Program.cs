@@ -26,7 +26,16 @@ internal partial class Program
         //var triangleRightAngle = new TriangleRightAngle(3, 4, 5);
         //Console.WriteLine(triangleRightAngle.TriangleArea());
 
-        var trian = new TriangleCreation(5, 5, 5);
-        Console.WriteLine(trian.ArmsEquality);
+
+
+
+        //var trian = new TriangleCreation(5, 5, 5);
+        //Console.WriteLine(trian.ArmsEquality);
+
+        //var trian = new TriangleAllSidesEqual(4);
+        //Console.WriteLine(trian.TriangleArea()); 
+
+        Console.WriteLine("erghserh");
+
     }
 }

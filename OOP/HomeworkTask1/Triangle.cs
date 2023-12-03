@@ -7,42 +7,123 @@ using System.Threading.Tasks;
 
 namespace OOP.HomeworkTask1
 {
-    internal class TriangleAllSidesEqual: GeometricFigure
+    internal class Triangle : GeometricFigure
     {
         public float LengthSideA { get; set; }
+        public float LengthSideB { get; set; }
+        public float LengthSideC { get; set; }
 
-        public TriangleAllSidesEqual(float lengthSideA)
+        public Triangle(float lengthSideA, float lengthSideB, float lengthSideC)
         {
             LengthSideA = lengthSideA;
+            LengthSideB = lengthSideB;
+            LengthSideC = lengthSideC;
         }
 
         public virtual float TriangleArea()
         {
-            float TriangleHeight = Convert.ToSingle(Math.Sqrt(Math.Pow(LengthSideA, 2)
-                             - Math.Pow(Convert.ToSingle(LengthSideA) / 2, 2)));
-            return TriangleHeight * LengthSideA / 2;
+            float perimeterHalf = (LengthSideA + LengthSideB + LengthSideC) / 2;
+            return Convert.ToSingle(
+                        Math.Sqrt(perimeterHalf
+                                * (perimeterHalf - LengthSideA)
+                                * (perimeterHalf - LengthSideB)
+                                * (perimeterHalf - LengthSideC)));
         }
     }
 
-    internal class TriangleTwoSidesEqual : TriangleAllSidesEqual
+    internal class TriangleTwoSidesEqual : Triangle
     {
-        public float LengthSideB { get; set; }
-
-        public TriangleTwoSidesEqual(float lengthSideA, float lengthSideB) : base(lengthSideA)
-        {
-            LengthSideB = lengthSideB;
-        }
+        public TriangleTwoSidesEqual(float lengthSideA, float lengthSideB) : base(lengthSideA, lengthSideA, lengthSideB) { }
 
         public override float TriangleArea()
         {
             float triangleBase = LengthSideA;
             float triangleEqualSide = LengthSideB;
 
+            if (LengthSideA == LengthSideB)
+            {
+                triangleBase = LengthSideC;
+            }
+            else if (LengthSideA == LengthSideC)
+            {
+                triangleBase = LengthSideB;
+                triangleEqualSide = LengthSideA;
+            }
+
             float TriangleHeight = Convert.ToSingle(Math.Sqrt(Math.Pow(triangleEqualSide, 2)
                                          - Math.Pow(Convert.ToSingle(triangleBase) / 2, 2)));
             return TriangleHeight * triangleBase / 2;
         }
     }
+
+    internal class TriangleAllSidesEqual : TriangleTwoSidesEqual
+    {
+        public TriangleAllSidesEqual(float lengthSideA) : base(lengthSideA, lengthSideA)
+        {
+        }
+
+        public override float TriangleArea()
+        {
+            float TriangleHeight = Convert.ToSingle(Math.Sqrt(Math.Pow(LengthSideA, 2)
+                             - Math.Pow(Convert.ToSingle(LengthSideA) / 2, 2)));
+            return TriangleHeight * LengthSideA / 2;
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    //internal class TriangleAllSidesEqual: GeometricFigure
+    //{
+    //    public float LengthSideA { get; set; }
+
+    //    public TriangleAllSidesEqual(float lengthSideA)
+    //    {
+    //        LengthSideA = lengthSideA;
+    //    }
+
+    //    public virtual float TriangleArea()
+    //    {
+    //        float TriangleHeight = Convert.ToSingle(Math.Sqrt(Math.Pow(LengthSideA, 2)
+    //                         - Math.Pow(Convert.ToSingle(LengthSideA) / 2, 2)));
+    //        return TriangleHeight * LengthSideA / 2;
+    //    }
+    //}
+
+    //internal class TriangleTwoSidesEqual : TriangleAllSidesEqual
+    //{
+    //    public float LengthSideB { get; set; }
+
+    //    public TriangleTwoSidesEqual(float lengthSideA, float lengthSideB) : base(lengthSideA)
+    //    {
+    //        LengthSideB = lengthSideB;
+    //    }
+
+    //    public override float TriangleArea()
+    //    {
+    //        float triangleBase = LengthSideA;
+    //        float triangleEqualSide = LengthSideB;
+
+    //        float TriangleHeight = Convert.ToSingle(Math.Sqrt(Math.Pow(triangleEqualSide, 2)
+    //                                     - Math.Pow(Convert.ToSingle(triangleBase) / 2, 2)));
+    //        return TriangleHeight * triangleBase / 2;
+    //    }
+    //}
 
 
 
@@ -152,4 +233,4 @@ namespace OOP.HomeworkTask1
     //    }
     //}
 
-}
+
