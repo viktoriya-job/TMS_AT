@@ -67,7 +67,8 @@ namespace Classes
             creditCard1.TopUpAccount(10000);
             creditCard2.TopUpAccount(100000);
             creditCard3.TopDownAccount(120000);
-
+            creditCard3.TopDownAccount(0);
+            creditCard2.TopUpAccount(0);
 
             /////////////////////////////////////////////////////////////
             //Задача 3

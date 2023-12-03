@@ -33,7 +33,7 @@ namespace Classes.Homework
 
         internal void TopUpAccount(float sum)
         {
-            if (sum > 0)
+            if (CheckSum(sum))
             {
                 Amount += sum;
                 Console.WriteLine($"""
@@ -44,19 +44,11 @@ namespace Classes.Homework
                         {lineSeparator}
                         """);
             }
-            else
-                Console.WriteLine($"""
-                    {lineSeparator}
-                    Счет: {AccountNumber}
-                    Операция не выполнена: введена не положительная сумма   {FormatMoney(sum)}
-                        Текущий баланс: {FormatMoney(Amount)}
-                    {lineSeparator}
-                    """);
         }
 
         internal void TopDownAccount(float sum)
         {
-            if (sum > 0)
+            if(CheckSum(sum))
             {
                 //Предполагаем, что кредитный лимит 0.00
                 if (Amount - sum >= 0)
@@ -79,7 +71,14 @@ namespace Classes.Homework
                         {lineSeparator}
                         """);
             }
+        }
+
+        private bool CheckSum(float sum)
+        {
+            if (sum > 0)
+                return true;
             else
+            {
                 Console.WriteLine($"""
                     {lineSeparator}
                     Счет: {AccountNumber}
@@ -87,6 +86,8 @@ namespace Classes.Homework
                         Текущий баланс: {FormatMoney(Amount)}
                     {lineSeparator}
                     """);
+                return false;
+            }
         }
     }
 }

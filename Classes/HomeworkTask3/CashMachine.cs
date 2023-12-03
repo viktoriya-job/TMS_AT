@@ -17,7 +17,7 @@ namespace Classes.Homework
             Nominal = nominal;
         }
     }
-
+      
 
     internal class CashMachine
     {
