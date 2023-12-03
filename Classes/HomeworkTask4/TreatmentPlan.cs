@@ -8,7 +8,7 @@ namespace Classes.Homework
 {
     internal class TreatmentPlan
     {
-        public int TreatmentPlanCode;
+        public int TreatmentPlanCode { get; set; }
         public List<string> TreatmentPlanList = new List<string>(16);
 
         public TreatmentPlan(int treatmentPlanCode)
@@ -20,6 +20,7 @@ namespace Classes.Homework
         {
             foreach (string entry in entries)
                 TreatmentPlanList.Add(entry);
+
             return TreatmentPlanList;
         }
 

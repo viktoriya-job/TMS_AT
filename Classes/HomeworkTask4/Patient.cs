@@ -11,14 +11,9 @@ namespace Classes.Homework
     {
         public TreatmentPlan PatientTreatmentPlan { get; set; }
 
-
         public Patient(string name) : base(name) { }
 
-        public Patient(string name, TreatmentPlan patientTreatmentPlan) : base(name)
-        {
-            PatientTreatmentPlan = patientTreatmentPlan;
-        }
-
+        public Patient(string name, TreatmentPlan patientTreatmentPlan) : base(name) => PatientTreatmentPlan = patientTreatmentPlan;
 
         public void AppointDoctor()
         {

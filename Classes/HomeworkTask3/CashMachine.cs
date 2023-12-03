@@ -9,15 +9,15 @@ namespace Classes.Homework
 {
     internal class Banknote
     {
-        public int Nominal;
-        public int Count;
+        public int Nominal { get; set; }
+        public int Count { get; set; }
 
         public Banknote(int nominal)
         {
             Nominal = nominal;
         }
     }
-      
+
 
     internal class CashMachine
     {

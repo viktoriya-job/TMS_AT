@@ -12,9 +12,9 @@ namespace Classes.Homework
         //"При именовании public элементов типов, таких как поля, свойства, события, используйте регистр pascal"
         //поэтому для public полей поля имена задаю в PascalCase
 
-        public string Number = "+7 (000) 000-00-00";
-        public string Model = "X-Ray";
-        public float Weight;
+        public string Number { get; set; } = "+7 (000) 000-00-00";
+        public string Model { get; set; } = "X-Ray";
+        public float Weight { get; set; }
 
         public Phone() { }
 

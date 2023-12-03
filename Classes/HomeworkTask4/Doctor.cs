@@ -12,17 +12,9 @@ namespace Classes.Homework
     {
         public string QualificationCategory {get; set;}
 
+        public Doctor(string name, string qualificationCategory) : base(name) => QualificationCategory = qualificationCategory;
 
-        public Doctor(string name, string qualificationCategory) : base(name)
-        {
-            QualificationCategory = qualificationCategory;
-        }
-
-
-        public virtual void Treat()
-        {
-            ExaminePatient();
-        }
+        public virtual void Treat() => ExaminePatient();
 
         private void ExaminePatient()
         {
@@ -33,9 +25,7 @@ namespace Classes.Homework
 
     internal class DoctorTherapist : Doctor
     {
-        public DoctorTherapist(string name, string qualificationCategory) : base(name, qualificationCategory)
-        {
-        }
+        public DoctorTherapist(string name, string qualificationCategory) : base(name, qualificationCategory) { }
 
         public override void Treat()
         {
@@ -55,9 +45,7 @@ namespace Classes.Homework
 
     internal class DoctorSurgeon : Doctor
     {
-        public DoctorSurgeon(string name, string qualificationCategory) : base(name, qualificationCategory)
-        {
-        }
+        public DoctorSurgeon(string name, string qualificationCategory) : base(name, qualificationCategory) { }
 
         public override void Treat()
         {
@@ -74,9 +62,7 @@ namespace Classes.Homework
 
     internal class DoctorDentist : Doctor
     {
-        public DoctorDentist(string name, string qualificationCategory) : base(name, qualificationCategory)
-        {
-        }
+        public DoctorDentist(string name, string qualificationCategory) : base(name, qualificationCategory) { }
 
         public void Treat(string xRayProjection)
         {
