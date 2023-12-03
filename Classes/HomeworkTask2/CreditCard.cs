@@ -10,8 +10,8 @@ namespace Classes.Homework
     {
         public const string lineSeparator = "______________________________";
 
-        private string AccountNumber;
-        private float Amount;
+        private string AccountNumber { get; set; }
+        private float Amount { get; set; }
 
         public CreditCard(string accountNumber, float amount)
         {
@@ -23,12 +23,7 @@ namespace Classes.Homework
 
         public void GetInfo()
         {
-            Console.WriteLine($"""
-                {lineSeparator}
-                Номер счета: {AccountNumber}
-                Текущий баланс: {FormatMoney(Amount)}
-                {lineSeparator}
-                """);
+            PrintInfo("",0);
         }
 
         internal void TopUpAccount(float sum)
@@ -36,40 +31,22 @@ namespace Classes.Homework
             if (CheckSum(sum))
             {
                 Amount += sum;
-                Console.WriteLine($"""
-                        {lineSeparator}
-                        Счет: {AccountNumber}
-                        Внесена сумма: {FormatMoney(sum)}
-                        Баланс: {FormatMoney(Amount)}
-                        {lineSeparator}
-                        """);
+                PrintInfo("Внесена сумма: ", sum);
             }
         }
 
         internal void TopDownAccount(float sum)
         {
-            if(CheckSum(sum))
+            if (CheckSum(sum))
             {
                 //Предполагаем, что кредитный лимит 0.00
                 if (Amount - sum >= 0)
                 {
                     Amount -= sum;
-                    Console.WriteLine($"""
-                        {lineSeparator}
-                        Счет: {AccountNumber}
-                        Выдана сумма: {FormatMoney(sum)}
-                        Баланс: {FormatMoney(Amount)}
-                        {lineSeparator}
-                        """);
+                    PrintInfo("Выдана сумма: ", sum);
                 }
                 else
-                    Console.WriteLine($"""
-                        {lineSeparator}
-                        Счет: {AccountNumber}
-                        Операция не выполнена: баланса на счете недостаточно для выдачи суммы   {FormatMoney(sum)}
-                            Текущий баланс: {FormatMoney(Amount)}
-                        {lineSeparator}
-                        """);
+                    Console.WriteLine("Операция не выполнена: баланса на счете недостаточно");
             }
         }
 
@@ -79,15 +56,27 @@ namespace Classes.Homework
                 return true;
             else
             {
-                Console.WriteLine($"""
-                    {lineSeparator}
-                    Счет: {AccountNumber}
-                    Операция не выполнена: введена не положительная сумма   {FormatMoney(sum)}
-                        Текущий баланс: {FormatMoney(Amount)}
-                    {lineSeparator}
-                    """);
+                Console.WriteLine("Операция не выполнена: введена не положительная сумма");
                 return false;
             }
+        }
+        private void PrintInfo(string? message, float sum)
+        {
+            if (String.IsNullOrWhiteSpace(message))
+                Console.WriteLine($"""
+                {lineSeparator}
+                Номер счета: {AccountNumber}
+                Текущий баланс: {FormatMoney(Amount)}
+                {lineSeparator}
+                """);
+            else
+                Console.WriteLine($"""
+                {lineSeparator}
+                Номер счета: {AccountNumber}
+                {message} {FormatMoney(sum)}
+                Текущий баланс: {FormatMoney(Amount)}
+                {lineSeparator}
+                """);
         }
     }
 }
