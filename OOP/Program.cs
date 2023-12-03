@@ -1,6 +1,9 @@
 ﻿using OOP.TransportHierarchy;
+using System;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
+using System.Threading.Channels;
+using System.Threading.Tasks;
 
 internal partial class Program
 {
@@ -8,113 +11,99 @@ internal partial class Program
     {
         Console.OutputEncoding = Encoding.Unicode;
 
-        //var square = new Square(4);
-        //Console.WriteLine(square.RectangleArea());
+        Console.WriteLine("""
+                Выберите задачу:
+                1 -  Задача 1: Геометрические фигуры
+                2 -  Задача 2: Клиника
+                3 -  Задача 3: Парк Общественного транспорта
+                4 -  Задача 4: Машинки
+                """);
+        try
+        {
+            byte task = Convert.ToByte(Console.ReadLine());
 
-        //var rectangle = new Rectangle(2, 3);
-        //Console.WriteLine(rectangle.RectangleArea());
+            if (task == 0 || task > 4)
+                Console.WriteLine("Вы ввели неправильный номер");
+            else
+            {
+                switch (task)
+                {
+                    case 3: Task3(); break;
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Произошла ошибка - введено некорректное число.\n{ex}");
+        }
+    }
 
-        //var triangle = new Triangle(7, 10, 5);
+    private static void Task3()
+    {
+        Transport.PrintRedText("Создадим объект класса Bus и выведем значения его полей в консоль");
 
-        //Console.WriteLine(triangle.TriangleArea());
+        var bus = new TransportBackwardAutomobileBus("62", "Sity", 48, new DateTime(2024, 8, 10));
+        Console.WriteLine(bus.GetTransportInfo());
 
-        //var triangleTwoSidesEqual = new TriangleTwoSidesEqual(7, 5, 5);
-        //Console.WriteLine(triangleTwoSidesEqual.TriangleArea());
+        Transport.PrintRedText("Создадим массив различных объектов");
+        Transport[] transportArray =
+        {
+            new TransportAirAeronauticalAirship(),
+            new TransportAirAviationAirplane("Air717","Moscow",325,new DateTime(2024,1,1)),
+            new TransportBackwardAutomobileBus("108","Краснодар",58,new DateTime(2024,1,1)),
+            new TransportBackwardAutomobileTrolleybus("14","Школа 14"),
+            new TransportBackwardRailwayTram("8"),
+            new TransportWaterRiverFerry("KrMk_115","Краснодар",314,new DateTime(2023,12,31)),
+            new TransportWaterRiverTram("56F","ЖК Адмирал",110,new DateTime(2024,01,12)),
+            new TransportWaterSeaBoat("-","Sochy",20,new DateTime(2024,8,13)),
+            new TransportWaterSeaCruiseShip("1118","Spain",600,new DateTime(2023,12,20))
+        };
 
-        //var triangleAllSidesEqual = new TriangleAllSidesEqual(7,7,7);
-        //Console.WriteLine(triangleAllSidesEqual.TriangleArea());
+        Transport.PrintRedText("Выведем созданный массив");
+        foreach (Transport transport in transportArray)
+            Console.WriteLine(transport.GetTransportInfo());
 
-        //var triangleRightAngle = new TriangleRightAngle(3, 4, 5);
-        //Console.WriteLine(triangleRightAngle.TriangleArea());
+        Transport.PrintRedText("Отсортированный по количеству мест массив");
+        var arraySorted = transportArray.OrderBy(key => key.SeatsNumber);
 
+        foreach (Transport transport in arraySorted)
+            Console.WriteLine(transport.GetTransportInfo());
 
+        //Поиск по времени
+        Transport.PrintRedText("Введите дату отправления для поиска объекта: ");
 
+        if(DateTime.TryParse(Console.ReadLine(),out DateTime dateTime))
+        {
+            foreach(Transport transport in transportArray)
 
-        //var trian = new TriangleCreation(5, 5, 5);
-        //Console.WriteLine(trian.ArmsEquality);
+                if (transport.DepartureTime == dateTime)
+                    Console.WriteLine(transport.GetTransportInfo());
+        }
+        else Console.WriteLine("Введен некорректный формат даты");
 
-        //var trian = new TriangleAllSidesEqual(4);
-        //Console.WriteLine(trian.TriangleArea()); 
+        //Поиск по пункту назначения
+        Transport.PrintRedText("Введите пункт назначения для поиска объекта: ");
+        string? destination = Console.ReadLine();
 
-        //Console.WriteLine("erghserh");
+        if (String.IsNullOrWhiteSpace(destination))
+            Console.WriteLine("Введена пустая строка");
+        else
+            foreach (Transport transport in transportArray)
 
-        //var tr = new TransportWater();
-        //Console.WriteLine(tr.GetTransportType());
+                if (transport.Destination == destination)
+                    Console.WriteLine(transport.GetTransportInfo());
 
-        //var tr1 = new TransportAir();
-        //Console.WriteLine(tr1.GetTransportType());
+        //Поиск маршрутов после заданного времени
+        Transport.PrintRedText("Введите дату для поиска маршрута позднее нее");
 
-        //var tr2 = new TransportBackward();
-        //Console.WriteLine(tr2.GetTransportType());
+        if (DateTime.TryParse(Console.ReadLine(), out DateTime dateTimeAfter))
+        {
+            foreach (Transport transport in transportArray)
 
-        //var tr3 = new Transport();
-        //Console.WriteLine(tr3.GetTransportType());
-
-        //var tr4 = new TransportWaterRiver();
-        //Console.WriteLine(tr4.GetTransportType());
-
-        //var tr5 = new TransportWaterSea();
-        //Console.WriteLine(tr5.GetTransportType());
-
-        //var tr6 = new TransportAirAviation();
-        //Console.WriteLine(tr6.GetTransportType());
-
-        //var tr7 = new TransportAirAeronautical();
-        //Console.WriteLine(tr7.GetTransportType());
-
-        //var tr8 = new TransportBackwardRailway();
-        //Console.WriteLine(tr8.GetTransportType());
-
-        //var tr9 = new TransportBackwardAutomobile();
-        //Console.WriteLine(tr9.GetTransportType());
-
-        //var tr10 = new TransportWaterRiverFerry();
-        //Console.WriteLine(tr10.GetTransportType());
-
-        //var tr11 = new TransportWaterRiverTram();
-        //Console.WriteLine(tr11.GetTransportType());
-
-
-
-        var trn1 = new Transport();
-        Transport.PrintRedText("Transport");
-        Console.WriteLine(trn1.GetTransportInfo());
-
-        var trn3 = new TransportWater();
-        Transport.PrintRedText("TransportWater");
-        Console.WriteLine(trn3.GetTransportInfo());
-
-        var trn4 = new TransportWaterRiver();
-        Transport.PrintRedText("TransportWaterRiver");
-        Console.WriteLine(trn4.GetTransportInfo());
-
-        var tr2 = new TransportWaterRiverTram();
-        Transport.PrintRedText("TransportWaterRiverTram");
-        Console.WriteLine(tr2.GetTransportInfo());
-
-        var tr12 = new TransportWaterRiverTram("wef111");
-        Transport.PrintRedText("TransportWaterRiverTram(\"wef111\")");
-        Console.WriteLine(tr12.GetTransportInfo());
-
-        var tr13 = new TransportWaterRiverTram("wef111", "Краснодар");
-        Transport.PrintRedText("TransportWaterRiverTram(\"wef111\", \"Краснодар\")");
-        Console.WriteLine(tr13.GetTransportInfo());
-
-        var tr14 = new TransportWaterRiverTram("wef111", "Краснодар", 20);
-        Transport.PrintRedText("TransportWaterRiverTram(\"wef111\", \"Краснодар\", 20)");
-        Console.WriteLine(tr14.GetTransportInfo());
-
-        var tr15 = new TransportWaterRiverTram("wef111", "Краснодар", 40, new DateTime(2024, 12, 20));
-        Transport.PrintRedText("TransportWaterRiverTram(\"wef111\", \"Краснодар\", 40, new DateTime(2024, 12, 20))");
-        Console.WriteLine(tr15.GetTransportInfo());
-
-        var tr16 = new TransportWaterRiverFerry("jh36hjj", "Sity", 165, new DateTime(2023, 12, 31));
-        Transport.PrintRedText("TransportWaterRiverFerry(\"jh36hjj\", \"Sity\", 165, new DateTime(2023, 12, 31))");
-        Console.WriteLine(tr16.GetTransportInfo());
-
-
-
-        //Transport[] transportArray = { tr, tr1};
+                if (transport.DepartureTime > dateTimeAfter)
+                    Console.WriteLine(transport.GetTransportInfo());
+        }
+        else Console.WriteLine("Введен некорректный формат даты");
 
     }
 }

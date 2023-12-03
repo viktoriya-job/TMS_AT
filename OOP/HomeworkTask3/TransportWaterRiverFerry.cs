@@ -1,5 +1,4 @@
 ﻿
-
 namespace OOP.TransportHierarchy
 {
     internal class TransportWaterRiverFerry : TransportWaterRiver

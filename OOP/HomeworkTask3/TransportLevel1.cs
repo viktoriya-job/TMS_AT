@@ -8,7 +8,7 @@ namespace OOP.TransportHierarchy
         public override string GetTransportInfo()
         {
             return ($"""
-                {new string('~', 35)}
+                {new string('~', 45)}
                 Тип:    {TransportSubType} {base.GetTransportInfo()}
                 Вид:    {TransportKind}
 
@@ -16,7 +16,7 @@ namespace OOP.TransportHierarchy
                 Пункт назначения:   {Destination}
                 Время отправления   {DepartureTime}
                 Число мест:         {SeatsNumber}
-                {new string('~', 35)}
+                {new string('~', 45)}
                 """);
         }
     }
@@ -28,7 +28,7 @@ namespace OOP.TransportHierarchy
         public override string GetTransportInfo()
         {
             return ($"""
-                {new string('@', 35)}
+                {new string('*', 45)}
                 Тип:    {TransportSubType} {base.GetTransportInfo()}
                 Вид:    {TransportKind}
 
@@ -36,7 +36,7 @@ namespace OOP.TransportHierarchy
                 Пункт назначения:   {Destination}
                 Время отправления   {DepartureTime}
                 Число мест:         {SeatsNumber}
-                {new string('@', 35)}
+                {new string('*', 45)}
                 """);
         }
     }
@@ -48,7 +48,7 @@ namespace OOP.TransportHierarchy
         public override string GetTransportInfo()
         {
             return ($"""
-                {new string('#', 35)}
+                {new string('=', 45)}
                 Тип:    {TransportSubType} {base.GetTransportInfo()}
                 Вид:    {TransportKind}
 
@@ -56,7 +56,7 @@ namespace OOP.TransportHierarchy
                 Пункт назначения:   {Destination}
                 Время отправления   {DepartureTime}
                 Число мест:         {SeatsNumber}
-                {new string('#', 35)}
+                {new string('=', 45)}
                 """);
         }
     }
