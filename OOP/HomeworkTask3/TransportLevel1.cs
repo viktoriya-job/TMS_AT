@@ -3,50 +3,61 @@ namespace OOP.TransportHierarchy
 {
     internal class TransportWater : Transport
     {
-        public TransportWater() : base()
-        {
-            TransportType = "Водный транспорт";
-        }
+        public TransportWater() : base() => TransportType = "Водный транспорт";
 
-        public override string GetTransportInfo() => "Тип: " + TransportType;
+        public override string GetTransportInfo()
+        {
+            return ($"""
+                {new string('~', 35)}
+                Тип:    {TransportSubType} {base.GetTransportInfo()}
+                Вид:    {TransportKind}
+
+                Номер:              {Number}
+                Пункт назначения:   {Destination}
+                Время отправления   {DepartureTime}
+                Число мест:         {SeatsNumber}
+                {new string('~', 35)}
+                """);
+        }
     }
-    /*
 
     internal class TransportAir : Transport
     {
-        public TransportAir() : base()
+        public TransportAir() : base() => TransportType = "Воздушный транспорт";
+
+        public override string GetTransportInfo()
         {
-            TransportType = "Воздушный транспорт";
+            return ($"""
+                {new string('@', 35)}
+                Тип:    {TransportSubType} {base.GetTransportInfo()}
+                Вид:    {TransportKind}
+
+                Номер:              {Number}
+                Пункт назначения:   {Destination}
+                Время отправления   {DepartureTime}
+                Число мест:         {SeatsNumber}
+                {new string('@', 35)}
+                """);
         }
-
-        public TransportAir(string number) : base(number) { }
-
-        public TransportAir(string number, string destination) : base(number, destination) { }
-
-        public TransportAir(string number, string destination, DateTime departureTime) : base(number, destination, departureTime) { }
-
-        public TransportAir(string number, string destination, DateTime departureTime, int seatsNumber) : base(number, destination, departureTime, seatsNumber) { }
-
-        public override string GetTransportInfo() => "Тип: " + TransportType;
     }
 
     internal class TransportBackward : Transport
     {
-        public TransportBackward() : base()
+        public TransportBackward() : base() => TransportType = "Наземный транспорт";
+
+        public override string GetTransportInfo()
         {
-            TransportType = "Наземный транспорт";
+            return ($"""
+                {new string('#', 35)}
+                Тип:    {TransportSubType} {base.GetTransportInfo()}
+                Вид:    {TransportKind}
+
+                Номер:              {Number}
+                Пункт назначения:   {Destination}
+                Время отправления   {DepartureTime}
+                Число мест:         {SeatsNumber}
+                {new string('#', 35)}
+                """);
         }
-
-        public TransportBackward(string number) : base(number) { }
-
-        public TransportBackward(string number, string destination) : base(number, destination) { }
-
-        public TransportBackward(string number, string destination, DateTime departureTime) : base(number, destination, departureTime) { }
-
-        public TransportBackward(string number, string destination, DateTime departureTime, int seatsNumber) : base(number, destination, departureTime, seatsNumber) { }
-
-        public override string GetTransportInfo() => "Тип: " + TransportType;
     }
-
-    */
 }

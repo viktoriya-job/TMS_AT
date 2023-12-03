@@ -1,16 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace OOP.TransportHierarchy
 {
     internal class Transport
     {
         public string TransportType { get; set; } = "Транспорт";
 
+        public string TransportSubType { get; set; } = "Не определен";
+
+        public string TransportKind { get; set; } = "Не определен";
+
         public string Number { get; set; } = "Не установлен";
+
         public string Destination { get; set; } = "Не определен";
 
         public DateTime departureTime = DateTime.Now;
@@ -46,29 +46,6 @@ namespace OOP.TransportHierarchy
             }
         }
         public Transport() { }
-
-        /*
-        public Transport(string number)
-        {
-            Number = number;
-        }
-
-        public Transport(string number, string destination) : this(number)
-        {
-            Destination = destination;
-        }
-
-        public Transport(string number, string destination, DateTime departureTime) : this(number, destination)
-        {
-            DepartureTime = departureTime;
-        }
-
-        public Transport(string number, string destination, DateTime departureTime, int seatsNumber) : this(number, destination, departureTime)
-        {
-            SeatsNumber = seatsNumber;
-        }
-
-        */
 
         public virtual string  GetTransportInfo() => TransportType;
 

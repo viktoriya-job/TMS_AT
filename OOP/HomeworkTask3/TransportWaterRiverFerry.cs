@@ -4,56 +4,32 @@ namespace OOP.TransportHierarchy
 {
     internal class TransportWaterRiverFerry : TransportWaterRiver
     {
-        public string TransportKind { get; } = "Паром";
-        public string Number { get; set; } = "Не установлен";
-        public string Destination { get; set; } = "Не определен";
+        string transportKind = "Паром";
 
-        DateTime departureTime = DateTime.Now;
+        public TransportWaterRiverFerry() : base() => TransportKind = transportKind;
 
-        public DateTime DepartureTime
+        public TransportWaterRiverFerry(string number)
         {
-            get
-            {
-                return departureTime;
-            }
-            set
-            {
-                if (value < DateTime.Now)
-                    Console.WriteLine("Дата отправления не может быть меньше текущей");
-                else
-                    departureTime = value;
-            }
+            Number = number;
+            TransportKind = transportKind;
         }
 
-        int seatsNumber = 1;
-        public int SeatsNumber
+        public TransportWaterRiverFerry(string number, string destination) : this(number)
         {
-            get
-            {
-                return seatsNumber;
-            }
-            set
-            {
-                if (value < 1)
-                    Console.WriteLine("Число мест должно быть больше 0");
-                else
-                    seatsNumber = value;
-            }
+            Destination = destination;
+            TransportKind = transportKind;
         }
 
-        public override string GetTransportInfo()
+        public TransportWaterRiverFerry(string number, string destination, int seatsNumber) : this(number, destination)
         {
-            return (base.GetTransportInfo()
-                + $"""
-                
-                Вид:    {TransportKind}
+            SeatsNumber = seatsNumber;
+            TransportKind = transportKind;
+        }
 
-                Номер:              {Number}
-                Пункт назначения:   {Destination}
-                Время отправления   {DepartureTime}
-                Число мест:         {SeatsNumber}
-                {new string('~', 35)}
-                """);
+        public TransportWaterRiverFerry(string number, string destination, int seatsNumber, DateTime departureTime) : this(number, destination, seatsNumber)
+        {
+            DepartureTime = departureTime;
+            TransportKind = transportKind;
         }
     }
 }

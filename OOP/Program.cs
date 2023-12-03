@@ -67,35 +67,52 @@ internal partial class Program
 
         //var tr9 = new TransportBackwardAutomobile();
         //Console.WriteLine(tr9.GetTransportType());
-        
+
         //var tr10 = new TransportWaterRiverFerry();
         //Console.WriteLine(tr10.GetTransportType());
 
         //var tr11 = new TransportWaterRiverTram();
         //Console.WriteLine(tr11.GetTransportType());
 
-        //var tr12 = new TransportWaterRiverTram("wef111");
-        //Console.WriteLine(tr12.GetTransportType());
 
-        //var tr13 = new TransportWaterRiverTram("wef111", "Краснодар");
-        //Console.WriteLine(tr13.GetTransportType());
 
-        //var tr14 = new TransportWaterRiverTram("wef111", "Краснодар", 20);
-        //Console.WriteLine(tr14.GetTransportType());
+        var trn1 = new Transport();
+        Transport.PrintRedText("Transport");
+        Console.WriteLine(trn1.GetTransportInfo());
 
-        //tr14.SeatsNumber = 0;
-        //tr14.Number = null;
+        var trn3 = new TransportWater();
+        Transport.PrintRedText("TransportWater");
+        Console.WriteLine(trn3.GetTransportInfo());
 
-        //Console.WriteLine(tr14.GetTransportType());
+        var trn4 = new TransportWaterRiver();
+        Transport.PrintRedText("TransportWaterRiver");
+        Console.WriteLine(trn4.GetTransportInfo());
 
-       ///var trn1 = new Transport("1234");
-       /// Console.WriteLine(trn1.GetTransportInfo());
+        var tr2 = new TransportWaterRiverTram();
+        Transport.PrintRedText("TransportWaterRiverTram");
+        Console.WriteLine(tr2.GetTransportInfo());
 
-        var trn2 = new TransportWaterRiverTram("5213");
-        Console.WriteLine(trn2.GetTransportInfo());
+        var tr12 = new TransportWaterRiverTram("wef111");
+        Transport.PrintRedText("TransportWaterRiverTram(\"wef111\")");
+        Console.WriteLine(tr12.GetTransportInfo());
 
-        //var tr15 = new TransportWaterRiverTram("wef111", "Краснодар", -1, new DateTime(2020, 12, 20));
-        //Console.WriteLine(tr15.GetTransportType());
+        var tr13 = new TransportWaterRiverTram("wef111", "Краснодар");
+        Transport.PrintRedText("TransportWaterRiverTram(\"wef111\", \"Краснодар\")");
+        Console.WriteLine(tr13.GetTransportInfo());
+
+        var tr14 = new TransportWaterRiverTram("wef111", "Краснодар", 20);
+        Transport.PrintRedText("TransportWaterRiverTram(\"wef111\", \"Краснодар\", 20)");
+        Console.WriteLine(tr14.GetTransportInfo());
+
+        var tr15 = new TransportWaterRiverTram("wef111", "Краснодар", 40, new DateTime(2024, 12, 20));
+        Transport.PrintRedText("TransportWaterRiverTram(\"wef111\", \"Краснодар\", 40, new DateTime(2024, 12, 20))");
+        Console.WriteLine(tr15.GetTransportInfo());
+
+        var tr16 = new TransportWaterRiverFerry("jh36hjj", "Sity", 165, new DateTime(2023, 12, 31));
+        Transport.PrintRedText("TransportWaterRiverFerry(\"jh36hjj\", \"Sity\", 165, new DateTime(2023, 12, 31))");
+        Console.WriteLine(tr16.GetTransportInfo());
+
+
 
         //Transport[] transportArray = { tr, tr1};
 
