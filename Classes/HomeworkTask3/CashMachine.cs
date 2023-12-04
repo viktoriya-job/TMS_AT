@@ -1,6 +1,7 @@
 ﻿using Classes.Homework;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.Metrics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -65,12 +66,13 @@ namespace Classes.Homework
 
         public void DepositMoney(int banknote20Count, int banknote50Count, int banknote100Count)
         {
-            //При попытке внести 0 или меньше купюр возвращаем ошибку
-            if (banknote20Count < 0
-                || banknote50Count < 0
-                || banknote100Count < 0
-                || banknote20Count + banknote50Count + banknote100Count == 0)
-                Console.WriteLine("Операция не выполнена: попытка внести 0 или меньше купюр");
+            if (banknote20Count < 0 || banknote50Count < 0 || banknote100Count < 0)
+                Console.WriteLine("Операция не выполнена: нельзя вносить отрицательное количество купюр");
+
+            else if (banknote20Count == 0 && banknote50Count == 0 && banknote100Count == 0)
+            {
+                Console.WriteLine("Операция не выполнена: попытка внести 0 купюр");
+            }
             else
             {
                 banknote20.Count += banknote20Count;
@@ -128,7 +130,7 @@ namespace Classes.Homework
                     Console.WriteLine($"""
                             Операция не выполнена.
 
-                            На текущий момент в банкомате отсутствуют купюры для выдачи суммы {FormatMoney(withdrawalAmount)}
+                            Невозможно выдать указанную сумму {FormatMoney(withdrawalAmount)} доступными купюрами
                             """);
                     GetInfo();
                 }
@@ -144,38 +146,58 @@ namespace Classes.Homework
             if (amount == 0)
                 return true;
 
-            //////////////////////////////////////////////  
-            ///Пока не придумала, как вынести в цикл перебор всех типов банкнот. Перебираем линейно
-
             //Определим количество банкнот номинала 100
             //Проверим, есть ли столько банкнот в банкомате, и возьмем меньшее из сравниваемых значений
             banknote100Count = Math.Min(amount / banknote100.Nominal, banknote100.Count);
-            amount = amount - banknote100Count * banknote100.Nominal;
+            amount -= banknote100Count * banknote100.Nominal;
 
             //Если сумма полностью разложена, выходим с положительным результатом
             if (amount == 0)
                 return true;
 
-            //Определим количество банкнот номинала 50
-            //Проверим, есть ли столько банкнот в банкомате, и возьмем меньшее из сравниваемых значений
             banknote50Count = Math.Min(amount / banknote50.Nominal, banknote50.Count);
-            amount = amount - banknote50Count * banknote50.Nominal;
+            amount -= banknote50Count * banknote50.Nominal;
 
-            //Если сумма полностью разложена, выходим с положительным результатом
             if (amount == 0)
                 return true;
 
-            //Определим количество банкнот номинала 20
-            //Проверим, есть ли столько банкнот в банкомате, и возьмем меньшее из сравниваемых значений
             banknote20Count = Math.Min(amount / banknote20.Nominal, banknote20.Count);
-            amount = amount - banknote20Count * banknote20.Nominal;
+            amount -= banknote20Count * banknote20.Nominal;
 
-            //Если сумма полностью разложена, выходим с положительным результатом
             if (amount == 0)
                 return true;
 
-            //Если к текущему моменту не вышли, значит сумма полностью не разложена
-            //Выходим с отрицательным результатом
+            return false;
+        }
+
+        public bool WithdrawMoney1(int withdrawalAmount)
+        {
+            int originalAmount = withdrawalAmount;
+
+            int banknote100Count = Math.Min(withdrawalAmount / 100, banknote100.Count);
+            withdrawalAmount -= banknote100Count * 100;
+
+            int banknote50Count = Math.Min(withdrawalAmount / 50, banknote50.Count);
+            withdrawalAmount -= banknote50Count * 50;
+
+            int banknote20Count = Math.Min(withdrawalAmount / 20, banknote20.Count);
+            withdrawalAmount -= banknote20Count * 20;
+
+            if (withdrawalAmount == 0)
+            {
+                banknote100.Count -= banknote100Count;
+                banknote50.Count -= banknote50Count;
+                banknote20.Count -= banknote20Count;
+
+                Console.WriteLine($"Выдано {originalAmount}:");
+                if (banknote100Count > 0) Console.WriteLine($"Номиналом 100: {banknote100Count} шт.");
+                if (banknote50Count > 0) Console.WriteLine($"Номиналом 50: {banknote50Count} шт.");
+                if (banknote20Count > 0) Console.WriteLine($"Номиналом 20: {banknote20Count} шт.");
+
+                return true;
+            }
+
+            Console.WriteLine("Невозможно выдать указанную сумму доступными купюрами.");
             return false;
         }
     }

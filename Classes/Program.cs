@@ -14,6 +14,7 @@ namespace Classes
         {
             Console.OutputEncoding = Encoding.Unicode;
 
+
             /////////////////////////////////////////////////////////////
             //Задача 1
             PrintTaskNumber(1);
@@ -91,7 +92,6 @@ namespace Classes
             cashMachine.WithdrawMoney(13590);
             cashMachine.GetInfo();
 
-
             /////////////////////////////////////////////////////////////
             //Задача 4
             PrintTaskNumber(4);
@@ -140,7 +140,6 @@ namespace Classes
 
             //Назначим врача
             patient3.AppointDoctor();
-
         }
 
         static void PrintTaskNumber(int number)
@@ -156,5 +155,10 @@ namespace Classes
             Console.WriteLine($"\n{text}\n");
             Console.ForegroundColor = ConsoleColor.White;
         }
+
+
+
+
+
     }
 }

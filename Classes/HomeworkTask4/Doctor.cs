@@ -10,7 +10,7 @@ namespace Classes.Homework
 {
     internal class Doctor : Person
     {
-        public string QualificationCategory {get; set;}
+        public string QualificationCategory { get; set; }
 
         public Doctor(string name, string qualificationCategory) : base(name) => QualificationCategory = qualificationCategory;
 
