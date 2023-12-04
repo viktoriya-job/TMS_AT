@@ -75,5 +75,4 @@ namespace Classes.Homework
             Console.WriteLine($"Назначена рентгенография челюсти в проекции: {projection}");
         }
     }
-
 }

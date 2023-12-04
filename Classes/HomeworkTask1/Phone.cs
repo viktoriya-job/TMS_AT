@@ -24,11 +24,7 @@ namespace Classes.Homework
             Model = model;
         }
 
-        public Phone(string number, string model, float weight) : this(number, model)
-        {
-            Weight = weight;
-        }
-
+        public Phone(string number, string model, float weight) : this(number, model) => Weight = weight;
 
         public void ReceiveCall(string callerName)
         {
