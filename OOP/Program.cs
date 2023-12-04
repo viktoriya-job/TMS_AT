@@ -1,4 +1,5 @@
 ﻿using OOP.TransportHierarchy;
+using System.Reflection.Metadata.Ecma335;
 using System.Text;
 
 internal partial class Program
@@ -21,12 +22,10 @@ internal partial class Program
             if (task == 0 || task > 4)
                 Console.WriteLine("Вы ввели неправильный номер");
             else
-            {
                 switch (task)
                 {
                     case 3: Task3(); break;
                 }
-            }
         }
         catch (Exception ex)
         {
@@ -41,7 +40,7 @@ internal partial class Program
         var bus = new TransportBackwardAutomobileBus("62", "Sity", 48, new DateTime(2024, 8, 10));
         Console.WriteLine(bus.GetTransportInfo());
 
-        PrintRedText("Создадим массив различных объектов");
+        PrintRedText("Массив объектов из различных видов транспорта: ");
         Transport[] transportArray =
         {
             new TransportAirAeronauticalAirship(),
@@ -55,59 +54,27 @@ internal partial class Program
             new TransportWaterSeaCruiseShip("1118","Spain",600,new DateTime(2023,12,20))
         };
 
-        PrintRedText("Выведем созданный массив");
-        foreach (Transport transport in transportArray)
-            Console.WriteLine(transport.GetTransportInfo());
-
-        PrintRedText("Отсортированный по количеству мест массив");
+        //Вызовем метод PrintTransportServise для объектов разных типов - сразу для отсортированного массива
+        PrintRedText("Массив объектов из различных видов транспорта. Сортировка по количеству мест.");
         var arraySorted = transportArray.OrderBy(key => key.SeatsNumber);
 
         foreach (Transport transport in arraySorted)
-            Console.WriteLine(transport.GetTransportInfo());
+            TransportService.PrintTransportServise(transport);
 
-        //Поиск по времени
-        PrintRedText("Введите дату отправления для поиска объекта: ");
+        PrintRedText("Поиск маршрутов по дате отправления. Введите дату: ");
+        SearchByDate('=', Console.ReadLine(), transportArray);
 
-        if (DateTime.TryParse(Console.ReadLine(), out DateTime dateTime))
-        {
-            foreach (Transport transport in transportArray)
+        PrintRedText("Поиск маршрутов позже даты отправления. Введите дату: ");
+        SearchByDate('>', Console.ReadLine(), transportArray);
 
-                if (transport.DepartureTime == dateTime)
-                    Console.WriteLine(transport.GetTransportInfo());
-        }
-        else Console.WriteLine("Введен некорректный формат даты");
-
-        //Поиск по пункту назначения
-        PrintRedText("Введите пункт назначения для поиска объекта: ");
+        PrintRedText("Поиск маршрута по пункту назначения. Введите пункт: ");
         string? destination = Console.ReadLine();
 
-        if (String.IsNullOrWhiteSpace(destination))
-            Console.WriteLine("Введена пустая строка");
-        else
+        if (CheckInput(destination))
             foreach (Transport transport in transportArray)
 
                 if (transport.Destination == destination)
                     Console.WriteLine(transport.GetTransportInfo());
-
-        //Поиск маршрутов после заданного времени
-        PrintRedText("Введите дату для поиска маршрута позднее нее");
-
-        if (DateTime.TryParse(Console.ReadLine(), out DateTime dateTimeAfter))
-        {
-            foreach (Transport transport in transportArray)
-
-                if (transport.DepartureTime > dateTimeAfter)
-                    Console.WriteLine(transport.GetTransportInfo());
-        }
-        else Console.WriteLine("Введен некорректный формат даты");
-
-        //Вызовем метод PrintTransportServise для объектов разных типов
-        PrintRedText("Информация по объектам разных типов транспорта");
-        TransportService.PrintTransportServise(new TransportAirAviationAirplane("Air717", "Moscow", 325, new DateTime(2024, 1, 1)));
-        TransportService.PrintTransportServise(new TransportWaterRiverFerry("KrMk_115", "Краснодар", 314, new DateTime(2023, 12, 31)));
-        TransportService.PrintTransportServise(new TransportWaterRiverTram("56F", "ЖК Адмирал", 110, new DateTime(2024, 01, 12)));
-        TransportService.PrintTransportServise(new TransportWaterSeaBoat("-", "Sochy", 20, new DateTime(2024, 8, 13)));
-        TransportService.PrintTransportServise(new TransportWaterSeaCruiseShip("1118", "Spain", 600, new DateTime(2023, 12, 20)));
     }
 
     public static void PrintRedText(string Text)
@@ -115,5 +82,58 @@ internal partial class Program
         Console.ForegroundColor = ConsoleColor.Red;
         Console.WriteLine(Text);
         Console.ForegroundColor = ConsoleColor.White;
+    }
+
+    private static bool CheckInput(string? input)
+    {
+        if (String.IsNullOrWhiteSpace(input))
+        {
+            Console.WriteLine("Введена пустая строка");
+            return false;
+        }
+            return true;
+    }
+
+    private static bool CheckInput(string? input, out DateTime dateTimeChecked)
+    {
+        if (CheckInput(input))
+            if (DateTime.TryParse(input, out DateTime dateTime))
+            {
+                dateTimeChecked = dateTime;
+                return true;
+            }
+        Console.WriteLine("Введен некорректный формат даты");
+        dateTimeChecked = DateTime.Now;
+        return false;
+    }
+
+    private static void SearchByDate(char operation, string? date, params Transport[] transportArray)
+    {
+        if (CheckInput(date, out DateTime dateTimeAfter))
+            switch (operation)
+        {
+            case '=':
+                    foreach (Transport transport in transportArray)
+
+                        if (transport.DepartureTime == dateTimeAfter)
+                            Console.WriteLine(transport.GetTransportInfo());
+                break;
+            case '>':
+                    foreach (Transport transport in transportArray)
+
+                        if (transport.DepartureTime > dateTimeAfter)
+                            Console.WriteLine(transport.GetTransportInfo());
+                break;
+            case '<':
+                    foreach (Transport transport in transportArray)
+
+                        if (transport.DepartureTime < dateTimeAfter)
+                            Console.WriteLine(transport.GetTransportInfo());
+                break;
+            default:
+                Console.WriteLine("Неправильный код операции");
+                break;
+        }
+
     }
 }

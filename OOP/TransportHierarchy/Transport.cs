@@ -13,45 +13,62 @@ namespace OOP.TransportHierarchy
 
         public string Destination { get; set; } = "Не определен";
 
-        public DateTime departureTime = DateTime.Now;
+        public DateTime _departureTime = DateTime.Now;
 
         public DateTime DepartureTime
         {
             get
             {
-                return departureTime;
+                return _departureTime;
             }
             set
             {
                 if (value < DateTime.Now)
                     Program.PrintRedText("Дата отправления не может быть меньше текущей");
                 else
-                    departureTime = value;
+                    _departureTime = value;
             }
         }
 
-        int seatsNumber = 1;
+        int _seatsNumber = 1;
         public int SeatsNumber
         {
             get
             {
-                return seatsNumber;
+                return _seatsNumber;
             }
             set
             {
                 if (value < 1)
                     Program.PrintRedText("Число мест должно быть больше 0");
                 else
-                    seatsNumber = value;
+                    _seatsNumber = value;
             }
         }
         public Transport() { }
 
         public virtual string GetTransportInfo() => TransportType;
 
-        //Следующий метод нельзя переопределить, так как он не virtual / abstract
-        //sead здесь не подходит, так как он используется, если метод уже override
-        public string GetTransportSubType() => TransportSubType;
+        public string PrintTransportInfo(char symbol)
+        {
+            return($"""
+                {new string(symbol, 45)}
+                Тип:    {TransportSubType} {TransportType}
+                Вид:    {TransportKind}
 
+                Номер:              {Number}
+                Пункт назначения:   {Destination}
+                Время отправления   {DepartureTime}
+                Число мест:         {SeatsNumber}
+                {new string(symbol, 45)}
+                """);
+        }
+
+        // "Определить метод в суперклассе, который нельзя будет переопределить
+        // в классах наследниках и запретить это переопределение"
+        //
+        //Следующий метод нельзя переопределить, так как он не virtual / abstract
+        //sead здесь не подходит, так как используется, если метод уже override
+        public string GetTransportSubType() => TransportSubType;
     }
 }
