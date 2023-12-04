@@ -40,7 +40,7 @@ internal partial class Program
         var bus = new TransportBackwardAutomobileBus("62", "Sity", 48, new DateTime(2024, 8, 10));
         Console.WriteLine(bus.GetTransportInfo());
 
-        PrintRedText("Массив объектов из различных видов транспорта: ");
+        //Создадим массив объяктов разных типов
         Transport[] transportArray =
         {
             new TransportAirAeronauticalAirship(),
