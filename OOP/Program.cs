@@ -16,11 +16,10 @@ internal partial class Program
                 3 -  Задача 3: Парк Общественного транспорта
                 4 -  Задача 4: Машинки
                 """);
-        try
-        {
-            byte task = Convert.ToByte(Console.ReadLine());
 
-            if (task == 0 || task > 4)
+        if (Int32.TryParse(Console.ReadLine(), out int task))
+
+            if (task < 1 || task > 4)
                 Console.WriteLine("Вы ввели неправильный номер");
             else
                 switch (task)
@@ -28,11 +27,8 @@ internal partial class Program
                     case 3: Task3(); break;
                     case 4: Task4(); break;
                 }
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine($"Произошла ошибка - введено некорректное число.\n{ex}");
-        }
+        else
+            Console.WriteLine("Введено некорректное значение");
     }
 
     private static void Task3()
@@ -42,7 +38,7 @@ internal partial class Program
         var bus = new TransportBackwardAutomobileBus("62", "Sity", 48, new DateTime(2024, 8, 10));
         Console.WriteLine(bus.GetTransportInfo());
 
-        //Создадим массив объяктов разных типов
+        //Создадим массив объектов разных типов
         Transport[] transportArray =
         {
             new TransportAirAeronauticalAirship(),
@@ -81,7 +77,7 @@ internal partial class Program
 
     private static void Task4()
     {
-        //Создадим массив объяктов разных типов
+        //Создадим массив объектов разных типов и выведем информацию по ним
         Auto[] autoArray =
         {
             new PassengerCar("Audi","z000zz",200),
@@ -90,8 +86,13 @@ internal partial class Program
             new Motorbike("Yamaha", "mm445", 250, false),
             new Motorbike("Минск", "nm654", 100, true)
         };
+
         foreach (Auto auto in autoArray)
             auto.GetInfo();
+
+        //Поиск по соответствию требованиям грузоподъемности
+        PrintRedText("\nВведите тип операции (<, =, >) и значение грузоподъемности");
+        SearchByInt(Console.ReadLine(), Console.ReadLine(), autoArray);
     }
 
     public static void PrintRedText(string Text)
@@ -124,32 +125,61 @@ internal partial class Program
         return false;
     }
 
-    private static void SearchByDate(char operation, string? date, params Transport[] transportArray)
+    private static void SearchByDate(char operation, string? date, params Transport[] inputArray)
     {
         if (CheckInput(date, out DateTime dateTimeAfter))
             switch (operation)
             {
                 case '=':
-                    foreach (Transport transport in transportArray)
+                    foreach (Transport transport in inputArray)
 
                         if (transport.DepartureTime == dateTimeAfter)
-                            Console.WriteLine(transport.GetTransportInfo());
+                            TransportService.PrintTransportServise(transport);
                     break;
                 case '>':
-                    foreach (Transport transport in transportArray)
+                    foreach (Transport transport in inputArray)
 
                         if (transport.DepartureTime > dateTimeAfter)
-                            Console.WriteLine(transport.GetTransportInfo());
+                            TransportService.PrintTransportServise(transport);
                     break;
                 case '<':
-                    foreach (Transport transport in transportArray)
+                    foreach (Transport transport in inputArray)
 
                         if (transport.DepartureTime < dateTimeAfter)
-                            Console.WriteLine(transport.GetTransportInfo());
+                            TransportService.PrintTransportServise(transport);
                     break;
                 default:
-                    Console.WriteLine("Неправильный код операции");
+                    Console.WriteLine("Неправильный тип операции");
                     break;
             }
+    }
+
+    private static void SearchByInt(string? operation, string? input, params Auto[] inputArray)
+    {
+        if (Char.TryParse(operation, out char operationValue))
+            if (Int32.TryParse(input, out int inputValue))
+                foreach (Auto auto in inputArray)
+                    switch (operationValue)
+                    {
+                        case '=':
+                            if (auto.LiftingCapacity == inputValue)
+                                auto.GetInfo();
+                            break;
+                        case '>':
+                            if (auto.LiftingCapacity > inputValue)
+                                auto.GetInfo();
+                            break;
+                        case '<':
+                            if (auto.LiftingCapacity < inputValue)
+                                auto.GetInfo();
+                            break;
+                        default:
+                            Console.WriteLine("Неправильный тип операции");
+                            break;
+                    }
+            else
+                Console.WriteLine("Введено некорректное значение грузоподъемности");
+        else
+            Console.WriteLine("Введено некорректное значение типа операции");
     }
 }
