@@ -1,11 +1,12 @@
 ﻿using OOP.TransportHierarchy;
-using System.Reflection.Metadata.Ecma335;
+using OOP.Cars;
 using System.Text;
 
 internal partial class Program
 {
     private static void Main(string[] args)
     {
+        Console.InputEncoding = Encoding.Unicode;
         Console.OutputEncoding = Encoding.Unicode;
 
         Console.WriteLine("""
@@ -25,6 +26,7 @@ internal partial class Program
                 switch (task)
                 {
                     case 3: Task3(); break;
+                    case 4: Task4(); break;
                 }
         }
         catch (Exception ex)
@@ -73,8 +75,23 @@ internal partial class Program
         if (CheckInput(destination))
             foreach (Transport transport in transportArray)
 
-                if (transport.Destination == destination)
-                    Console.WriteLine(transport.GetTransportInfo());
+                if (String.Equals(transport.Destination, destination, StringComparison.CurrentCultureIgnoreCase))
+                    TransportService.PrintTransportServise(transport);
+    }
+
+    private static void Task4()
+    {
+        //Создадим массив объяктов разных типов
+        Auto[] autoArray =
+        {
+            new PassengerCar("Audi","z000zz",200),
+            new Truck("MAN", "yr777", 150, true),
+            new Truck("Mersedes", "uu555", 170, false),
+            new Motorbike("Yamaha", "mm445", 250, false),
+            new Motorbike("Минск", "nm654", 100, true)
+        };
+        foreach (Auto auto in autoArray)
+            auto.GetInfo();
     }
 
     public static void PrintRedText(string Text)
@@ -91,7 +108,7 @@ internal partial class Program
             Console.WriteLine("Введена пустая строка");
             return false;
         }
-            return true;
+        return true;
     }
 
     private static bool CheckInput(string? input, out DateTime dateTimeChecked)
@@ -111,29 +128,28 @@ internal partial class Program
     {
         if (CheckInput(date, out DateTime dateTimeAfter))
             switch (operation)
-        {
-            case '=':
+            {
+                case '=':
                     foreach (Transport transport in transportArray)
 
                         if (transport.DepartureTime == dateTimeAfter)
                             Console.WriteLine(transport.GetTransportInfo());
-                break;
-            case '>':
+                    break;
+                case '>':
                     foreach (Transport transport in transportArray)
 
                         if (transport.DepartureTime > dateTimeAfter)
                             Console.WriteLine(transport.GetTransportInfo());
-                break;
-            case '<':
+                    break;
+                case '<':
                     foreach (Transport transport in transportArray)
 
                         if (transport.DepartureTime < dateTimeAfter)
                             Console.WriteLine(transport.GetTransportInfo());
-                break;
-            default:
-                Console.WriteLine("Неправильный код операции");
-                break;
-        }
-
+                    break;
+                default:
+                    Console.WriteLine("Неправильный код операции");
+                    break;
+            }
     }
 }

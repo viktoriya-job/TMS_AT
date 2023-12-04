@@ -13,7 +13,7 @@ namespace OOP.TransportHierarchy
 
         public string Destination { get; set; } = "Не определен";
 
-        public DateTime _departureTime = DateTime.Now;
+        private DateTime _departureTime = DateTime.Now;
 
         public DateTime DepartureTime
         {
@@ -30,7 +30,7 @@ namespace OOP.TransportHierarchy
             }
         }
 
-        int _seatsNumber = 1;
+        private int _seatsNumber = 1;
         public int SeatsNumber
         {
             get
