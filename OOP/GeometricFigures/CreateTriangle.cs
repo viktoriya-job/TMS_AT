@@ -1,18 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace OOP.HomeworkTask1
+﻿
+namespace OOP.GeometricFigures
 {
-    internal class TriangleCreation : TriangleTwoSidesEqual
+    internal class TriangleCreation
     {
-
-        public TriangleCreation(float lengthSideA, float lengthSideB) : base(lengthSideA, lengthSideB)
+        public Triangle CreateTriangleByType(float lengthSideA, float lengthSideB, float lengthSideC)
         {
+            if (lengthSideA == lengthSideB && lengthSideA == lengthSideC)
+                return new TriangleAllSidesEqual(lengthSideA);
+            return new Triangle(lengthSideA, lengthSideB, lengthSideC);
         }
+
+    
     }
+}
+    
 
 
 
@@ -61,4 +62,6 @@ namespace OOP.HomeworkTask1
     //            return new Triangle(lengthSideA, lengthSideB, lengthSideC);
     //    }
     //}
-}
+    //}
+
+

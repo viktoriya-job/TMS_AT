@@ -42,13 +42,11 @@ internal partial class Program
         Transport[] transportArray =
         {
             new TransportAirAeronauticalAirship(),
-            new TransportAirAviationAirplane("Air717","Moscow",325,new DateTime(2024,1,1)),
+            new TransportAirAviationAirplane("Air717","Moscow",325,new DateTime(2024,1,12)),
             new TransportBackwardAutomobileBus("108","Краснодар",58,new DateTime(2024,1,1)),
             new TransportBackwardAutomobileTrolleybus("14","Школа 14"),
             new TransportBackwardRailwayTram("8"),
             new TransportWaterRiverFerry("KrMk_115","Краснодар",314,new DateTime(2023,12,31)),
-            new TransportWaterRiverTram("56F","ЖК Адмирал",110,new DateTime(2024,01,12)),
-            new TransportWaterSeaBoat("-","Sochy",20,new DateTime(2024,8,13)),
             new TransportWaterSeaCruiseShip("1118","Spain",600,new DateTime(2023,12,20))
         };
 

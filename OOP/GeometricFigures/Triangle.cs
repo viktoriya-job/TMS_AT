@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace OOP.HomeworkTask1
+﻿
+namespace OOP.GeometricFigures
 {
     internal class Triangle : GeometricFigure
     {
