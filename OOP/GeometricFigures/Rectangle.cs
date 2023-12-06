@@ -1,28 +1,24 @@
 ﻿
 namespace OOP.GeometricFigures
 {
-
-    internal class Square : GeometricFigure
+    internal class Rectangle : Quadrilateral
     {
-        public int LengthSideA { get; set; }
+        public float LengthSideA { get; set; }
+        public float LengthSideB { get; set; }
 
-        public Square(int lengthSide)
+        public Rectangle(float lengthSideA, float lengthSideB)
         {
-            LengthSideA = lengthSide;
-        }
-
-        public virtual int RectangleArea() => LengthSideA * LengthSideA;
-    }
-
-    internal class Rectangle : Square
-    {
-        public int LengthSideB { get; set; }
-
-        public Rectangle(int lengthSideA, int lengthSideB): base(lengthSideA)
-        {
+            LengthSideA = lengthSideA;
             LengthSideB = lengthSideB;
+            QuadrilateralType = "Прямоугольник";
         }
 
-        public override int RectangleArea() => LengthSideA * LengthSideB;
+        public override float GetArea() => LengthSideA * LengthSideB;
+
+        public override void PrintInfo()
+        {
+            base.PrintInfo();
+            Console.WriteLine($"Стороны прямоугольника: {LengthSideA}, {LengthSideB}\n");
+        }
     }
 }

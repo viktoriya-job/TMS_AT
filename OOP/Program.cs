@@ -1,6 +1,7 @@
 ﻿using OOP.TransportHierarchy;
 using OOP.Cars;
 using System.Text;
+using OOP.GeometricFigures;
 
 internal partial class Program
 {
@@ -24,11 +25,35 @@ internal partial class Program
             else
                 switch (task)
                 {
+                    case 1: Task1(); break;
                     case 3: Task3(); break;
                     case 4: Task4(); break;
                 }
         else
             Console.WriteLine("Введено некорректное значение");
+    }
+
+    private static void Task1()
+    {
+        GeometricFigure[] figures =
+        {
+            TriangleCreate.CreateTriangle(3,4,5),
+            TriangleCreate.CreateTriangle(12,15,10),
+            TriangleCreate.CreateTriangle(5,12,13),
+            TriangleCreate.CreateTriangle(5.7f,4.1f,3.2f),
+            TriangleCreate.CreateTriangle(3,3,3),
+            TriangleCreate.CreateTriangle(6,4,4),
+            TriangleCreate.CreateTriangle(10.5f,6,10.5f),
+            new Rectangle(4,6),
+            new Square(12),
+            new Rectangle(14.5f,6.2f),
+            new Square(1.2f)
+        };
+
+        foreach (var figure in figures)
+        {
+            figure.PrintInfo();
+        }
     }
 
     private static void Task3()

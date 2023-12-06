@@ -1,10 +1,13 @@
 ﻿
 namespace OOP.GeometricFigures
 {
-    internal class GeometricFigure
+    abstract class GeometricFigure
     {
-        int Dimension { get; set; } = 2;
-        int AnglesCount { get; set; }
-       // public string ArmsEquality { get; set; }
+        protected string GeometricFigureType { get; set; }
+        public abstract float GetArea();
+        public virtual void PrintInfo()
+        {
+            Console.WriteLine($"Фигура: {GeometricFigureType}");
+        }
     }
 }
