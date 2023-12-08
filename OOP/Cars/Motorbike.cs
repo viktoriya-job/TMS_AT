@@ -3,24 +3,24 @@ namespace OOP.Cars
 {
     internal class Motorbike : Auto
     {
-        public bool IsSidecar { get; set; } = false;
+        public bool IsHasSidecar { get; set; } = false;
 
-        public Motorbike(string brand, string number, int speed, bool isSidecar) : base(brand, number, speed)
+        public Motorbike(string brand, string number, int speed, bool isHasSidecar) : base(brand, number, speed)
         {
-            IsSidecar = isSidecar;
+            IsHasSidecar = isHasSidecar;
             LiftingCapacity = ComputeLiftingCapacity();
         }
 
-        public override void GetInfo()
+        public override void PrintInfo()
         {
             Console.WriteLine("\nМотоцикл");
-            base.GetInfo();
-            Console.WriteLine($"Есть коляска:       {IsSidecar}");
+            base.PrintInfo();
+            Console.WriteLine($"Есть коляска:       {IsHasSidecar}");
         }
 
         protected override int ComputeLiftingCapacity()
         {
-            if (IsSidecar)
+            if (IsHasSidecar)
                 return LiftingCapacityMotorbikeWithSidecar;
             return 0;
         }

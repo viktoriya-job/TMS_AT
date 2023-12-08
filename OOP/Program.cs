@@ -125,7 +125,7 @@ internal partial class Program
         };
 
         foreach (Auto auto in autoArray)
-            auto.GetInfo();
+            auto.PrintInfo();
 
         //Поиск по соответствию требованиям грузоподъемности
         PrintRedText("\nВведите тип операции (<, =, >) и значение грузоподъемности");
@@ -200,15 +200,15 @@ internal partial class Program
                     {
                         case '=':
                             if (auto.LiftingCapacity == inputValue)
-                                auto.GetInfo();
+                                auto.PrintInfo();
                             break;
                         case '>':
                             if (auto.LiftingCapacity > inputValue)
-                                auto.GetInfo();
+                                auto.PrintInfo();
                             break;
                         case '<':
                             if (auto.LiftingCapacity < inputValue)
-                                auto.GetInfo();
+                                auto.PrintInfo();
                             break;
                         default:
                             Console.WriteLine("Неправильный тип операции");

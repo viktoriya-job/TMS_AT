@@ -1,10 +1,10 @@
 ﻿
 namespace OOP.Cars
 {
-    internal class Auto
+    internal abstract class Auto
     {
         protected const int LiftingCapacityPassengerCar = 500;
-        protected const int LiftingCapacityTruck = 1000;
+        protected const int LiftingCapacityTruckWithoutTrailer = 1000;
         protected const int LiftingCapacityMotorbikeWithSidecar = 200;
 
         public string Brand { get; set; } = "Не определен";
@@ -17,10 +17,9 @@ namespace OOP.Cars
             Brand = brand;
             Number = number;
             Speed = speed;
-            LiftingCapacity = ComputeLiftingCapacity();
         }
 
-        public virtual void GetInfo()
+        public virtual void PrintInfo()
         {
             Console.WriteLine($"""
                 Марка               {Brand}
@@ -30,6 +29,6 @@ namespace OOP.Cars
                 """);
         }
 
-        protected virtual int ComputeLiftingCapacity() => 0;
+        protected abstract int ComputeLiftingCapacity();
     }
 }
