@@ -115,11 +115,11 @@ internal partial class Program
         //Создадим массив объектов разных типов и выведем информацию по ним
         Auto[] autoArray =
         {
-            new PassengerCar("Audi","z000zz",200),
-            new Truck("MAN", "yr777", 150, true),
-            new Truck("Mersedes", "uu555", 170, false),
-            new Motorbike("Yamaha", "mm445", 250, false),
-            new Motorbike("Минск", "nm654", 100, true)
+            new PassengerCar("Audi","z000zz",200,500),
+            new Truck("MAN", "yr777", 150, true, 1000),
+            new Truck("Mersedes", "uu555", 170, false, 1000),
+            new Motorbike("Yamaha", "mm445", 250, false, 200),
+            new Motorbike("Минск", "nm654", 100, true, 200)
         };
 
         foreach (Auto auto in autoArray)

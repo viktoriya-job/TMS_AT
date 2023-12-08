@@ -3,10 +3,6 @@ namespace OOP.Cars
 {
     internal abstract class Auto
     {
-        protected const int LiftingCapacityPassengerCar = 500;
-        protected const int LiftingCapacityTruckWithoutTrailer = 1000;
-        protected const int LiftingCapacityMotorbikeWithSidecar = 200;
-
         public string Brand { get; set; } = "Не определен";
         public string Number { get; set; } = "Не определен";
         public int Speed { get; set; } = 0;
@@ -29,6 +25,6 @@ namespace OOP.Cars
                 """);
         }
 
-        protected abstract int ComputeLiftingCapacity();
+        protected abstract int ComputeLiftingCapacity(int InputLiftingCapacity);
     }
 }

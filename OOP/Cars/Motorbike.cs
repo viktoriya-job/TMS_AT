@@ -5,10 +5,10 @@ namespace OOP.Cars
     {
         public bool IsHasSidecar { get; set; } = false;
 
-        public Motorbike(string brand, string number, int speed, bool isHasSidecar) : base(brand, number, speed)
+        public Motorbike(string brand, string number, int speed, bool isHasSidecar, int inputLiftingCapacityWithSidecar) : base(brand, number, speed)
         {
             IsHasSidecar = isHasSidecar;
-            LiftingCapacity = ComputeLiftingCapacity();
+            LiftingCapacity = ComputeLiftingCapacity(inputLiftingCapacityWithSidecar);
         }
 
         public override void PrintInfo()
@@ -18,10 +18,10 @@ namespace OOP.Cars
             Console.WriteLine($"Есть коляска:       {IsHasSidecar}");
         }
 
-        protected override int ComputeLiftingCapacity()
+        protected override int ComputeLiftingCapacity(int inputLiftingCapacityWithSidecar)
         {
             if (IsHasSidecar)
-                return LiftingCapacityMotorbikeWithSidecar;
+                return inputLiftingCapacityWithSidecar;
             return 0;
         }
     }

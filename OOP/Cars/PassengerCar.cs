@@ -3,9 +3,9 @@ namespace OOP.Cars
 {
     internal class PassengerCar : Auto
     {
-        public PassengerCar(string brand, string number, int speed) : base(brand, number, speed)
+        public PassengerCar(string brand, string number, int speed, int inputLiftingCapacity) : base(brand, number, speed)
         {
-            LiftingCapacity = ComputeLiftingCapacity();
+            LiftingCapacity = ComputeLiftingCapacity(inputLiftingCapacity);
         }
 
         public override void PrintInfo()
@@ -14,6 +14,6 @@ namespace OOP.Cars
             base.PrintInfo();
         }
 
-        protected override int ComputeLiftingCapacity() => LiftingCapacityPassengerCar;
+        protected override int ComputeLiftingCapacity(int inputLiftingCapacity) => inputLiftingCapacity;
     }
 }
