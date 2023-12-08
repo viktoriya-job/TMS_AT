@@ -2,6 +2,7 @@
 using OOP.Cars;
 using System.Text;
 using OOP.GeometricFigures;
+using OOP.Clinic;
 
 internal partial class Program
 {
@@ -25,6 +26,7 @@ internal partial class Program
                 switch (task)
                 {
                     case 1: Task1(); break;
+                    case 2: Task2(); break;
                     case 3: Task3(); break;
                     case 4: Task4(); break;
                 }
@@ -53,6 +55,35 @@ internal partial class Program
             figure.PrintInfo();
     }
 
+    private static void Task2()
+    {
+        //Создадим планы лечения, пациентов
+        TreatmentPlan treatmentPlanSurgical = new TreatmentPlan(1);
+        treatmentPlanSurgical.AddEntriesToTreatmentPlan(new string[] { "Исправление дефектов после ранее перенесенных операций", "Исправление состояний после травм" });
+
+        TreatmentPlan treatmentPlanDental = new TreatmentPlan(2);
+        treatmentPlanDental.AddEntriesToTreatmentPlan(new string[] { "Лечение кариеса неосложненное", "Лечение пульпита", "Протезирование" });
+
+        TreatmentPlan treatmentPlanTherapeutic = new TreatmentPlan(3);
+        treatmentPlanTherapeutic.AddEntriesToTreatmentPlan(new string[] { "Лечение ожирения первой степени" });
+
+        Patient[] patients =
+        {
+            new Patient("Мария Барсиковна Чернохвостова", treatmentPlanSurgical),
+            new Patient("Марсик Барсикович Чернохвостов", treatmentPlanDental),
+            new Patient("Кузьма Барсикович Чернохвостов", treatmentPlanTherapeutic)
+        };
+
+        //Назначим врача и выведем информацию о каждом пациенте, его плане лечения, проведенном лечении
+        foreach (var patient in patients)
+        {
+            PrintRedText(patient.Name);
+            patient.PatientTreatmentPlan.PrintTreatmentPlan();
+            patient.AppointDoctor();
+            Console.WriteLine(new string('~', 25));
+        }
+    }
+
     private static void Task3()
     {
         PrintRedText("Создание объекта класса Bus и вывод значений его полей в консоль");
@@ -62,16 +93,16 @@ internal partial class Program
 
         //Создадим массив объектов разных типов транспорта
         Transport[] transportArray =
-            {
+        {
             bus,
             new TransportWaterRiverFerry("18FF","Краснодар",58,new DateTime(2024,1,1)),
             new TransportPersonalBike(new DateTime(2019,10,10),"Black"),
             new TransportBackwardRailwayTram()
-            };
+        };
 
         //Вызовем метод PrintTransportServise (вывод информацию по типу транспорта) для объектов разных типов
         PrintRedText("\nВывод информации по типу общественного транспорта для массива объектов разного типа");
-        
+
         foreach (Transport transport in transportArray)
             TransportService.PrintTransportServise(transport);
 
