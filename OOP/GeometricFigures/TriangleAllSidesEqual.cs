@@ -15,6 +15,7 @@ namespace OOP.GeometricFigures
         {
             return (float)(Math.Sqrt(3) / 4 * LengthSide * LengthSide);
         }
+
         public override void PrintInfo()
         {
             base.PrintInfo();

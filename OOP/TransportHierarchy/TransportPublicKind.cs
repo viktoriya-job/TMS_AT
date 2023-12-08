@@ -3,9 +3,9 @@ namespace OOP.TransportHierarchy
 {
     internal class TransportAirAeronauticalAirship : TransportAirAeronautical
     {
-        string transportKind = "Дирижабль";
+        private string _transportKind = "Дирижабль";
 
-        public TransportAirAeronauticalAirship() : base() => TransportKind = transportKind;
+        public TransportAirAeronauticalAirship() : base() => TransportKind = _transportKind;
 
         public TransportAirAeronauticalAirship(string number) : this() => Number = number;
 
@@ -18,9 +18,9 @@ namespace OOP.TransportHierarchy
 
     internal class TransportAirAviationAirplane : TransportAirAviation
     {
-        string transportKind = "Самолет";
+        private string _transportKind = "Самолет";
 
-        public TransportAirAviationAirplane() : base() => TransportKind = transportKind;
+        public TransportAirAviationAirplane() : base() => TransportKind = _transportKind;
 
         public TransportAirAviationAirplane(string number) : this() => Number = number;
 
@@ -33,9 +33,9 @@ namespace OOP.TransportHierarchy
 
     internal class TransportBackwardAutomobileBus : TransportBackwardAutomobile
     {
-        string transportKind = "Автобус";
+        private string _transportKind = "Автобус";
 
-        public TransportBackwardAutomobileBus() : base() => TransportKind = transportKind;
+        public TransportBackwardAutomobileBus() : base() => TransportKind = _transportKind;
 
         public TransportBackwardAutomobileBus(string number) : this() => Number = number;
 
@@ -48,9 +48,9 @@ namespace OOP.TransportHierarchy
 
     internal class TransportBackwardAutomobileTrolleybus : TransportBackwardAutomobile
     {
-        string transportKind = "Троллейбус";
+        private string _transportKind = "Троллейбус";
 
-        public TransportBackwardAutomobileTrolleybus() : base() => TransportKind = transportKind;
+        public TransportBackwardAutomobileTrolleybus() : base() => TransportKind = _transportKind;
 
         public TransportBackwardAutomobileTrolleybus(string number) : this() => Number = number;
 
@@ -63,9 +63,9 @@ namespace OOP.TransportHierarchy
 
     internal class TransportBackwardRailwayTram : TransportBackwardRailway
     {
-        string transportKind = "Трамвай";
+        private string _transportKind = "Трамвай";
 
-        public TransportBackwardRailwayTram() : base() => TransportKind = transportKind;
+        public TransportBackwardRailwayTram() : base() => TransportKind = _transportKind;
 
         public TransportBackwardRailwayTram(string number) : this() => Number = number;
 
@@ -78,9 +78,9 @@ namespace OOP.TransportHierarchy
 
     internal class TransportWaterRiverFerry : TransportWaterRiver
     {
-        string transportKind = "Паром";
+        private string _transportKind = "Паром";
 
-        public TransportWaterRiverFerry() : base() => TransportKind = transportKind;
+        public TransportWaterRiverFerry() : base() => TransportKind = _transportKind;
 
         public TransportWaterRiverFerry(string number) : this() => Number = number;
 
@@ -93,9 +93,9 @@ namespace OOP.TransportHierarchy
 
     internal class TransportWaterSeaCruiseShip : TransportWaterSea
     {
-        string transportKind = "Круизный Лайнер";
+        private string _transportKind = "Круизный Лайнер";
 
-        public TransportWaterSeaCruiseShip() : base() => TransportKind = transportKind;
+        public TransportWaterSeaCruiseShip() : base() => TransportKind = _transportKind;
 
         public TransportWaterSeaCruiseShip(string number) : this() => Number = number;
 

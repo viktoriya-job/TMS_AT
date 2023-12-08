@@ -58,13 +58,27 @@ internal partial class Program
 
     private static void Task3()
     {
-        PrintRedText("Создадим объект класса Bus и выведем значения его полей в консоль");
+        PrintRedText("Создание объекта класса Bus и вывод значений его полей в консоль");
 
         var bus = new TransportBackwardAutomobileBus("62", "Sity", 48, new DateTime(2024, 8, 10));
-        Console.WriteLine(bus.GetTransportInfo());
+        bus.PrintInfo();
 
-        //Создадим массив объектов разных типов
+        //Создадим массив объектов разных типов транспорта
         Transport[] transportArray =
+            {
+            bus,
+            new TransportWaterRiverFerry("18FF","Краснодар",58,new DateTime(2024,1,1)),
+            new TransportPersonalBike(new DateTime(2019,10,10),"Black"),
+            new TransportBackwardRailwayTram()
+            };
+
+        //Вызовем метод PrintTransportServise (вывод информацию по типу транспорта) для объектов разных типов
+        PrintRedText("\nВывод информации по типу общественного транспорта для массива объектов разного типа");
+        foreach (Transport transport in transportArray)
+            TransportService.PrintTransportServise(transport);
+
+        //Создадим массив объектов общественного транспорта
+        TransportPublic[] transportPublicArray =
         {
             new TransportAirAeronauticalAirship(),
             new TransportAirAviationAirplane("Air717","Moscow",325,new DateTime(2024,1,12)),
@@ -75,27 +89,27 @@ internal partial class Program
             new TransportWaterSeaCruiseShip("1118","Spain",600,new DateTime(2023,12,20))
         };
 
-        //Вызовем метод PrintTransportServise для объектов разных типов - сразу для отсортированного массива
-        PrintRedText("Массив объектов из различных видов транспорта. Сортировка по количеству мест.");
-        var arraySorted = transportArray.OrderBy(key => key.SeatsNumber);
+        //Выведем всю информацию по объектам общественного транспорта для отсортированного массива
+        PrintRedText("\nМассив объектов из различных видов транспорта. Сортировка по количеству мест.");
+        var arraySorted = transportPublicArray.OrderBy(key => key.SeatsNumber);
 
-        foreach (Transport transport in arraySorted)
-            TransportService.PrintTransportServise(transport);
+        foreach (TransportPublic transport in arraySorted)
+            transport.PrintInfo();
 
         PrintRedText("Поиск маршрутов по дате отправления. Введите дату: ");
-        SearchByDate('=', Console.ReadLine(), transportArray);
+        SearchByDate('=', Console.ReadLine(), transportPublicArray);
 
         PrintRedText("Поиск маршрутов позже даты отправления. Введите дату: ");
-        SearchByDate('>', Console.ReadLine(), transportArray);
+        SearchByDate('>', Console.ReadLine(), transportPublicArray);
 
         PrintRedText("Поиск маршрута по пункту назначения. Введите пункт: ");
         string? destination = Console.ReadLine();
 
         if (CheckInput(destination))
-            foreach (Transport transport in transportArray)
+            foreach (TransportPublic transport in transportPublicArray)
 
                 if (String.Equals(transport.Destination, destination, StringComparison.CurrentCultureIgnoreCase))
-                    TransportService.PrintTransportServise(transport);
+                    transport.PrintInfo();
     }
 
     private static void Task4()
@@ -148,28 +162,28 @@ internal partial class Program
         return false;
     }
 
-    private static void SearchByDate(char operation, string? date, params Transport[] inputArray)
+    private static void SearchByDate(char operation, string? date, params TransportPublic[] inputArray)
     {
         if (CheckInput(date, out DateTime dateTimeAfter))
             switch (operation)
             {
                 case '=':
-                    foreach (Transport transport in inputArray)
+                    foreach (TransportPublic transport in inputArray)
 
                         if (transport.DepartureTime == dateTimeAfter)
-                            TransportService.PrintTransportServise(transport);
+                            transport.PrintInfo();
                     break;
                 case '>':
-                    foreach (Transport transport in inputArray)
+                    foreach (TransportPublic transport in inputArray)
 
                         if (transport.DepartureTime > dateTimeAfter)
-                            TransportService.PrintTransportServise(transport);
+                            transport.PrintInfo();
                     break;
                 case '<':
-                    foreach (Transport transport in inputArray)
+                    foreach (TransportPublic transport in inputArray)
 
                         if (transport.DepartureTime < dateTimeAfter)
-                            TransportService.PrintTransportServise(transport);
+                            transport.PrintInfo();
                     break;
                 default:
                     Console.WriteLine("Неправильный тип операции");

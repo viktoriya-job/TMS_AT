@@ -5,7 +5,7 @@ namespace OOP.TransportHierarchy
     {
         public static void PrintTransportServise(Transport transport)
         {
-            Console.WriteLine(transport.GetTransportInfo()); 
+            Console.WriteLine(transport.GetTransportType()); 
         }
     }
 }

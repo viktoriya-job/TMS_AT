@@ -1,5 +1,4 @@
 ﻿
-
 namespace OOP.GeometricFigures
 {
     abstract class Quadrilateral : GeometricFigure

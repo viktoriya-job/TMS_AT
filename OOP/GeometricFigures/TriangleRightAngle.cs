@@ -19,6 +19,7 @@ namespace OOP.GeometricFigures
         {
             return LengthLeg1 * LengthLeg2 / 2;
         }
+
         public override void PrintInfo()
         {
             base.PrintInfo();
