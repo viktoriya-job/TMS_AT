@@ -1,9 +1,9 @@
 ﻿
 namespace OOP.GeometricFigures
 {
-    abstract class Triangle : GeometricFigure
+    internal abstract class Triangle : GeometricFigure
     {
-        protected string TriangleType { get; set; }
+        protected string TriangleType { get; set; } = "Не определен";
 
         protected Triangle() => GeometricFigureType = "Треугольник";
 

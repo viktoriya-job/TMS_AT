@@ -1,9 +1,9 @@
 ﻿
 namespace OOP.GeometricFigures
 {
-    abstract class Quadrilateral : GeometricFigure
+    internal abstract class Quadrilateral : GeometricFigure
     {
-        protected string QuadrilateralType { get; set; }
+        protected string QuadrilateralType { get; set; } = "Не определен";
 
         protected Quadrilateral() => GeometricFigureType = "Четырехугольник";
 

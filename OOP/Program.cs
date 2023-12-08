@@ -19,7 +19,6 @@ internal partial class Program
                 """);
 
         if (Int32.TryParse(Console.ReadLine(), out int task))
-
             if (task < 1 || task > 4)
                 Console.WriteLine("Вы ввели неправильный номер");
             else
@@ -51,9 +50,7 @@ internal partial class Program
         };
 
         foreach (var figure in figures)
-        {
             figure.PrintInfo();
-        }
     }
 
     private static void Task3()
@@ -74,6 +71,7 @@ internal partial class Program
 
         //Вызовем метод PrintTransportServise (вывод информацию по типу транспорта) для объектов разных типов
         PrintRedText("\nВывод информации по типу общественного транспорта для массива объектов разного типа");
+        
         foreach (Transport transport in transportArray)
             TransportService.PrintTransportServise(transport);
 
