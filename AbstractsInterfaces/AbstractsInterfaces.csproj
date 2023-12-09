@@ -8,11 +8,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="DocumentsAccount" Version="1.1.5" />
+    <Folder Include="Packages\" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Packages\" />
+    <PackageReference Include="DocumentAccount" Version="1.1.6" />
   </ItemGroup>
 
 </Project>

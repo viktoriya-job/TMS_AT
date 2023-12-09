@@ -5,7 +5,7 @@ VisualStudioVersion = 17.7.34221.43
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AbstractsInterfaces", "AbstractsInterfaces\AbstractsInterfaces.csproj", "{5A080454-83EF-4728-BCF7-3E136DD1503E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DocumentsAccount", "..\DocumentsAccount\DocumentsAccount\DocumentsAccount.csproj", "{CA8B31D7-444A-4815-A246-1BB4A20903C6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DocumentsAccount", "ClassLibrary1\DocumentsAccount.csproj", "{00CE166E-6026-4420-BB73-D582DA0D57C8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{5A080454-83EF-4728-BCF7-3E136DD1503E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5A080454-83EF-4728-BCF7-3E136DD1503E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5A080454-83EF-4728-BCF7-3E136DD1503E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CA8B31D7-444A-4815-A246-1BB4A20903C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CA8B31D7-444A-4815-A246-1BB4A20903C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CA8B31D7-444A-4815-A246-1BB4A20903C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CA8B31D7-444A-4815-A246-1BB4A20903C6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{00CE166E-6026-4420-BB73-D582DA0D57C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00CE166E-6026-4420-BB73-D582DA0D57C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00CE166E-6026-4420-BB73-D582DA0D57C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00CE166E-6026-4420-BB73-D582DA0D57C8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
