@@ -58,7 +58,7 @@ internal class Program
             Общая сумма:        {sumPerimeter + sumArea}
             """);
     }
-
+     
     private static void Task2()
     {
 
