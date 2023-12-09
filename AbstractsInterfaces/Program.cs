@@ -1,5 +1,6 @@
 ﻿using System.Text;
 using AbstractsInterfaces.GeometricFigures;
+using AbstractsInterfaces.Products;
 
 internal class Program
 {
@@ -58,7 +59,29 @@ internal class Program
 
     private static void Task2()
     {
-        Console.WriteLine("Task2");
+
+        Foodstuff cheese1 = new Foodstuff("Сыр Эмменталь 100 гр", 400, new DateOnly(2023, 10, 18), 60);
+        Foodstuff cheese2 = new Foodstuff("Сыр Гауда 100 гр", 500, new DateOnly(2023, 11, 01), 50);
+        Foodstuff cheese3 = new Foodstuff("Сыр Маздам 100 гр", 600, new DateOnly(2023, 12, 01), 30);
+        Foodstuff yogurt1 = new Foodstuff("Йогурт греческий", 40, new DateOnly(2023, 11, 01), 20); //просроченный =\
+        Foodstuff yogurt2 = new Foodstuff("Йогурт греческий вишневый", 50, new DateOnly(2023, 12, 08), 20); // а этот свежий
+
+        Product[] products =
+        {
+            cheese1, cheese2, cheese3, yogurt1, yogurt2,
+            new Set("Сырный набор", 1300, new List<Foodstuff> { cheese1, cheese2, cheese3 }),
+            new Set("Набор йогуртов", 150, new List<Foodstuff> { yogurt1, yogurt1, yogurt2, yogurt2 }), //набор просрочен, так как в него входит просроченный йогурт
+            new Foodstuff("Яблоки сезонные 1 кг", 500, new DateOnly(2023, 11, 01), 50),
+            new Batch("Хлеб ржаной", 65.5f, new DateOnly(2023, 12, 09), 7, 50)
+        };
+
+        foreach (Product product in products)
+            product.PrintInfo();
+
+        Console.WriteLine("\nПросроченные товары:");
+        foreach (Product product in products)
+            if (!product.IsNotExpired())
+                Console.WriteLine(product.Title);
     }
 
     private static void Task3()
