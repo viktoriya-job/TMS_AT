@@ -103,7 +103,7 @@ internal class Program
         registr.AddDocument(document3);
         registr.AddDocument(document5);
 
-        //Информация о всех документах регистра
+        //Информация обо всех документах регистра
         registr.PrintInfo();
         Console.WriteLine();
 
