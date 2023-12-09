@@ -75,7 +75,7 @@ internal class Program
             new Set("Набор йогуртов", 150, new List<Foodstuff> { yogurt1, yogurt1, yogurt2, yogurt2 }), //набор просрочен, так как в него входит просроченный йогурт
             new Foodstuff("Яблоки сезонные 1 кг", 500, new DateOnly(2023, 11, 01), 50),
             new Batch("Хлеб ржаной", 65.5f, new DateOnly(2023, 12, 09), 7, 50)
-        };
+        }; 
 
         foreach (Product product in products)
             product.PrintInfo();
