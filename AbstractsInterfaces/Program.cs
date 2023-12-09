@@ -1,6 +1,8 @@
-﻿using System.Text;
+﻿using System.Reflection;
+using System.Text;
 using AbstractsInterfaces.GeometricFigures;
 using AbstractsInterfaces.Products;
+using DocumentsAccount;
 
 internal class Program
 {
@@ -86,6 +88,29 @@ internal class Program
 
     private static void Task3()
     {
-        Console.WriteLine("Task3");
+        Document document0 = new EmployeeContract();
+        Document document1 = new EmployeeContract("b12-34", new DateOnly(2022, 02, 10), new DateOnly(2025, 03, 15), "Уставший Ч.В.");
+        Document document2 = new FinancialInvoice();
+        Document document3 = new FinancialInvoice("12321", new DateOnly(2010, 02, 02), 150000, "150/54");
+        Document document4 = new SupplyContract();
+        Document document5 = new SupplyContract("123/12", new DateOnly(2015, 01, 04), "Канцелярские принадлежности", 1000);
+
+        Registr registr = new Registr();
+
+        registr.AddDocument(document0);
+        registr.AddDocument(document1);
+        registr.AddDocument(document2);
+        registr.AddDocument(document3);
+        registr.AddDocument(document5);
+
+        //Информация о всех документах регистра
+        registr.PrintInfo();
+        Console.WriteLine();
+
+        //Информация об одном документе из регистра
+        registr.PrintInfo(document1);
+
+        //Попытка получить информацию по документу не из регистра
+        registr.PrintInfo(document4);
     }
 }

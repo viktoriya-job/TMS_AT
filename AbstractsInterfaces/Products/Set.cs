@@ -22,10 +22,9 @@ namespace AbstractsInterfaces.Products
         {
             base.PrintInfo();
             Console.WriteLine("Состав набора:");
+
             foreach (var food in FoodstaffList)
-            {
                 Console.WriteLine($" - {food.Title}");
-            }
         }
     }
 }
