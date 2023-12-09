@@ -57,15 +57,14 @@ internal partial class Program
 
     private static void Task2()
     {
-        //Создадим планы лечения, пациентов
+        //Создадим планы лечения разными конструкторами и пациентов
         TreatmentPlan treatmentPlanSurgical = new TreatmentPlan(1);
         treatmentPlanSurgical.AddEntriesToTreatmentPlan(new string[] { "Исправление дефектов после ранее перенесенных операций", "Исправление состояний после травм" });
 
-        TreatmentPlan treatmentPlanDental = new TreatmentPlan(2);
-        treatmentPlanDental.AddEntriesToTreatmentPlan(new string[] { "Лечение кариеса неосложненное", "Лечение пульпита", "Протезирование" });
+        TreatmentPlan treatmentPlanDental = new TreatmentPlan(2, new List<string> { "Лечение кариеса неосложненное", "Лечение пульпита" });
+        treatmentPlanDental.AddEntriesToTreatmentPlan(new string[] {"Протезирование"});
 
-        TreatmentPlan treatmentPlanTherapeutic = new TreatmentPlan(3);
-        treatmentPlanTherapeutic.AddEntriesToTreatmentPlan(new string[] { "Лечение ожирения первой степени" });
+        TreatmentPlan treatmentPlanTherapeutic = new TreatmentPlan(3, new List<string> { "Лечение ожирения первой степени"});
 
         Patient[] patients =
         {
@@ -96,7 +95,7 @@ internal partial class Program
         {
             bus,
             new TransportWaterRiverFerry("18FF","Краснодар",58,new DateTime(2024,1,1)),
-            new TransportPersonalBike(new DateTime(2019,10,10),"Black"),
+            new TransportPersonalBike(new DateOnly(2019,10,10),"Black"),
             new TransportBackwardRailwayTram()
         };
 

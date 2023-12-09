@@ -3,7 +3,7 @@ namespace OOP.Cars
 {
     internal class Truck : Auto
     {
-        public bool IsHasTrailer { get; set; } = false;
+        public bool IsHasTrailer { get; set; }
 
         public Truck(string brand, string number, int speed, bool isHasTrailer, int inputLiftingCapacityWithoutTrailer) : base(brand, number, speed)
         {

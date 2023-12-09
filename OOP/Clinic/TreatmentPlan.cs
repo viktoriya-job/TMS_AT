@@ -4,9 +4,14 @@ namespace OOP.Clinic
     internal class TreatmentPlan
     {
         public int TreatmentPlanCode { get; set; } = 0;
-        public List<string> TreatmentPlanList = new List<string>(16);
+        public List<string> TreatmentPlanList { get; set; } = new List<string>(0);
 
         public TreatmentPlan(int treatmentPlanCode) => TreatmentPlanCode = treatmentPlanCode;
+        
+        public TreatmentPlan(int treatmentPlanCode, List<string> treatmentPlanList) : this(treatmentPlanCode)
+        {
+            TreatmentPlanList = treatmentPlanList;
+        }
 
         public List<string> AddEntriesToTreatmentPlan(params string[] entries)
         {

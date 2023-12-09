@@ -5,8 +5,8 @@ namespace OOP.TransportHierarchy
     {
         protected string TransportPersonalKind { get; set; } = "Не определен";
         public string Color { get; set; } = "Не определен";
-        private DateTime _purchaseDate = DateTime.Now;
-        public DateTime PurchaseDate
+        private DateOnly _purchaseDate = DateOnly.FromDateTime(DateTime.Now);
+        public DateOnly PurchaseDate
         {
             get
             {
@@ -14,7 +14,7 @@ namespace OOP.TransportHierarchy
             }
             set
             {
-                if (value > DateTime.Now)
+                if (value > DateOnly.FromDateTime(DateTime.Now))
                     Program.PrintRedText("Дата покупки не может быть задана будущим числом");
                 else
                     _purchaseDate = value;

@@ -3,7 +3,7 @@ namespace OOP.Cars
 {
     internal class Motorbike : Auto
     {
-        public bool IsHasSidecar { get; set; } = false;
+        public bool IsHasSidecar { get; set; }
 
         public Motorbike(string brand, string number, int speed, bool isHasSidecar, int inputLiftingCapacityWithSidecar) : base(brand, number, speed)
         {

@@ -5,6 +5,8 @@ namespace OOP.Clinic
     {
         public string QualificationCategory { get; set; } = "Не определено";
 
+        public Doctor(string name) : base(name) {}
+
         public Doctor(string name, string qualificationCategory) : base(name) => QualificationCategory = qualificationCategory;
 
         public virtual void Treat() => ExaminePatient();

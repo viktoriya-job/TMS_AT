@@ -3,9 +3,9 @@ namespace OOP.Cars
 {
     internal abstract class Auto
     {
-        public string Brand { get; set; } = "Не определен";
-        public string Number { get; set; } = "Не определен";
-        public int Speed { get; set; } = 0;
+        public string Brand { get; set; }
+        public string Number { get; set; }
+        public int Speed { get; set; }
         public int LiftingCapacity { get; set; } = 0;
 
         public Auto(string brand, string number, int speed)
