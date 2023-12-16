@@ -49,5 +49,16 @@ namespace Exceptions
             foreach (var item in Products)
                 Console.WriteLine($"    - {item}");
         }
+
+        public void PrintInfo() 
+        {
+            Console.WriteLine($"""
+                {new string('~', 25)}
+                Номер заказа:   {Number}
+                Адрес доставки: {DeliveryAddress}
+                Список товаров:
+                """);
+            PrintProductsList();
+        }
     }
 }

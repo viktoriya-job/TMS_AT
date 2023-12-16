@@ -12,14 +12,8 @@ namespace Exceptions
                 //Order order = new Order(12, new List<string>(), "Краснодар, филиал ТК КИТ");
                 //Order order = new Order(123, new List<string> { "Пряничный домик", "Гирлянда \"Домики\"", "Набор ёлочных украшений" }, "");
 
-                Console.WriteLine($"""
-                Успешное создание заказа
-                {new string('~', 25)}
-                Номер заказа: {order.Number}
-                Адрес доставки: {order.DeliveryAddress}
-                Список товаров: 
-                """);
-                order.PrintProductsList();
+                Console.WriteLine("Успешное создание заказа");
+                order.PrintInfo();
             }
             catch (InvalidOrderNumberException exOrder)
             {
