@@ -49,7 +49,7 @@ namespace Exceptions
             if (login.Length >= 20)
             {
                 result = false;
-                throw new WrongLoginException("Задано больше 20 символов");
+                throw new WrongLoginException("Логин должен содержать меньше 20 символов");
             }
             if (IsContainsWhiteSpace(login))
             {
@@ -64,7 +64,7 @@ namespace Exceptions
             if (password.Length >= 20)
             {
                 result = false;
-                throw new WrongPasswordException("Задано больше 20 символов");
+                throw new WrongPasswordException("Пароль должен содержать меньше 20 символов");
             }
             if (IsContainsWhiteSpace(password))
             {
