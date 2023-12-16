@@ -11,7 +11,7 @@ internal class Program
         Console.WriteLine("""
                 Выберите задачу:
                 1 -  Задача 1: Проверка данных при регистрации
-                2 -  Задача 2: 
+                2 -  Задача 2: Проверка данных при создании заказа
                 """);
 
         if (Int32.TryParse(Console.ReadLine(), out int task))
@@ -21,7 +21,7 @@ internal class Program
                 switch (task)
                 {
                     case 1: Task1.Run(); break;
-                        //case 2: Task2(); break;
+                    case 2: Task2.Run(); break;
                 }
         else
             Console.WriteLine("Введено некорректное значение");

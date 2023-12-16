@@ -93,6 +93,5 @@ namespace Exceptions
         {
             return Regex.IsMatch(input, @"\d");
         }
-
     }
 }
