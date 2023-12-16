@@ -20,8 +20,8 @@ internal class Program
             else
                 switch (task)
                 {
-                   case 1: Task1.Run(); break;
-                    //case 2: Task2(); break;
+                    case 1: Task1.Run(); break;
+                        //case 2: Task2(); break;
                 }
         else
             Console.WriteLine("Введено некорректное значение");

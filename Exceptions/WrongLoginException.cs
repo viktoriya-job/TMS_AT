@@ -6,6 +6,5 @@ namespace Exceptions
         public WrongLoginException() { }
 
         public WrongLoginException(string? message) : base(message) { }
-
     }
 }
