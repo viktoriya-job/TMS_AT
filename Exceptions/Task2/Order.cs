@@ -4,8 +4,8 @@ namespace Exceptions
     internal class Order
     {
         private int _number;
-        private List<string> _products = new List<string> { "Пустой список" };
-        private string _deliveryAddress = "Не задан";
+        private List<string> _products = new List<string>();
+        private string _deliveryAddress = String.Empty;
         public int Number
         {
             get => _number;
