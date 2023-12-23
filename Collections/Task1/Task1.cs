@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using Collections.Helper;
 
-
 namespace Collections.Task1
 {
     internal class Task1
@@ -22,7 +21,7 @@ namespace Collections.Task1
             {
                 Console.Clear();
                 Console.WriteLine("""
-                Добро пожаловать в библиотеку!
+                Добро пожаловать в библиотеку
                 Выберите пункт  меню:
 
                 1 -  Добавить книгу
@@ -41,25 +40,25 @@ namespace Collections.Task1
                         case 1:
                             Console.WriteLine("Введите название книги, автора и год издания");
                             library.AddBook(Console.ReadLine(), Console.ReadLine(), Console.ReadLine());
-                            ClearHelper.Clear();
+                            ClearHelper.Exit();
                             break;
 
                         case 2:
                             library.PrintBooksList();
-                            ClearHelper.Clear();
+                            ClearHelper.Exit();
                             break;
 
                         case 3:
                             Console.WriteLine("Книги какого автора нужно найти?");
                             library.FindByAuthor(Console.ReadLine());
-                            ClearHelper.Clear();
+                            ClearHelper.Exit();
                             break;
 
                         case 4:
                             Console.WriteLine("Введите ID книги, которую требуется удалить:");
                             library.PrintBooksList();
                             library.RemoveByID(Console.ReadLine());
-                            ClearHelper.Clear();
+                            ClearHelper.Exit();
                             break;
 
                         case 0:
@@ -68,7 +67,7 @@ namespace Collections.Task1
 
                         default:
                             Console.WriteLine("Вы ввели неправильный номер");
-                            ClearHelper.Clear();
+                            ClearHelper.Exit();
                             break;
                     }
                 }

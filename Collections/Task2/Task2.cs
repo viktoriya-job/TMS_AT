@@ -14,7 +14,6 @@ namespace Collections.Task2
             catalogue.AddProduct("Purina One для кошек, с индейкой", "1360", "20");
             catalogue.AddProduct("Purina One для кошек, с говядиной", "1120", "10");
 
-
             bool state = true;
 
             while (state)
@@ -34,38 +33,38 @@ namespace Collections.Task2
                 if (CheckInputHelper.IsCorrectInt32(Console.ReadLine(), out int task))
                 {
                     Console.Clear();
-                    
+
                     switch (task)
                     {
                         case 1:
                             Console.WriteLine("Введите название товара, его цену и количество");
                             catalogue.AddProduct(Console.ReadLine(), Console.ReadLine(), Console.ReadLine());
-                            ClearHelper.Clear();
+                            ClearHelper.Exit();
                             break;
 
                         case 2:
                             catalogue.PrintProducts(0);
-                            ClearHelper.Clear();
+                            ClearHelper.Exit();
                             break;
 
                         case 3:
                             Console.WriteLine("Введите ID товара для поиска");
                             catalogue.FindProductByID(Console.ReadLine());
-                            ClearHelper.Clear();
+                            ClearHelper.Exit();
                             break;
 
                         case 4:
                             Console.WriteLine("Введите ID товара, информацию по которому требуется обновить:");
                             catalogue.PrintProducts(1);
                             catalogue.UpdateProduct(Console.ReadLine());
-                            ClearHelper.Clear();
+                            ClearHelper.Exit();
                             break;
 
                         case 5:
                             Console.WriteLine("Введите ID товара, который требуется удалить:");
                             catalogue.PrintProducts(1);
                             catalogue.RemoveByID(Console.ReadLine());
-                            ClearHelper.Clear();
+                            ClearHelper.Exit();
                             break;
 
                         case 0:
@@ -74,7 +73,7 @@ namespace Collections.Task2
 
                         default:
                             Console.WriteLine("Вы ввели неправильный номер");
-                            ClearHelper.Clear();
+                            ClearHelper.Exit();
                             break;
                     }
                 }

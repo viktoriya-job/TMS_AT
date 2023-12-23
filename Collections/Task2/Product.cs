@@ -16,7 +16,7 @@ namespace Collections.Task2
 
         public void PrintInfo()
         {
-            Console.WriteLine($"{Name}, {String.Format("{0:C2}",Price)}, {Count} шт");
+            Console.WriteLine($"{Name}, {String.Format("{0:C2}", Price)}, {Count} шт");
         }
     }
 }

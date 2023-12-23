@@ -21,27 +21,27 @@ namespace Collections.Task2
 
         public void PrintProducts(int mode)
         {
-            if (Products.Count>0)
-            // mode: 0 - только значения, 1 - ключ и значение
-            switch (mode)
-            {
-                case 0:
-                    foreach (var product in Products)
-                        product.Value.PrintInfo();
-                    break;
+            if (Products.Count > 0)
+                // mode: 0 - только значения, 1 - ключ и значение
+                switch (mode)
+                {
+                    case 0:
+                        foreach (var product in Products)
+                            product.Value.PrintInfo();
+                        break;
 
-                case 1:
-                    foreach (var product in Products)
-                    {
-                        Console.Write($"ID: {product.Key}, Товар: ");
-                        product.Value.PrintInfo();
-                    }
-                    break;
+                    case 1:
+                        foreach (var product in Products)
+                        {
+                            Console.Write($"ID: {product.Key}, Товар: ");
+                            product.Value.PrintInfo();
+                        }
+                        break;
 
-                default:
-                    Console.WriteLine("Некорректное значение mode - выберите 0 - \"вывод только значения\", 1 - \"вывод ключа и значения\"");
-                    break;
-            }
+                    default:
+                        Console.WriteLine("Некорректное значение mode - выберите 0 - \"вывод только значения\", 1 - \"вывод ключа и значения\"");
+                        break;
+                }
             else
                 Console.WriteLine("В каталоге нет товаров");
         }

@@ -7,7 +7,7 @@ namespace Collections.Task1
     {
         private static int _id = 0;
         public int ID { get; set; }
-        public ArrayList BookInfo {  get; set; } = new ArrayList(3);
+        public ArrayList BookInfo { get; set; } = new ArrayList(3);
 
         public Book(ArrayList bookInfo)
         {

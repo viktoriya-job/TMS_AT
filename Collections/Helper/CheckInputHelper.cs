@@ -9,7 +9,7 @@ namespace Collections.Helper
                 if (Int32.TryParse(input, out value))
                     return true;
             Console.WriteLine("Введено некорректное значение - требуется целое число");
-            ClearHelper.Clear();
+            ClearHelper.Exit();
             value = 0;
             return false;
         }
@@ -20,7 +20,7 @@ namespace Collections.Helper
                 if (Single.TryParse(input, out value))
                     return true;
             Console.WriteLine("Введено некорректное значение - требуется вещественное число");
-            ClearHelper.Clear();
+            ClearHelper.Exit();
             value = 0;
             return false;
         }
@@ -28,9 +28,9 @@ namespace Collections.Helper
         public static bool IsCorrectString(string? input)
         {
             if (!String.IsNullOrWhiteSpace(input))
-                    return true;
+                return true;
             Console.WriteLine("Введено пустое значение");
-            ClearHelper.Clear();
+            ClearHelper.Exit();
             return false;
         }
     }
