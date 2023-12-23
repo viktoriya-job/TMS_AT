@@ -26,7 +26,7 @@ namespace Collections.Task4
                 Console.WriteLine($"Книга [{book.Author}, {book.Title}] успешно выдана читателю [{reader.LibraryCardNumber}, {reader.Name}]");
             }
             else
-                Console.WriteLine($"Невозможно выдать книгу [{book.Author}, {book.Title}], так как она уже выдана");
+                Console.WriteLine($"Ошибка при выдаче: Книга [{book.Author}, {book.Title}] уже выдана");
         }
 
         public void ReturnBook(Reader reader, Book book)
@@ -42,7 +42,7 @@ namespace Collections.Task4
                     Console.WriteLine($"Книга [{book.Author}, {book.Title}] успешно возвращена в библиотеку");
                 }
                 else
-                    Console.WriteLine($"Проверьте информацию - книга [{book.Author}, {book.Title}] не была выдана читателю [{reader.LibraryCardNumber}, {reader.Name}]"); ;
+                    Console.WriteLine($"Ошибка при возврате: Книга [{book.Author}, {book.Title}] не числится за читателем [{reader.LibraryCardNumber}, {reader.Name}]"); ;
         }
 
         public void PrintBooksList()
