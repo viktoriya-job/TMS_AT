@@ -82,7 +82,7 @@ internal class Program
 
         Console.WriteLine("\nПросроченные товары:");
         foreach (Product product in products)
-            if (!product.IsNotExpired())
+            if (product.IsExpired())
                 Console.WriteLine(product.Title);
     }
 

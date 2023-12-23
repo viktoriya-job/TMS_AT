@@ -12,12 +12,8 @@ namespace AbstractsInterfaces.Products
             ShelfLife = shelfLife;
         }
 
-        public override bool IsNotExpired()
-        {
-            if (DateProduction.AddDays(ShelfLife) > DateOnly.FromDateTime(DateTime.Today))
-                return true;
-            return false;
-        }
+        public override bool IsExpired() => DateProduction.AddDays(ShelfLife) <= DateOnly.FromDateTime(DateTime.Today);
+
 
         public override void PrintInfo()
         {

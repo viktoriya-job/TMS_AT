@@ -20,6 +20,6 @@ namespace AbstractsInterfaces.Products
                 Цена:               {String.Format("{0:C2}", Price)}
                 """);
         }
-        public abstract bool IsNotExpired();
+        public abstract bool IsExpired();
     }
 }

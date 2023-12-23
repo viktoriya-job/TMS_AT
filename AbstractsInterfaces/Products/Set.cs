@@ -10,12 +10,12 @@ namespace AbstractsInterfaces.Products
             FoodstaffList = foodstaffList;
         }
 
-        public override bool IsNotExpired()
+        public override bool IsExpired()
         {
             foreach (var food in FoodstaffList)
-                if (!food.IsNotExpired())
-                    return false;
-            return true;
+                if (food.IsExpired())
+                    return true;
+            return false;
         }
 
         public override void PrintInfo()
