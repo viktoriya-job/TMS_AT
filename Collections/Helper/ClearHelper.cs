@@ -1,5 +1,4 @@
-﻿
-namespace Collections.Helper
+﻿namespace Collections.Helper
 {
     internal static class ClearHelper
     {

@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using Collections.Helper;
 
-namespace Collections.Task1
+namespace Collections
 {
     internal class Task1
     {

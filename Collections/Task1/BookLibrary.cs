@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-namespace Collections.Task1
+namespace Collections
 {
     internal class BookLibrary
     {

@@ -1,7 +1,6 @@
-﻿
-using Collections.Helper;
+﻿using Collections.Helper;
 
-namespace Collections.Task2
+namespace Collections
 {
     internal class ProductCatalogue
     {

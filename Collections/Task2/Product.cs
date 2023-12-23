@@ -1,5 +1,4 @@
-﻿
-namespace Collections.Task2
+﻿namespace Collections
 {
     internal class Product
     {

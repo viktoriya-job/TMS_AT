@@ -1,7 +1,7 @@
-﻿
-using System.Collections;
+﻿using System.Collections;
+using Collections.Helper;
 
-namespace Collections.Task1
+namespace Collections
 {
     internal class Book
     {
@@ -18,8 +18,7 @@ namespace Collections.Task1
         public void PrintInfo()
         {
             Console.Write($"ID: {ID}, ");
-            foreach (var item in BookInfo)
-                Console.Write($"{item}, ");
+            PrintHelper.PrintCollection(BookInfo);
             Console.WriteLine();
         }
     }

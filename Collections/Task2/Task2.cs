@@ -1,9 +1,6 @@
-﻿
-using Collections.Helper;
-using Collections.Task1;
-using System.Collections;
+﻿using Collections.Helper;
 
-namespace Collections.Task2
+namespace Collections
 {
     internal class Task2
     {
