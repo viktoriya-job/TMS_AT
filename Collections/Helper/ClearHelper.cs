@@ -1,11 +1,11 @@
 ﻿
 namespace Collections.Helper
 {
-    internal class ClearHelper
+    internal static class ClearHelper
     {
         public static void Clear()
         {
-            Console.WriteLine("Нажмите любую клавишу для продолжения");
+            Console.WriteLine("\nНажмите любую клавишу для продолжения");
             Console.ReadKey();
         }
     }

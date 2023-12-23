@@ -8,7 +8,7 @@ namespace Collections.Task1
     {
         public static void Run()
         {
-            ArrayList array = new ArrayList{ "123","456",2000};
+            ArrayList array = new ArrayList { "123", "456", 2000 };
             BookLibrary library = new BookLibrary(new List<Book>
             {
                 new Book( new ArrayList { "Тестирование DOT COM", "Роман Савин", 2007 }),
@@ -25,59 +25,52 @@ namespace Collections.Task1
                 Добро пожаловать в библиотеку!
                 Выберите пункт  меню:
 
-                1 -  Задача 1: Добавить книгу
-                2 -  Задача 2: Просмотреть список книг
-                3 -  Задача 3: Найти книги автора
-                4 -  Задача 4: Удалить книгу
-                0 -  Задача 0: Выйти
+                1 -  Добавить книгу
+                2 -  Просмотреть список книг
+                3 -  Найти книги автора
+                4 -  Удалить книгу
+                0 -  Выйти
                 """);
 
-                if (Int32.TryParse(Console.ReadLine(), out int task))
-                    if (task < 0 || task > 4)
-                    {
-                        Console.WriteLine("Вы ввели неправильный номер");
-                        ClearHelper.Clear();
-                    }
-                    else
-                        switch (task)
-                        {
-                            case 1:
-                                Console.Clear();
-                                Console.WriteLine("Введите название книги, автора и год издания");
-                                
-                                if (library.AddBook(Console.ReadLine(), Console.ReadLine(), Console.ReadLine()))
-                                    Console.WriteLine("Книга успешно добавлена!");
-                                
-                                ClearHelper.Clear();
-                                break;
-
-                            case 2:
-                                Console.Clear();
-                                library.PrintBooksList();
-                                ClearHelper.Clear();
-                                break;
-
-                            case 3: 
-                                Console.WriteLine("Книги какого автора нужно найти?");
-                                if(!library.FindByAuthor(Console.ReadLine()))
-                                    Console.WriteLine("Ничего не найдено"); ;
-                                ClearHelper.Clear();
-                                break;
-
-                            case 4: Console.WriteLine("Введите ID книги, которую требуется удалить:");
-                                if(library.RemoveByID(Console.ReadLine()))
-                                    Console.WriteLine("Книга успешно удалена");
-                                ClearHelper.Clear();
-                                break;
-
-                            case 0: 
-                                state = false; 
-                                break;
-                        }
-                else
+                if (CheckInputHelper.IsCorrectInt32(Console.ReadLine(), out int task))
                 {
-                    Console.WriteLine("Введено некорректное значение");
-                    ClearHelper.Clear();
+                    Console.Clear();
+
+                    switch (task)
+                    {
+                        case 1:
+                            Console.WriteLine("Введите название книги, автора и год издания");
+                            library.AddBook(Console.ReadLine(), Console.ReadLine(), Console.ReadLine());
+                            ClearHelper.Clear();
+                            break;
+
+                        case 2:
+                            library.PrintBooksList();
+                            ClearHelper.Clear();
+                            break;
+
+                        case 3:
+                            Console.WriteLine("Книги какого автора нужно найти?");
+                            library.FindByAuthor(Console.ReadLine());
+                            ClearHelper.Clear();
+                            break;
+
+                        case 4:
+                            Console.WriteLine("Введите ID книги, которую требуется удалить:");
+                            library.PrintBooksList();
+                            library.RemoveByID(Console.ReadLine());
+                            ClearHelper.Clear();
+                            break;
+
+                        case 0:
+                            state = false;
+                            break;
+
+                        default:
+                            Console.WriteLine("Вы ввели неправильный номер");
+                            ClearHelper.Clear();
+                            break;
+                    }
                 }
             }
         }
