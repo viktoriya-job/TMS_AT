@@ -22,5 +22,12 @@ namespace Collections.Helper
                 }
             }
         }
+
+        public static void PrintRedText(string Text)
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine(Text);
+            Console.ForegroundColor = ConsoleColor.White;
+        }
     }
 }
