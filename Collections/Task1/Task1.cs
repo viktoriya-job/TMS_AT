@@ -7,7 +7,6 @@ namespace Collections
     {
         public static void Run()
         {
-            ArrayList array = new ArrayList { "123", "456", 2000 };
             BookLibrary library = new BookLibrary(new List<Book>
             {
                 new Book( new ArrayList { "Тестирование DOT COM", "Роман Савин", 2007 }),

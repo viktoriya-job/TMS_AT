@@ -27,10 +27,7 @@ internal class Program
                 case 2: Task2.Run(); break;
                 case 3: Task3.Run(); break;
                 case 4: Task4.Run(); break;
-
-                default:
-                    Console.WriteLine("Вы ввели неправильный номер");
-                    break;
+                default: Console.WriteLine("Вы ввели неправильный номер"); break;
             }
         }
     }

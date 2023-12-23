@@ -7,6 +7,7 @@ namespace Collections
     internal class BookLibrary
     {
         private List<Book> Books { get; set; } = new List<Book>(16);
+
         public BookLibrary() { }
         public BookLibrary(List<Book> books) => Books = books;
 
@@ -46,7 +47,7 @@ namespace Collections
 
         public void RemoveByID(string? idInput)
         {
-            if (Int32.TryParse(idInput, out int id))
+            if (CheckInputHelper.IsCorrectInt32(idInput, out int id))
             {
                 int index = Books.FindIndex(item => item.ID == id);
 
