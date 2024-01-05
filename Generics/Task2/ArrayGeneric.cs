@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq.Expressions;
-using static System.Runtime.InteropServices.JavaScript.JSType;
-
-namespace Generics
+﻿namespace Generics
 {
     internal class ArrayGeneric<T>
     {

@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Text;
-
-namespace Generics
+﻿namespace Generics
 {
     internal class Point<T>
     {
