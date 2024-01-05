@@ -21,7 +21,7 @@ namespace Exceptions
             get => _products;
             set
             {
-                if (value.Capacity == 0)
+                if (value.Count == 0)// (value.Capacity == 0)
                     throw new EmptyOrderException();
                 _products = value;
             }
@@ -50,7 +50,7 @@ namespace Exceptions
                 Console.WriteLine($"    - {item}");
         }
 
-        public void PrintInfo() 
+        public void PrintInfo()
         {
             Console.WriteLine($"""
                 {new string('~', 25)}
