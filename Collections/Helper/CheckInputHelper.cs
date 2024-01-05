@@ -4,9 +4,11 @@
     {
         public static bool IsCorrectInt32(string? input, out int value)
         {
-            if (!String.IsNullOrWhiteSpace(input))
-                if (Int32.TryParse(input, out value))
-                    return true;
+            if (!String.IsNullOrWhiteSpace(input) && Int32.TryParse(input, out value))
+            {
+                return true;
+            }
+
             Console.WriteLine("Введено некорректное значение - требуется целое число");
             ClearHelper.Exit();
             value = 0;
