@@ -13,6 +13,7 @@
                 default: return sorts.ShakerSort;
             }
         }
+
         public void Run()
         {
             Random random = new Random();

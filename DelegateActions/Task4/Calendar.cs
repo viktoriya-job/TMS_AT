@@ -5,7 +5,6 @@
         public delegate void EventHandler(Event @event);
         public event EventHandler Notify;
         public List<Event> Events { get; set; } = new List<Event>();
-        public Calendar() { }
 
         public void AddEvent(Event @event)
         {
