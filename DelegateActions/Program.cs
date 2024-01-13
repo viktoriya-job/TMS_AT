@@ -12,7 +12,7 @@ internal class Program
                 Выберите задачу:
                 1 -  Задача 1: Делегат без входных параметров
                 2 -  Задача 2: Рассчет математических величин, делегат
-                3 -  Задача 3: 
+                3 -  Задача 3: Сортировки
                 4 -  Задача 4:
                 """);
 
@@ -29,6 +29,11 @@ internal class Program
                 case 2:
                     Task2 task2 = new Task2();
                     task2.Run();
+                    break;  
+                
+                case 3:
+                    Task3 task3 = new Task3();
+                    task3.Run();
                     break;
 
                 default: Console.WriteLine("Вы ввели неправильный номер"); break;
