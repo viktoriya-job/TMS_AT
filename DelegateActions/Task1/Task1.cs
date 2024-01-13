@@ -10,7 +10,7 @@
             Console.WriteLine(random10Delegate());
         }
 
-        public int Random10()
+        private int Random10()
         {
             Random random = new Random();
             return random.Next(10);
