@@ -13,7 +13,7 @@ internal class Program
                 1 -  Задача 1: Делегат без входных параметров
                 2 -  Задача 2: Рассчет математических величин, делегат
                 3 -  Задача 3: Сортировки
-                4 -  Задача 4:
+                4 -  Задача 4: Календарь событий
                 """);
 
         if (CheckInputHelper.IsCorrectInt32(Console.ReadLine(), out int task))
@@ -34,6 +34,11 @@ internal class Program
                 case 3:
                     Task3 task3 = new Task3();
                     task3.Run();
+                    break;
+
+                case 4:
+                    Task4 task4 = new Task4();
+                    task4.Run();
                     break;
 
                 default: Console.WriteLine("Вы ввели неправильный номер"); break;
