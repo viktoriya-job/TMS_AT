@@ -20,7 +20,7 @@
         {
             if (radius < 0)
                 return 0;
-            return 4 / 3 * Math.PI * radius * radius * radius;
+            return (double)4 / 3 * Math.PI * Math.Pow(radius, 3);
         }
     }
 }

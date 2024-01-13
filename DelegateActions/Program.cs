@@ -29,8 +29,8 @@ internal class Program
                 case 2:
                     Task2 task2 = new Task2();
                     task2.Run();
-                    break;  
-                
+                    break;
+
                 case 3:
                     Task3 task3 = new Task3();
                     task3.Run();

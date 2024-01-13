@@ -7,7 +7,7 @@
 
         Sort SelectSort(SortType sortType)
         {
-            switch(sortType)
+            switch (sortType)
             {
                 case SortType.BubbleSort: return sorts.BubbleSort;
                 default: return sorts.ShakerSort;
@@ -19,7 +19,7 @@
             int[] array = new int[10];
             int[] array2 = new int[10];
 
-            Console.WriteLine("Исходный массив1");
+            Console.WriteLine("Исходный массив 1");
 
             for (int i = 0; i < array.Length; i++)
             {
@@ -35,7 +35,7 @@
             for (int i = 0; i < array.Length; i++)
                 Console.Write($"{array[i]} ");
 
-            Console.WriteLine("\n\nИсходный массив2");
+            Console.WriteLine("\n\nИсходный массив 2");
 
             for (int i = 0; i < array2.Length; i++)
             {

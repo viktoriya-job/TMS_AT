@@ -2,12 +2,12 @@
 {
     internal class Task1
     {
-        public delegate int Random10Delegate();
+        public delegate int GetRandom();
 
         public void Run()
         {
-            Random10Delegate random10Delegate = Random10;
-            Console.WriteLine(random10Delegate());
+            GetRandom getRandom = Random10;
+            Console.WriteLine(getRandom());
         }
 
         private int Random10()
