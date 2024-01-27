@@ -64,7 +64,7 @@ namespace NUnitTest
         [Severity(SeverityLevel.Major)]
         public void CalcTestWhenDoubleDivWithZeroDividerThenException()
         {
-            Assert.Throws<DivideByZeroException>(() => _calc.Div(2d, 0));
+            Assert.Throws<DivideByZeroException>(() => _calc.Div(2.0, 0));
         }
 
         [Test]
