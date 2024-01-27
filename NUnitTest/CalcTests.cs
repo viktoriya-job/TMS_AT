@@ -15,6 +15,7 @@ namespace NUnitTest
         [TestCaseSource(typeof(TestData), nameof(TestData.DivideIntCases))]
         [Order(1)]
         [Category("PositiveTests")]
+        [Category("IntValues")]
         [Severity(SeverityLevel.Critical)]
         public void CalcTestWhenIntDivThenCorrectValueReturned(int x, int y, int result)
         {
@@ -24,6 +25,7 @@ namespace NUnitTest
         [TestCaseSource(typeof(TestData), nameof(TestData.DivideDoubleCases))]
         [Order(1)]
         [Category("PositiveTests")]
+        [Category("DoubleValues")]
         [Severity(SeverityLevel.Critical)]
         public void CalcTestWhenDoubleDivThenCorrectValueReturned(double x, double y, double result)
         {
@@ -35,6 +37,7 @@ namespace NUnitTest
         [TestCase(21, -2, ExpectedResult = -10)]
         [Order(1)]
         [Category("PositiveTests")]
+        [Category("IntValues")]
         [Severity(SeverityLevel.Major)]
         public int CalcTestWhenIntDivThenCorrectValueReturned(int x, int y)
         {
@@ -46,6 +49,7 @@ namespace NUnitTest
         [TestCase(21, -2.5, -8.4)]
         [Order(1)]
         [Category("PositiveTests")]
+        [Category("DoubleValues")]
         [Severity(SeverityLevel.Major)]
         public void CalcTestWhenDoubleDivThenCorrectValueReturned1(double x, double y, double result)
         {
@@ -55,6 +59,7 @@ namespace NUnitTest
         [Test]
         [Description("Тест на проверку ошибки деления на ноль")]
         [Category("ErrorTests")]
+        [Category("DoubleValues")]
         [Order(3)]
         [Severity(SeverityLevel.Major)]
         public void CalcTestWhenDoubleDivWithZeroDividerThenException()
@@ -65,6 +70,7 @@ namespace NUnitTest
         [Test]
         [Description("Тест на проверку ошибки деления на ноль")]
         [Category("ErrorTests")]
+        [Category("IntValues")]
         [Order(3)]
         [Severity(SeverityLevel.Major)]
         public void CalcTestWhenIntDivWithZeroDividerThenException()
@@ -78,6 +84,5 @@ namespace NUnitTest
         {
             Assert.That(_calc.Div(x, y), Is.EqualTo(result));
         }
-
     }
 }
