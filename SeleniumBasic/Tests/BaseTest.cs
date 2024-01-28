@@ -1,22 +1,26 @@
 ﻿using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
+using SeleniumBasic.Core;
 
 namespace SeleniumBasic.Tests
 {
-    internal class BaseTest
+    [Parallelizable(scope: ParallelScope.All)]
+    [FixtureLifeCycle(LifeCycle.InstancePerTestCase)]
+    public class BaseTest
     {
-        //protected IWebDriver Driver { get; set; }
+        protected IWebDriver Driver { get; set; }
 
-        //[SetUp]
-        //public void Setup()
-        //{ 
-        //    Driver = new Browser().Driver!;
-        //    Driver.Navigate().GoToUrl(Configurator.AppSettings.URL);
-        //}
+        [SetUp]
+        public void Setup()
+        {
+            Driver = new Browser().Driver!;
+            //Driver.Navigate().GoToUrl(Configurator.AppSettings.URL);
+        }
 
-        //[TearDown]
-        //public void TearDown()
-        //{
-        //    Driver.Quit();
-        //}
+        [TearDown]
+        public void TearDown()
+        {
+            Driver.Quit();
+        }
     }
 }
