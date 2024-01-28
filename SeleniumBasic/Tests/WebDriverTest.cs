@@ -1,5 +1,4 @@
-﻿
-using OpenQA.Selenium;
+﻿using OpenQA.Selenium;
 using SeleniumBasic.Core;
 
 namespace SeleniumBasic.Tests
@@ -8,28 +7,20 @@ namespace SeleniumBasic.Tests
     public class WebDriverTest
     {
         [Test]
-        public void SimpleDriverTest()
+        public void AdvancedDriverTest()
         {
-            IWebDriver webDriver = new SimpleDriver().Driver;
+            IWebDriver webDriver = new AdvancedDriver().GetChromeDriver();
             webDriver.Navigate().GoToUrl("http://onliner.by");
             webDriver.Manage().Window.Maximize();
             webDriver.Quit();
         }
 
         [Test]
-        public void AdvancedDriverTest()
+        public void FactoryDriverTest()
         {
-            IWebDriver webDriver = new AdvancedDriver().GetChromeDriver();
+            IWebDriver webDriver = new Browser().Driver!;
             webDriver.Navigate().GoToUrl("http://onliner.by");
             webDriver.Quit();
         }
-
-        //[Test]
-        //public void FactoryDriverTest()
-        //{
-        //    IWebDriver webDriver = new Browser().Driver!;
-        //    webDriver.Navigate().GoToUrl("http://onliner.by");
-        //    webDriver.Quit();
-        //}
     }
 }

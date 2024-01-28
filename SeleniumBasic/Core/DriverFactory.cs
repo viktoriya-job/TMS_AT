@@ -1,15 +1,15 @@
-﻿using OpenQA.Selenium.Chrome;
+﻿using OpenQA.Selenium;
+using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
-using OpenQA.Selenium;
-using System.Reflection;
+using WebDriverManager;
+using WebDriverManager.DriverConfigs.Impl;
+using LogLevel = OpenQA.Selenium.LogLevel;
 
 namespace SeleniumBasic.Core
 {
-    public class AdvancedDriver
+    public class DriverFactory
     {
-        private string basePath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-
-        public IWebDriver GetChromeDriver()
+        public IWebDriver? GetChromeDriver()
         {
             var chromeOptions = new ChromeOptions();
             chromeOptions.AddArguments("--incognito");
@@ -17,13 +17,14 @@ namespace SeleniumBasic.Core
             chromeOptions.AddArguments("--disable-extensions");
             //chromeOptions.AddArguments("--headless");
 
-            //chromeOptions.SetLoggingPreference(LogType.Browser, LogLevel.All);
-            //chromeOptions.SetLoggingPreference(LogType.Driver, LogLevel.All);
+            chromeOptions.SetLoggingPreference(LogType.Browser, LogLevel.All);
+            chromeOptions.SetLoggingPreference(LogType.Driver, LogLevel.All);
 
-            return new ChromeDriver(basePath + @"/Resources/", chromeOptions);
+            new DriverManager().SetUpDriver(new ChromeConfig());
+            return new ChromeDriver(chromeOptions);
         }
 
-        public IWebDriver GetFirefoxDriver()
+        public IWebDriver? GetFirefoxDriver()
         {
             var mimeTypes =
                 "image/png,image/gif,image/jpeg,image/pjpeg,application/pdf,text/csv,application/vnd.ms-excel," +
@@ -41,6 +42,7 @@ namespace SeleniumBasic.Core
             ffOptions.SetLoggingPreference(LogType.Browser, LogLevel.All);
             ffOptions.SetLoggingPreference(LogType.Driver, LogLevel.All);
 
+            new DriverManager().SetUpDriver(new FirefoxConfig());
             return new FirefoxDriver(ffOptions);
         }
     }

@@ -1,5 +1,4 @@
-﻿
-using OpenQA.Selenium;
+﻿using OpenQA.Selenium;
 
 namespace SeleniumBasic.Tests
 {
@@ -9,7 +8,7 @@ namespace SeleniumBasic.Tests
 
         //[SetUp]
         //public void Setup()
-        //{
+        //{ 
         //    Driver = new Browser().Driver!;
         //    Driver.Navigate().GoToUrl(Configurator.AppSettings.URL);
         //}
