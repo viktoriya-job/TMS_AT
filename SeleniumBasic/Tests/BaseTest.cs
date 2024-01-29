@@ -1,8 +1,8 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
-using SeleniumBasic.Core;
+using Locators.Core;
 
-namespace SeleniumBasic.Tests
+namespace Locators.Tests
 {
     [Parallelizable(scope: ParallelScope.All)]
     [FixtureLifeCycle(LifeCycle.InstancePerTestCase)]

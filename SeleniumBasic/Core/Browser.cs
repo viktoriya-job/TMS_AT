@@ -1,7 +1,7 @@
-﻿using SeleniumBasic.Helpers.Configuration;
+﻿using Locators.Helpers.Configuration;
 using OpenQA.Selenium;
 
-namespace SeleniumBasic.Core
+namespace Locators.Core
 {
     public class Browser
     {

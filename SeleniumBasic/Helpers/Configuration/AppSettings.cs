@@ -1,4 +1,4 @@
-namespace NUnitTest.Helpers.Configuration;
+namespace Locators.Helpers.Configuration;
 
 public class AppSettings
 {

@@ -1,7 +1,7 @@
 using System.Reflection;
 using Microsoft.Extensions.Configuration;
 
-namespace NUnitTest.Helpers.Configuration
+namespace Locators.Helpers.Configuration
 {
     public static class Configurator
     {
