@@ -7,7 +7,7 @@ namespace Locators.Tests
         [Test]
         public void CssSelectorsTest()
         {
-            Driver.Navigate().GoToUrl("file:/Users/aleksandr.trostyanko/Documents/Work/TeachMeSkills/Code/CSharp/AQA_MTS/Locators/Resources/index.html");
+            Driver.Navigate().GoToUrl("file:/C:/Autotest/TMS_AT/SeleniumBasic/Resources/index.html");
 
             // Поиск по id
             Assert.That(Driver.FindElement(By.CssSelector("#my-Address")).Displayed);
