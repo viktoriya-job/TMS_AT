@@ -1,7 +1,7 @@
 using System.Reflection;
 using Microsoft.Extensions.Configuration;
 
-namespace SeleniumBasic.Helpers.Configuration
+namespace NUnitTest.Helpers.Configuration
 {
     public static class Configurator
     {
@@ -38,6 +38,8 @@ namespace SeleniumBasic.Helpers.Configuration
                 var child = Configuration.GetSection("AppSettings");
 
                 appSettings.URL = child["URL"];
+                appSettings.Username = child["Username"];
+                appSettings.Password = child["Password"];
 
                 return appSettings;
             }
