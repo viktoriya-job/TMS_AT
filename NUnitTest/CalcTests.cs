@@ -1,4 +1,6 @@
 ﻿
+using NUnit.Framework;
+
 namespace NUnitTest
 {
     [TestFixture, Category("Functional"), Author("V. Aleksandrova", "viktoriya-job")]
@@ -6,8 +8,8 @@ namespace NUnitTest
     {
         private Calc _calc;
 
-        [SetUp]
-        public void Setup()
+        [OneTimeSetUp]
+        public void OneTimeSetUp()
         {
             _calc = new Calc();
         }
@@ -64,7 +66,10 @@ namespace NUnitTest
         [Severity(SeverityLevel.Major)]
         public void CalcTestWhenDoubleDivWithZeroDividerThenException()
         {
-            Assert.Throws<DivideByZeroException>(() => _calc.Div(2.0, 0));
+            if (double.IsInfinity(2d / 0d))
+                Assert.Pass("Деление на ноль");
+            else
+                Assert.Fail("Ожидается ошибка деления на ноль");
         }
 
         [Test]

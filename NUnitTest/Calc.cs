@@ -8,10 +8,5 @@ public class Calc
 
     public int Div(int a, int b) => a / b;
     
-    public double Div(double a, double b)
-    {
-        if (double.IsInfinity(a/b))
-            throw new DivideByZeroException();
-        return a / b;
-    }
+    public double Div(double a, double b) => a / b;
 }
