@@ -2,25 +2,25 @@
 {
     internal class Calc
     {
-        public double CalcCirclePerimeter(double radius)
+        public double CirclePerimeter(double radius)
         {
             if (radius < 0)
                 return 0;
             return 2 * Math.PI * radius;
         }
 
-        public double CalcCircleArea(double radius)
+        public double CircleArea(double radius)
         {
             if (radius < 0)
                 return 0;
             return Math.PI * radius * radius;
         }
 
-        public double CalcBallVolume(double radius)
+        public double BallVolume(double radius)
         {
             if (radius < 0)
                 return 0;
-            return (double)4 / 3 * Math.PI * Math.Pow(radius, 3);
+            return 4.0 / 3.0 * Math.PI * Math.Pow(radius, 3);
         }
     }
 }

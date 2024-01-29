@@ -9,8 +9,11 @@
         {
             switch (sortType)
             {
-                case SortType.BubbleSort: return sorts.BubbleSort;
-                default: return sorts.ShakerSort;
+                case SortType.BubbleSort: 
+                    return sorts.BubbleSort;
+                case SortType.ShakerSort:
+                    return sorts.ShakerSort;
+                default: throw new NotImplementedException("Выбран неизвестный тип сортировки");
             }
         }
         public void Run()

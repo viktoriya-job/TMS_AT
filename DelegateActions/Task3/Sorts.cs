@@ -10,11 +10,7 @@
             {
                 for (int i = array.Length - 1; i > left; i--)
                     if (array[i] < array[i - 1])
-                    {
-                        int tmp = array[i];
-                        array[i] = array[i - 1];
-                        array[i - 1] = tmp;
-                    }
+                        Swap(ref array[i], ref array[i - 1]);
                 left++;
             }
             return array;
@@ -29,23 +25,22 @@
             {
                 for (int i = right; i > left; i--)
                     if (array[i] < array[i - 1])
-                    {
-                        int tmp = array[i];
-                        array[i] = array[i - 1];
-                        array[i - 1] = tmp;
-                    }
+                        Swap(ref array[i], ref array[i - 1]);
                 left++;
 
                 for (int i = left; i < right; i++)
                     if (array[i] > array[i + 1])
-                    {
-                        int tmp = array[i];
-                        array[i] = array[i + 1];
-                        array[i + 1] = tmp;
-                    }
+                        Swap(ref array[i], ref array[i + 1]);
                 right--;
             }
             return array;
+        }
+
+        private void Swap(ref int x, ref int y)
+        {
+            int tmp = x;
+            x = y;
+            y = tmp;
         }
     }
 }

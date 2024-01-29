@@ -14,10 +14,11 @@
 
         public void GetNotifications()
         {
+            var today = DateOnly.FromDateTime(DateTime.Now);
             foreach (Event @event in Events)
-                if (DateOnly.FromDateTime(@event.Date).Equals(DateOnly.FromDateTime(DateTime.Now)))
+                if (DateOnly.FromDateTime(@event.Date).Equals(today))
                 {
-                    Notify.Invoke(@event);
+                    Notify?.Invoke(@event);
                 }
         }
     }

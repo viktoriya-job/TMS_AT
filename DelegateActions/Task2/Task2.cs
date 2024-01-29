@@ -9,9 +9,9 @@
             double radius = 5;
             Calc calc = new Calc();
             
-            CalcByRadius calcCirclePerimeter = calc.CalcCirclePerimeter;
-            CalcByRadius calcCircleArea = calc.CalcCircleArea;
-            CalcByRadius calcBallVolume = calc.CalcBallVolume;
+            CalcByRadius calcCirclePerimeter = calc.CirclePerimeter;
+            CalcByRadius calcCircleArea = calc.CircleArea;
+            CalcByRadius calcBallVolume = calc.BallVolume;
 
             Console.WriteLine($"Длина окружности с радиусом {radius}: {calcCirclePerimeter(radius)}");
             Console.WriteLine($"Площадь круга с радиусом {radius}: {calcCircleArea(radius)}");
