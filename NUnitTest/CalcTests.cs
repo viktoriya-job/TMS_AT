@@ -8,6 +8,7 @@ namespace NUnitTest
     {
         private Calc _calc;
         private int _i = 0;
+        private int _j = 0;
 
         [OneTimeSetUp]
         public void OneTimeSetUp()
@@ -86,7 +87,7 @@ namespace NUnitTest
 
         [TestCase(1, 2, 0.5)]
         [Ignore("Пример использования атрибута Ignore")]
-        public void CalcTestWhenDoubleDivThenCorrectValueReturned2(double x, double y, double result)
+        public void IgnoreTest(double x, double y, double result)
         {
             Assert.That(_calc.Div(x, y), Is.EqualTo(result));
         }
@@ -99,11 +100,12 @@ namespace NUnitTest
             Console.WriteLine(++_i);
         }
 
-        [TestCase(1, 2, 0.5)]
+        [Test]
         [Retry(3)]
-        public void RetryTest(double x, double y, double result)
+        public void RetryTest()
         {
-            Assert.That(_calc.Div(x, y), Is.EqualTo(result));
+            Assert.That(_calc.Div(6, 3), Is.EqualTo(2));
+            Console.WriteLine(++_j);
         }
     }
 }
