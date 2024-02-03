@@ -25,8 +25,9 @@ namespace SauceDemo.Tests
 
                 Assert.That(Driver.FindElements(By.TagName("input")).Count == 3);
 
-                //Assert.IsFalse(Driver.FindElement(By.LinkText("https")).Displayed);
-                //Assert.IsFalse(Driver.FindElement(By.PartialLinkText("https")).Displayed);
+                Assert.That(Driver.FindElements(By.LinkText("https://www.saucedemo.com/")).Count == 0);
+                
+                Assert.That(Driver.FindElements(By.PartialLinkText("https")).Count == 0);
 
                 //By Css
                 Assert.That(Driver.FindElements(By.CssSelector(".form_group")).Count == 2);
