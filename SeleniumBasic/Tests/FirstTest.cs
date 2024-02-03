@@ -27,8 +27,7 @@ namespace SeleniumBasic.Tests
         public void ValidateSKF()
         {
             Driver.Navigate().GoToUrl("https://bymed.top/calc/%D1%81%D0%BA%D1%84-2148");
-            //Driver.SwitchTo().Frame(0);
-            Driver.SwitchTo().Frame(Driver.FindElement(By.CssSelector("[src='/scripts/gfr/?v=1']")));
+            Driver.SwitchTo().Frame(Driver.FindElement(By.XPath("//iframe[@src]")));
 
             IWebElement ageInput = Driver.FindElement(By.Id("age"));
             SelectElement sexSelect = new SelectElement(Driver.FindElement(By.Id("sex")));
