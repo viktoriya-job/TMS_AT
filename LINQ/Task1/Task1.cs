@@ -8,7 +8,7 @@ namespace LINQ
         {
             List<int> _intList = new List<int>() { 1, 7, 7, 2, 3, 1, 2, 3, 4, 5, 6, 4, 5, 6};
 
-            var result = _intList.Where(number => number % 2 != 0).Select(number => number).Distinct();
+            var result = _intList.Where(number => number % 2 != 0).Distinct();
 
             PrintHelper.PrintCollection(result);
         }

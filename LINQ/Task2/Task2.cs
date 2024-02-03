@@ -20,18 +20,11 @@ namespace LINQ
                 new Client(4,2024,2,16),
             };
 
-            var min = _clientsList.Min(client => client.TrainingDuration);
-            var result = _clientsList.Where(client => client.TrainingDuration == min).Select(client =>
-            new
-            {
-                client.TrainingDuration,
-                client.Year,
-                client.Month
-            }).Last();
-
-            Console.WriteLine($"TrainingDuration: {result.TrainingDuration}" +
-                $", Year: {result.Year}" +
-                $", Month: {result.Month}");
+            var minTrainingDuration = _clientsList.Where(client => client.TrainingDuration == _clientsList.Min(client => client.TrainingDuration)).Last();
+            
+            Console.WriteLine($"TrainingDuration: {minTrainingDuration.TrainingDuration}" +
+                $", Year: {minTrainingDuration.Year}" +
+                $", Month: {minTrainingDuration.Month}");
         }
     }
 }
