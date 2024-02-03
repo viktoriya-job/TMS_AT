@@ -28,6 +28,7 @@ namespace SauceDemo.Tests
                 //Assert.IsFalse(Driver.FindElement(By.LinkText("https")).Displayed);
                 //Assert.IsFalse(Driver.FindElement(By.PartialLinkText("https")).Displayed);
 
+                //By Css
                 Assert.That(Driver.FindElements(By.CssSelector(".form_group")).Count == 2);
                 
                 Assert.That(Driver.FindElement(By.CssSelector(".submit-button.btn_action")).Displayed);
@@ -42,15 +43,36 @@ namespace SauceDemo.Tests
 
                 Assert.That(Driver.FindElement(By.CssSelector("[type='submit']")).Displayed);
 
-                Assert.IsTrue(Driver.FindElement(By.CssSelector("[class~='btn_action']")).Enabled);
+                Assert.That(Driver.FindElement(By.CssSelector("[class~='btn_action']")).Displayed);
 
-                Assert.IsTrue(Driver.FindElement(By.CssSelector("[name|='user']")).Enabled);
+                Assert.That(Driver.FindElement(By.CssSelector("[name|='user']")).Displayed);
                 
-                Assert.IsTrue(Driver.FindElement(By.CssSelector("[data-test^='login-b']")).Enabled);
+                Assert.That(Driver.FindElement(By.CssSelector("[data-test^='login-b']")).Displayed);
 
-                Assert.IsTrue(Driver.FindElement(By.CssSelector("[data-test$='button']")).Enabled);
+                Assert.That(Driver.FindElement(By.CssSelector("[data-test$='button']")).Displayed);
                 
-                Assert.IsTrue(Driver.FindElement(By.CssSelector("[data-test*='n-b']")).Enabled);
+                Assert.That(Driver.FindElement(By.CssSelector("[data-test*='n-b']")).Displayed);
+
+                //By XPath
+                Assert.That(Driver.FindElement(By.XPath("//input[@id='login-button']")).Displayed);
+
+                Assert.That(Driver.FindElement(By.XPath("//*[text()='visual_user']")).Displayed);
+
+                Assert.That(Driver.FindElement(By.XPath("//input[contains(@name,'user')]")).Displayed);
+
+                Assert.That(Driver.FindElement(By.XPath("//h4[contains(text(),'Password')]")).Displayed);
+
+                Assert.That(Driver.FindElement(By.XPath("//input[@type='submit']/ancestor::form")).Displayed);
+
+                Assert.That(Driver.FindElement(By.XPath("//div[@class='login_credentials_wrap']/descendant::h4[contains(text(),'Accepted')]")).Displayed);
+
+                Assert.That(Driver.FindElement(By.XPath("//div[@class='error-message-container']/following::input")).Displayed);
+
+                Assert.That(Driver.FindElement(By.XPath("//div[@class='login_credentials_wrap']/parent::div")).Displayed);
+                
+                Assert.That(Driver.FindElement(By.XPath("//div[@class='error-message-container']/preceding::input[@type='text']")).Displayed);
+               
+                Assert.That(Driver.FindElement(By.XPath("//input[@class='input_error form_input' and @type='password']")).Displayed);
             });
 
         }
