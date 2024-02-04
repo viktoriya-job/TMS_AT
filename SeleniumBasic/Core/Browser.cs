@@ -1,7 +1,8 @@
-﻿using SeleniumBasic.Helpers.Configuration;
-using OpenQA.Selenium;
+﻿using OpenQA.Selenium;
+using SeleniumAdvanced.Core;
+using SeleniumAdvanced.Helpers.Configuration;
 
-namespace SeleniumBasic.Core
+namespace SeleniumAdvanced.Core
 {
     public class Browser
     {
@@ -16,9 +17,9 @@ namespace SeleniumBasic.Core
                 _ => Driver
             };
 
-            Driver?.Manage().Window.Maximize();
+            //Driver?.Manage().Window.Maximize();
             Driver?.Manage().Cookies.DeleteAllCookies();
-            //Driver!.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(0);
+            Driver!.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(0);
         }
     }
 }

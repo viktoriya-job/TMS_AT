@@ -1,7 +1,7 @@
 using System.Reflection;
 using Microsoft.Extensions.Configuration;
 
-namespace SeleniumBasic.Helpers.Configuration
+namespace SeleniumAdvanced.Helpers.Configuration
 {
     public static class Configurator
     {
@@ -38,11 +38,15 @@ namespace SeleniumBasic.Helpers.Configuration
                 var child = Configuration.GetSection("AppSettings");
 
                 appSettings.URL = child["URL"];
+                //appSettings.Username = child["Username"];
+                //appSettings.Password = child["Password"];
 
                 return appSettings;
             }
         }
 
         public static string? BrowserType => Configuration[nameof(BrowserType)];
+
+        public static double WaitsTimeout => Double.Parse(Configuration[nameof(WaitsTimeout)]);
     }
 }
