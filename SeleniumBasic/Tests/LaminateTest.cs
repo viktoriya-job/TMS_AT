@@ -1,5 +1,6 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
+using System.Text.RegularExpressions;
 
 namespace SeleniumBasic.Tests
 {
@@ -43,7 +44,8 @@ namespace SeleniumBasic.Tests
 
             Thread.Sleep(2000);
             IWebElement result = Driver.FindElement(By.CssSelector(".calc-result"));
-            Assert.That(result.Text, Is.EqualTo("Требуемое количество плашек ламината: 65\r\nКоличество упаковок ламината: 4\r\nСтоимость ламината: 0 руб\r\nВес ламината: 0 кг"));
+            //Assert.That(result.Text.Replace("\r", ""), Is.EqualTo("Требуемое количество плашек ламината: 65\nКоличество упаковок ламината: 4\nСтоимость ламината: 0 руб\nВес ламината: 0 кг"));
+            Assert.That(new Regex(@"\r").Replace(result.Text, ""), Is.EqualTo("Требуемое количество плашек ламината: 65\nКоличество упаковок ламината: 4\nСтоимость ламината: 0 руб\nВес ламината: 0 кг"));
         }
     }
 }
