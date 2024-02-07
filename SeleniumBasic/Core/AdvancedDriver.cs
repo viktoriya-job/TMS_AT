@@ -3,7 +3,7 @@ using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium;
 using System.Reflection;
 
-namespace SeleniumAdvanced.Core
+namespace PageObjectSimple.Core
 {
     public class AdvancedDriver
     {
