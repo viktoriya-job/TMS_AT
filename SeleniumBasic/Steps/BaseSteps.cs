@@ -3,7 +3,7 @@ using PageObjectSimple.Pages;
 
 namespace PageObjectSimple.Steps
 {
-    public class BaseStep
+    public class BaseSteps
     {
         protected IWebDriver Driver;
 
