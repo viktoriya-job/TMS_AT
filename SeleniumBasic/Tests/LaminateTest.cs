@@ -17,9 +17,14 @@ namespace SeleniumBasic.Tests
             IWebElement wdLamID = Driver.FindElement(By.Id("wd_lam_id"));
             IWebElement packInput = Driver.FindElement(By.Id("n_packing"));
             IWebElement areaInput = Driver.FindElement(By.Id("area"));
-            IWebElement layingInput = Driver.FindElement(By.CssSelector("label[for=direction-laminate-id2]"));
+            IWebElement layingInput = Driver.FindElement(By.CssSelector("label[for=direction-laminate-id3]"));
             SelectElement layingSelect = new SelectElement(Driver.FindElement(By.Id("laying_method_laminate")));
+            IWebElement minLength = Driver.FindElement(By.Id("min_length_segment_id"));
+            IWebElement indexWalls = Driver.FindElement(By.Id("indent_walls_id"));
             IWebElement button = Driver.FindElement(By.Id("btn_calculate"));
+
+            int minLengthValueLength = minLength.GetAttribute("value").Length;
+            int indexWallsValueLength = indexWalls.GetAttribute("value").Length;
 
             lnRoomInput.Clear();
             lnRoomInput.SendKeys("320");
@@ -39,13 +44,24 @@ namespace SeleniumBasic.Tests
             areaInput.SendKeys("1.8");
 
             layingInput.Click();
-            layingSelect.SelectByValue("0");
+            layingSelect.SelectByValue("2");
+
+            for (int i = 0; i < minLengthValueLength; i++)
+                minLength.SendKeys(Keys.Backspace);
+
+            minLength.SendKeys("300");
+
+            for (int i = 0; i < indexWallsValueLength; i++)
+                indexWalls.SendKeys(Keys.Backspace);
+
+            indexWalls.SendKeys("8");
+
             button.Click();
 
-            Thread.Sleep(2000);
+            Thread.Sleep(5000);
             IWebElement result = Driver.FindElement(By.CssSelector(".calc-result"));
-            //Assert.That(result.Text.Replace("\r", ""), Is.EqualTo("Требуемое количество плашек ламината: 65\nКоличество упаковок ламината: 4\nСтоимость ламината: 0 руб\nВес ламината: 0 кг"));
-            Assert.That(new Regex(@"\r").Replace(result.Text, ""), Is.EqualTo("Требуемое количество плашек ламината: 65\nКоличество упаковок ламината: 4\nСтоимость ламината: 0 руб\nВес ламината: 0 кг"));
+
+            Assert.That(new Regex(@"\r").Replace(result.Text, ""), Is.EqualTo("Требуемое количество плашек ламината: 63\nКоличество упаковок ламината: 4\nСтоимость ламината: 0 руб\nВес ламината: 0 кг"));
         }
     }
 }
