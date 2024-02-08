@@ -20,7 +20,7 @@ namespace SeleniumAdvanced.Tests
 
             WaitsHelper.WaitForVisibilityLocatedBy(By.LinkText(fileName)).Click();
 
-            Assert.That(WaitsHelper.Wait(filePath, TimeSpan.FromSeconds(10)));
+            Assert.That(WaitsHelper.WaitFileForExist(filePath, TimeSpan.FromSeconds(10)));
         }
     }
 }
