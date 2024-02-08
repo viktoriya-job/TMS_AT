@@ -68,5 +68,27 @@ namespace SeleniumAdvanced.Helpers
 
             return wait.Until(d => driver.FindElement(locator));
         }
+
+        public bool Wait(string path, TimeSpan timeout)
+        {
+            TimeSpan polling = TimeSpan.FromMilliseconds(200);
+            IClock clock = new SystemClock();
+            DateTime otherDateTime = clock.LaterBy(timeout);
+
+            while (true)
+            {
+                if (File.Exists(path))
+                {
+                    return true;
+                }
+
+                if (!clock.IsNowBefore(otherDateTime))
+                {
+                    throw new TimeoutException();
+                }
+
+                Thread.Sleep(polling);
+            }
+        }
     }
 }

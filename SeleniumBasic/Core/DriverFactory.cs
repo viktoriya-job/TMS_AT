@@ -1,6 +1,8 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
+using OpenQA.Selenium.Interactions;
+using System.Reflection;
 using WebDriverManager;
 using WebDriverManager.DriverConfigs.Impl;
 using LogLevel = OpenQA.Selenium.LogLevel;
@@ -9,13 +11,18 @@ namespace SeleniumAdvanced.Core
 {
     public class DriverFactory
     {
+        public static readonly string PathForDownload = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "Resources");
         public IWebDriver? GetChromeDriver()
         {
             var chromeOptions = new ChromeOptions();
-            chromeOptions.AddArguments("--incognito");
+            //chromeOptions.AddArguments("--incognito");
+            //chromeOptions.AddArguments("--headless");
             chromeOptions.AddArguments("--disable-gpu");
             chromeOptions.AddArguments("--disable-extensions");
-            //chromeOptions.AddArguments("--headless");
+
+            chromeOptions.AddUserProfilePreference("download.default_directory", PathForDownload);
+            chromeOptions.AddUserProfilePreference("download.prompt_for_download", false);
+            chromeOptions.AddUserProfilePreference("disable-popup-blocking", "true");
 
             chromeOptions.SetLoggingPreference(LogType.Browser, LogLevel.All);
             chromeOptions.SetLoggingPreference(LogType.Driver, LogLevel.All);
