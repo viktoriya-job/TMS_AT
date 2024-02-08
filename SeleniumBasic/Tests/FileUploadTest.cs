@@ -10,15 +10,17 @@ namespace SeleniumAdvanced.Tests
         {
             Driver.Navigate().GoToUrl("http://the-internet.herokuapp.com/upload");
 
+            string fileName = "msg1205352859-4623.jpg";
             string location = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-            string path = Path.Combine(location, "Resources", "msg1205352859-4623.jpg");
+            string path = Path.Combine(location, "Resources", fileName);
             var fileUploadInput = WaitsHelper.WaitForExists(By.Id("file-upload"));
             var fileUploadSubmitButton = WaitsHelper.WaitForExists(By.Id("file-submit"));
 
             fileUploadInput.SendKeys(path);
             fileUploadSubmitButton.Click();
 
-            Assert.That(WaitsHelper.WaitForVisibilityLocatedBy(By.Id("uploaded-files")).Text, Is.EqualTo("msg1205352859-4623.jpg"));
+            Assert.That(WaitsHelper.WaitForVisibilityLocatedBy(By.Id("uploaded-files")).Text
+                , Is.EqualTo(fileName));
         }
     }
 }

@@ -9,7 +9,7 @@ namespace SeleniumAdvanced.Tests
         {
             Driver.Navigate().GoToUrl("http://the-internet.herokuapp.com/frames");
 
-            WaitsHelper.WaitForExists(By.LinkText("iFrame")).Click();
+            WaitsHelper.WaitForVisibilityLocatedBy(By.LinkText("iFrame")).Click();
 
             Driver.SwitchTo().Frame(WaitsHelper.WaitForVisibilityLocatedBy(By.Id("mce_0_ifr")));
 
