@@ -1,11 +1,11 @@
 ﻿using OpenQA.Selenium;
-using PageObjectSimple.Helpers.Configuration;
+using PageObjectSteps.Helpers.Configuration;
 
-namespace PageObjectSimple.Core
+namespace PageObjectSteps.Core
 {
     public class Browser
     {
-        public IWebDriver? Driver { get; }
+        public IWebDriver Driver { get; }
 
         public Browser()
         {
@@ -16,8 +16,8 @@ namespace PageObjectSimple.Core
                 _ => Driver
             } ?? throw new InvalidOperationException("Browser is not supported.");
 
-            Driver?.Manage().Window.Maximize();
-            Driver?.Manage().Cookies.DeleteAllCookies();
+            Driver.Manage().Window.Maximize();
+            Driver.Manage().Cookies.DeleteAllCookies();
             //Driver!.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(0);
         }
     }

@@ -1,19 +1,27 @@
-﻿
-
 using PageObjectSimple.Helpers.Configuration;
-using PageObjectSimple.Steps;
+using PageObjectSimple.Pages;
 
-namespace PageObjectSimple.Tests
+namespace PageObjectSimple.Tests;
+
+public class LoginTest : BaseTest
 {
-    public class LoginTest : BaseTest
+    [Test]
+    public void SuccessfulLoginTest()
     {
-        [Test]
-        public void SuccessLoginTest()
-        {
-            NavigationSteps.NavigateToLoginPage();
-            NavigationSteps.SuccessfulLogin(Configurator.AppSettings.Username, Configurator.AppSettings.Password);
-
-            Assert.IsTrue(NavigationSteps.DashboardPage.IsPageOpened());
-        }
+        // Простой вид
+        LoginPage loginPage = new LoginPage(Driver);
+        DashboardPage dashboardPage = loginPage.SuccessFulLogin(Configurator.AppSettings.Username, Configurator.AppSettings.Password);
+        Assert.That(dashboardPage.IsPageOpened());
+    }
+    
+    [Test]
+    public void InvalidUsernameLoginTest()
+    {
+        // Вид в стилистике Builder
+        Assert.That(
+            new LoginPage(Driver)
+                .IncorrectLogin("ssdd", "")
+                .ErrorLabel.Text.Trim(), 
+            Is.EqualTo("Email/Login or Password is incorrect. Please try again."));
     }
 }

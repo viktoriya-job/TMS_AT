@@ -11,27 +11,37 @@ namespace PageObjectSimple.Pages
         private static readonly By PswInputBy = By.Id("password");
         private static readonly By RememberMeCheckboxBy = By.Id("rememberme");
         private static readonly By LoginInButtonBy = By.Id("button_primary");
+        private static readonly By ErrorLabelBy = By.CssSelector("[data-testid='loginErrorText']");
 
         // Инициализация класса + переопределения
-        public LoginPage(IWebDriver driver, bool openPageByUrl) : base(driver, openPageByUrl)
+        public LoginPage(IWebDriver driver) : base(driver)
         {
         }
 
-        public LoginPage(IWebDriver driver) : base(driver, false)
+        // Методы
+        public IWebElement EmailInput => WaitsHelper.WaitForExists(EmailInputBy);
+        public IWebElement ErrorLabel => WaitsHelper.WaitForExists(ErrorLabelBy);
+        public IWebElement PswInput => WaitsHelper.WaitForExists(PswInputBy);
+        public IWebElement RememberMeCheckbox => WaitsHelper.WaitForExists(RememberMeCheckboxBy);
+        public IWebElement LoginInButton => WaitsHelper.WaitForExists(LoginInButtonBy);
+
+        // Комплексные
+        public DashboardPage SuccessFulLogin(string username, string password)
         {
+            EmailInput.SendKeys(username);
+            PswInput.SendKeys(password);
+            LoginInButton.Click();
+
+            return new DashboardPage(Driver);
         }
 
-        public override bool IsPageOpened()
+        public LoginPage IncorrectLogin(string username, string password)
         {
-            try
-            {
-                return LoginInButton().Displayed;
-            }
-            catch (Exception)
-            {
-                return false;
-            }
+            EmailInput.SendKeys(username);
+            PswInput.SendKeys(password);
+            LoginInButton.Click();
 
+            return this;
         }
 
         protected override string GetEndpoint()
@@ -39,25 +49,9 @@ namespace PageObjectSimple.Pages
             return END_POINT;
         }
 
-        //Атомарные методы
-        public IWebElement EmailInput()
+        public override bool IsPageOpened()
         {
-            return Driver.FindElement(EmailInputBy);
-        }
-
-        public IWebElement PswInput()
-        {
-            return Driver.FindElement(PswInputBy);
-        }
-
-        public IWebElement RememberMeCheckbox()
-        {
-            return Driver.FindElement(RememberMeCheckboxBy);
-        }
-
-        public IWebElement LoginInButton()
-        {
-            return Driver.FindElement(LoginInButtonBy);
+            return LoginInButton.Displayed && EmailInput.Displayed;
         }
     }
 }
