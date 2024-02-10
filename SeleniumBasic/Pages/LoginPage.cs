@@ -17,6 +17,9 @@ namespace PageObjectSimple.Pages
         public LoginPage(IWebDriver driver) : base(driver)
         {
         }
+        public LoginPage(IWebDriver driver, bool openPageByUrl) : base(driver, openPageByUrl)
+        {
+        }
 
         // Методы
         public IWebElement EmailInput => WaitsHelper.WaitForExists(EmailInputBy);

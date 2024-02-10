@@ -9,7 +9,7 @@ public class LoginTest : BaseTest
     public void SuccessfulLoginTest()
     {
         // Простой вид
-        LoginPage loginPage = new LoginPage(Driver);
+        LoginPage loginPage = new LoginPage(Driver, true);
         DashboardPage dashboardPage = loginPage.SuccessFulLogin(Configurator.AppSettings.Username, Configurator.AppSettings.Password);
         Assert.That(dashboardPage.IsPageOpened());
     }
