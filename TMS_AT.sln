@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34221.43
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PageObjectSimple", "SeleniumBasic\PageObjectSimple.csproj", "{5A967B4F-D044-466B-B736-281F7B458631}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SaucedemoPOSimple", "SaucedemoPOSimple\SaucedemoPOSimple.csproj", "{5FD33A10-324D-4B5E-B56F-F02361196510}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PageObjectSteps", "PageObjectSteps\PageObjectSteps.csproj", "{DFF2060A-2C8A-4760-A08A-501BC9A8E032}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SaucedemoPOSteps", "SaucedemoPOSteps\SaucedemoPOSteps.csproj", "{E1B1D4B9-D0EC-4864-88CE-670A82FAFCA7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,14 +13,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{5A967B4F-D044-466B-B736-281F7B458631}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5A967B4F-D044-466B-B736-281F7B458631}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5A967B4F-D044-466B-B736-281F7B458631}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5A967B4F-D044-466B-B736-281F7B458631}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DFF2060A-2C8A-4760-A08A-501BC9A8E032}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DFF2060A-2C8A-4760-A08A-501BC9A8E032}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DFF2060A-2C8A-4760-A08A-501BC9A8E032}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DFF2060A-2C8A-4760-A08A-501BC9A8E032}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5FD33A10-324D-4B5E-B56F-F02361196510}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5FD33A10-324D-4B5E-B56F-F02361196510}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5FD33A10-324D-4B5E-B56F-F02361196510}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5FD33A10-324D-4B5E-B56F-F02361196510}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E1B1D4B9-D0EC-4864-88CE-670A82FAFCA7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1B1D4B9-D0EC-4864-88CE-670A82FAFCA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E1B1D4B9-D0EC-4864-88CE-670A82FAFCA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1B1D4B9-D0EC-4864-88CE-670A82FAFCA7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
