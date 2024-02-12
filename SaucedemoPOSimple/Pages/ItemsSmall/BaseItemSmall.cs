@@ -4,12 +4,15 @@ using SaucedemoPOSimple.Helpers.Configuration;
 
 namespace SaucedemoPOSimple.Pages.ItemsSmall
 {
-    public abstract class BaseItemSmall
+    public abstract class BaseItemSmall : BasePage
     {
-        protected WaitsHelper WaitsHelper { get; private set; }
+        protected BaseItemSmall(IWebDriver driver) : base(driver)
+        {
+        }
+
         public abstract bool IsItemAddedToCart();
+        public abstract bool IsItemNotAddedToCart();
         public abstract void AddItem();
         public abstract void RemoveItem();
-
     }
 }

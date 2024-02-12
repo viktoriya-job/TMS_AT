@@ -6,8 +6,6 @@ namespace SaucedemoPOSimple.Pages
 {
     public class InventoryPage : BasePage
     {
-        public BackpackItemSmall BackpackItemSmall { get; } = new BackpackItemSmall();
-        public BikeLiteItemSmall BikeLiteItemSmall { get; } = new BikeLiteItemSmall();
         private static string EndPoint = "/inventory.html";
 
         private static readonly By TitleLabelBy = By.ClassName("title");
@@ -20,6 +18,8 @@ namespace SaucedemoPOSimple.Pages
         }
 
         public IWebElement Title => WaitsHelper.WaitForExists(TitleLabelBy);
+        public BackpackItemSmall BackpackItemSmall => new BackpackItemSmall(Driver);
+        public BikeLiteItemSmall BikeLiteItemSmall => new BikeLiteItemSmall(Driver);
 
         public override bool IsPageOpened() => Title.Displayed;
 
