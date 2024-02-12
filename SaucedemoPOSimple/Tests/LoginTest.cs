@@ -6,6 +6,10 @@ namespace SaucedemoPOSimple.Tests
     public class LoginTest : BaseTest
     {
         [TestCaseSource(typeof(TestData), nameof(TestData.SuccessLoginUsers))]
+        [Order(1)]
+        [Category("PositiveTest")]
+        [Category("LoginTest")]
+        [Description("Проверка успешного входа в систему")]
         public void StandardUserLoginTest(string username, string password)
         {
             LoginPage loginPage = new LoginPage(Driver, true);
@@ -14,6 +18,9 @@ namespace SaucedemoPOSimple.Tests
         }
 
         [Test]
+        [Order(2)]
+        [Category("NegativeTest")]
+        [Category("LoginTest")]
         public void FailureLockedOutUserLoginTest()
         {
             LoginPage loginPage = new LoginPage(Driver, true);
@@ -22,6 +29,9 @@ namespace SaucedemoPOSimple.Tests
         }
 
         [Test]
+        [Order(3)]
+        [Category("NegativeTest")]
+        [Category("LoginTest")]
         public void FailureUnknownUserLoginTest()
         {
             LoginPage loginPage = new LoginPage(Driver, true);

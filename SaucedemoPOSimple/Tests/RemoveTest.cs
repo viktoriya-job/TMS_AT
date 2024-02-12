@@ -7,7 +7,10 @@ namespace SaucedemoPOSimple.Tests
     public class RemoveTest : BaseTest
     {
         [Test]
-        [Order(2)]
+        [Order(5)]
+        [Category("PositiveTest")]
+        [Category("RemoveTest")]
+        [Description("Проверка удаления товара из корзины со страницы inventory")]
         public void RemoveBikeLiteItemTest()
         {
             LoginPage loginPage = new LoginPage(Driver, true);

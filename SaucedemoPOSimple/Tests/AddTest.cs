@@ -7,7 +7,10 @@ namespace SaucedemoPOSimple.Tests
     public class AddTest : BaseTest
     {
         [Test]
-        [Order(1)]
+        [Order(4)]
+        [Category("PositiveTest")]
+        [Category("AddTest")]
+        [Description("Проверка добавления товара в корзину на странице inventory")]
         public void AddBikeLiteItemTest()
         {
             LoginPage loginPage = new LoginPage(Driver, true);
