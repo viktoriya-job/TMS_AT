@@ -13,6 +13,10 @@ namespace SaucedemoPOSimple.Pages
         {
         }
 
+        public ThankYouPage(IWebDriver driver, bool openPageByUrl) : base(driver, openPageByUrl)
+        {
+        }
+
         public IWebElement CompleteMessage => WaitsHelper.WaitForExists(CompleteMessageBy);
         public IWebElement BackButton => WaitsHelper.WaitForExists(BackButtonBy);
 

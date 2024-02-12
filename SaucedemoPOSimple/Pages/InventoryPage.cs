@@ -17,11 +17,11 @@ namespace SaucedemoPOSimple.Pages
         {
         }
 
-        public IWebElement Title => WaitsHelper.WaitForExists(TitleLabelBy);
+        public IWebElement TitleLable => WaitsHelper.WaitForExists(TitleLabelBy);
         public BackpackItemSmall BackpackItemSmall => new BackpackItemSmall(Driver);
         public BikeLiteItemSmall BikeLiteItemSmall => new BikeLiteItemSmall(Driver);
 
-        public override bool IsPageOpened() => Title.Displayed;
+        public override bool IsPageOpened() => TitleLable.Text.Trim() == "Products";
 
         protected override string GetEndpoint() => EndPoint;
     }

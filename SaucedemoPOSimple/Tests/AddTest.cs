@@ -18,7 +18,13 @@ namespace SaucedemoPOSimple.Tests
 
             inventoryPage.BikeLiteItemSmall.AddItem();
 
-            Assert.That(inventoryPage.BikeLiteItemSmall.IsItemAddedToCart());
+            Assert.Multiple(() =>
+            {
+                Assert.That(inventoryPage.BikeLiteItemSmall.IsItemAddedToCart());
+
+                CartPage cartPage = new CartPage(Driver, true);
+                Assert.That(!cartPage.IsCartEmpty()); //надо бы проверять, что в корзине именно нужный товар, но пока так
+            });
         }
     }
 }

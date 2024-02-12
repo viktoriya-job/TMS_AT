@@ -19,7 +19,13 @@ namespace SaucedemoPOSimple.Tests
             inventoryPage.BikeLiteItemSmall.AddItem();
             inventoryPage.BikeLiteItemSmall.RemoveItem();
 
-            Assert.That(inventoryPage.BikeLiteItemSmall.IsItemNotAddedToCart());
+            Assert.Multiple(() =>
+            {
+                Assert.That(inventoryPage.BikeLiteItemSmall.IsItemNotAddedToCart());
+
+                CartPage cartPage = new CartPage(Driver, true);
+                Assert.That(cartPage.IsCartEmpty());
+            });
         }
     }
 }
