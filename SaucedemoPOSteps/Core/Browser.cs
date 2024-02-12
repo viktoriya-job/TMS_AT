@@ -1,7 +1,7 @@
 ﻿using OpenQA.Selenium;
-using PageObjectSimple.Helpers.Configuration;
+using SaucedemoPOSteps.Helpers.Configuration;
 
-namespace PageObjectSimple.Core
+namespace SaucedemoPOSteps.Core
 {
     public class Browser
     {

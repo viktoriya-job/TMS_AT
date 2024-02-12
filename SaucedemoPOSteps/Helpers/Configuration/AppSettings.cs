@@ -1,4 +1,4 @@
-namespace PageObjectSimple.Helpers.Configuration
+namespace SaucedemoPOSteps.Helpers.Configuration
 {
     public class AppSettings
     {
