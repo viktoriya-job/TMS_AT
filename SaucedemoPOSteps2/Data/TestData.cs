@@ -1,4 +1,4 @@
-﻿namespace SaucedemoPOSteps.Tests
+﻿namespace SaucedemoPOSteps.Data
 {
     public class TestData
     {

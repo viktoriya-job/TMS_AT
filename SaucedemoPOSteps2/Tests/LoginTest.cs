@@ -1,4 +1,5 @@
-﻿using SaucedemoPOSteps.Pages;
+﻿using SaucedemoPOSteps.Data;
+using SaucedemoPOSteps.Pages;
 using SaucedemoPOSteps.Steps;
 
 namespace SaucedemoPOSteps.Tests

@@ -8,6 +8,7 @@ namespace SaucedemoPOSteps.Steps
     {
         public NavigationSteps(IWebDriver driver) : base(driver) { }
 
+
         public LoginPage NavigateToLoginPage() => LoginPage;
         public CartPage NavigateToCartPage() => new CartPage(Driver, true);
     }
