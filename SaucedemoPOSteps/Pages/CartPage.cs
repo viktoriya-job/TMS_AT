@@ -13,28 +13,28 @@ namespace SaucedemoPOSteps.Pages
         private static readonly By CartItemsBy = By.ClassName("cart_item");
 
 
-        public CartPage(IWebDriver driver) : base(driver)
-        {
-        }
-        public CartPage(IWebDriver driver, bool openPageByUrl) : base(driver, openPageByUrl)
-        {
-        }
+        public CartPage(IWebDriver driver) : base(driver) { }
 
-        public IWebElement TitleLable => WaitsHelper.WaitForExists(TitleLabelBy);
-        public IWebElement CheckoutButton => WaitsHelper.WaitForExists(CheckoutButtonBy);
-        public ReadOnlyCollection<IWebElement> CartItems => Driver.FindElements(CartItemsBy);
+        public CartPage(IWebDriver driver, bool openPageByUrl) : base(driver, openPageByUrl) { }
 
-        public override bool IsPageOpened() => TitleLable.Text.Trim() == "Your Cart";
+        public IWebElement TitleLable() => WaitsHelper.WaitForExists(TitleLabelBy);
+        public IWebElement CheckoutButton() => WaitsHelper.WaitForExists(CheckoutButtonBy);
+        public ReadOnlyCollection<IWebElement> CartItems() => Driver.FindElements(CartItemsBy);
+
+        public override bool IsPageOpened()
+        {
+            try
+            {
+                return TitleLable().Text.Trim() == "Your Cart";
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
 
         protected override string GetEndpoint() => EndPoint;
 
-        public bool IsCartEmpty() => CartItems.Count.Equals(0);
-
-        public CheckoutStepOnePage Checkout()
-        {
-            CheckoutButton.Click();
-
-            return new CheckoutStepOnePage(Driver, true);
-        }
+        public bool IsCartEmpty() => CartItems().Count.Equals(0);
     }
 }

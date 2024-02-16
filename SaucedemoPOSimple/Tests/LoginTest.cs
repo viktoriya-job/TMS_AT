@@ -10,7 +10,7 @@ namespace SaucedemoPOSimple.Tests
         [Category("PositiveTest")]
         [Category("LoginTest")]
         [Description("Проверка успешного входа в систему")]
-        public void StandardUserLoginTest(string username, string password)
+        public void UserLoginTest(string username, string password)
         {
             LoginPage loginPage = new LoginPage(Driver, true);
             InventoryPage inventoryPage = loginPage.SuccessLogin(username, password);

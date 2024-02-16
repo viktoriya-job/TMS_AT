@@ -14,31 +14,26 @@ namespace SaucedemoPOSteps.Pages
         private static readonly By ContinueButtonBy = By.Id("continue");
 
 
-        public CheckoutStepOnePage(IWebDriver driver) : base(driver)
+        public CheckoutStepOnePage(IWebDriver driver) : base(driver) { }
+        public CheckoutStepOnePage(IWebDriver driver, bool openPageByUrl) : base(driver, openPageByUrl) { }
+
+        public IWebElement TitleLable() => WaitsHelper.WaitForExists(TitleLabelBy);
+        public IWebElement FirstnameInput() => WaitsHelper.WaitForExists(FirstnameInputBy);
+        public IWebElement LastnameInput() => WaitsHelper.WaitForExists(LastnameInputBy);
+        public IWebElement PostalCodeInput() => WaitsHelper.WaitForExists(PostalCodeInputBy);
+        public IWebElement ContinueButton() => WaitsHelper.WaitForExists(ContinueButtonBy);
+
+        public override bool IsPageOpened()
         {
+            try
+            {
+                return TitleLable().Text.Trim() == "Checkout: Your Information";
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
-        public CheckoutStepOnePage(IWebDriver driver, bool openPageByUrl) : base(driver, openPageByUrl)
-        {
-        }
-
-        public IWebElement TitleLable => WaitsHelper.WaitForExists(TitleLabelBy);
-        public IWebElement FirstnameInput => WaitsHelper.WaitForExists(FirstnameInputBy);
-        public IWebElement LastnameInput => WaitsHelper.WaitForExists(LastnameInputBy);
-        public IWebElement PostalCodeInput => WaitsHelper.WaitForExists(PostalCodeInputBy);
-        public IWebElement ContinueButton => WaitsHelper.WaitForExists(ContinueButtonBy);
-
-        public override bool IsPageOpened() => TitleLable.Text.Trim() == "Checkout: Your Information";
-
         protected override string GetEndpoint() => EndPoint;
-
-        public CheckoutStepTwoPage Continue()
-        {
-            FirstnameInput.SendKeys("A");
-            LastnameInput.SendKeys("B");
-            PostalCodeInput.SendKeys("C");
-            ContinueButton.Click();
-
-            return new CheckoutStepTwoPage(Driver, true);
-        }
     }
 }

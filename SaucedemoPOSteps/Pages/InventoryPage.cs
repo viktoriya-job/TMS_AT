@@ -10,18 +10,25 @@ namespace SaucedemoPOSteps.Pages
 
         private static readonly By TitleLabelBy = By.ClassName("title");
 
-        public InventoryPage(IWebDriver? driver) : base(driver)
-        {
-        }
-        public InventoryPage(IWebDriver? driver, bool openPageByUrl) : base(driver, openPageByUrl)
-        {
-        }
+        public InventoryPage(IWebDriver? driver) : base(driver) { }
 
-        public IWebElement TitleLable => WaitsHelper.WaitForExists(TitleLabelBy);
-        public BackpackItemSmall BackpackItemSmall => new BackpackItemSmall(Driver);
-        public BikeLiteItemSmall BikeLiteItemSmall => new BikeLiteItemSmall(Driver);
+        public InventoryPage(IWebDriver? driver, bool openPageByUrl) : base(driver, openPageByUrl) { }
 
-        public override bool IsPageOpened() => TitleLable.Text.Trim() == "Products";
+        public IWebElement TitleLable() => WaitsHelper.WaitForExists(TitleLabelBy);
+        public BackpackItemSmall BackpackItemSmall() => new BackpackItemSmall(Driver);
+        public BikeLiteItemSmall BikeLiteItemSmall() => new BikeLiteItemSmall(Driver);
+
+        public override bool IsPageOpened()
+        {
+            try
+            {
+                return TitleLable().Text.Trim() == "Products";
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
 
         protected override string GetEndpoint() => EndPoint;
     }
