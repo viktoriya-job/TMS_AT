@@ -26,10 +26,10 @@ namespace SaucedemoPOSteps.Steps
             }
         }
 
-        public void AddProductsToCartFromInventoryPage()
-        {
-            new InventoryPage(Driver).BikeLiteItemSmall().AddItem();
-        }
+        //public void AddProductsToCartFromInventoryPage()
+        //{
+        //    new InventoryPage(Driver).BikeLiteItemSmall().AddItem();
+        //}
 
         public void RemoveProductFromCart()
         {
