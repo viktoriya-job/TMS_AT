@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using NUnit.Allure.Attributes;
+using OpenQA.Selenium;
 using PageObjectStepsSauceDemo.Pages;
 
 namespace PageObjectStepsSauceDemo.Steps
@@ -13,7 +14,8 @@ namespace PageObjectStepsSauceDemo.Steps
             _checkoutStepOnePage = new CheckoutStepOnePage(Driver);
             _checkoutStepTwoPage = new CheckoutStepTwoPage(Driver);
         }
-        
+
+        [AllureStep("Input Recipient Details")]
         public void InputRecipientDetails()
         {
             _checkoutStepOnePage.FirstnameInput.SendKeys("A");
@@ -21,6 +23,7 @@ namespace PageObjectStepsSauceDemo.Steps
             _checkoutStepOnePage.PostalCodeInput.SendKeys("C");
         }
 
+        [AllureStep("Finish Order")]
         public FinishPage FinishOrder()
         {
             _checkoutStepTwoPage.FinishButton.Click();

@@ -1,4 +1,6 @@
-﻿using OpenQA.Selenium;
+﻿using Allure.Net.Commons;
+using NUnit.Allure.Attributes;
+using OpenQA.Selenium;
 using PageObjectStepsSauceDemo.Helpers.Configuration;
 using PageObjectStepsSauceDemo.Pages;
 
@@ -12,14 +14,18 @@ namespace PageObjectStepsSauceDemo.Steps
             _loginPage = new LoginPage(Driver);
         }
 
+        [AllureStep("Enter Username and Password for success login")]
         public InventoryPage SuccessLogin()
         {
+            AllureApi.AddTestParameter(Configurator.AppSettings.Username, Configurator.AppSettings.Password, ParameterMode.Masked);
             _loginPage.UsernameInput.SendKeys(Configurator.AppSettings.Username);
             _loginPage.PasswordInput.SendKeys(Configurator.AppSettings.Password);
             _loginPage.LoginButton.Click();
 
             return new InventoryPage(Driver);
         }
+
+        [AllureStep("Enter Username and Password for success login")]
         public InventoryPage SuccessLogin(string username, string password)
         {
             _loginPage.UsernameInput.SendKeys(username);
@@ -28,7 +34,9 @@ namespace PageObjectStepsSauceDemo.Steps
 
             return new InventoryPage(Driver);
         }
-            public LoginPage FailureLogin(string username, string password)
+
+        [AllureStep("Enter Username and Password for fail login")]
+        public LoginPage FailureLogin(string username, string password)
         {
             _loginPage.UsernameInput.SendKeys(username);
             _loginPage.PasswordInput.SendKeys(password);

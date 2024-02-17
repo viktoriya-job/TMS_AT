@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using NUnit.Allure.Attributes;
+using OpenQA.Selenium;
 using PageObjectStepsSauceDemo.Helpers;
 
 namespace PageObjectStepsSauceDemo.Pages
@@ -22,8 +23,13 @@ namespace PageObjectStepsSauceDemo.Pages
         
         public bool IsItemAddedToCart() => RemoveButton.Enabled;
         public bool IsItemNotAddedToCart() => AddButton.Enabled;
+
+        [AllureStep]
         public void AddItem() => AddButton.Click();
+
+        [AllureStep]
         public void RemoveItem() => RemoveButton.Click();
+
         public override bool IsPageOpened() => ItemTitle.Displayed;
         protected override string GetEndpoint()
         {

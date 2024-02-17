@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using NUnit.Allure.Attributes;
+using OpenQA.Selenium;
 using System.Collections.ObjectModel;
 
 namespace PageObjectStepsSauceDemo.Pages
@@ -29,6 +30,8 @@ namespace PageObjectStepsSauceDemo.Pages
             }
         }
         protected override string GetEndpoint() => _endPoint;
+
+        [AllureStep("Checking is the cart is empty")]
         public bool IsCartEmpty() => CartItems.Count.Equals(0);
     }
 }

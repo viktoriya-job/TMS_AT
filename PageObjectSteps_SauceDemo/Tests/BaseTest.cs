@@ -4,6 +4,7 @@ using OpenQA.Selenium;
 using PageObjectStepsSauceDemo.Core;
 using PageObjectStepsSauceDemo.Helpers.Configuration;
 using PageObjectStepsSauceDemo.Steps;
+using System.Text;
 
 namespace PageObjectStepsSauceDemo.Tests
 {
@@ -37,6 +38,20 @@ namespace PageObjectStepsSauceDemo.Tests
         [TearDown]
         public void TearDown()
         {
+            if (TestContext.CurrentContext.Result.Outcome.Status == NUnit.Framework.Interfaces.TestStatus.Failed)
+            {
+                Screenshot screenshot = ((ITakesScreenshot)Driver).GetScreenshot();
+                byte[] screenshotBytes = screenshot.AsByteArray;
+
+                // Прикрепление скриншота к отчету
+                // Вариант 1
+                //AllureLifecycle.Instance.AddAttachment("Screenshot", "image/png", screenshotBytes);
+
+                // Вариант 2
+                AllureApi.AddAttachment("Screenshot", "image/png", screenshotBytes);
+                AllureApi.AddAttachment("error.txt", "text/plain", Encoding.UTF8.GetBytes(TestContext.CurrentContext.Result.Message));
+            }
+
             Driver.Quit();
         }
     }
