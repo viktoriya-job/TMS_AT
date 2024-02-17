@@ -13,15 +13,18 @@ namespace PageObjectStepsSauceDemo.Pages
         public FinishPage(IWebDriver driver) : base(driver) { }
         public FinishPage(IWebDriver driver, bool openPageByUrl) : base(driver, openPageByUrl) { }
 
-        public IWebElement TitleLable() => WaitsHelper.WaitForExists(_titleLabelBy);
-        public IWebElement CompleteMessage() => WaitsHelper.WaitForExists(_completeMessageBy);
-        public IWebElement BackButton() => WaitsHelper.WaitForExists(_backButtonBy);
+        public IWebElement TitleLable => WaitsHelper.WaitForExists(_titleLabelBy);
+        public IWebElement CompleteMessage => WaitsHelper.WaitForExists(_completeMessageBy);
+        public IWebElement BackButton => WaitsHelper.WaitForExists(_backButtonBy);
 
         public override bool IsPageOpened()
         {
             try
             {
-                return CompleteMessage().Displayed && BackButton().Displayed && TitleLable().Text.Trim() == "Checkout: Overview";
+                return 
+                    CompleteMessage.Displayed 
+                    && BackButton.Displayed 
+                    && TitleLable.Text.Trim() == "Checkout: Complete!";
             }
             catch (Exception)
             {

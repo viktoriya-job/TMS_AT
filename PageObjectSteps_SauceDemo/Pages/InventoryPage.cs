@@ -18,14 +18,13 @@ namespace PageObjectStepsSauceDemo.Pages
                 ItemsSmall.Add(new ItemSmall(driver, item));
             }
         }
-
-        public IWebElement TitleLable() => WaitsHelper.WaitForExists(_titleLabelBy);
+        public IWebElement TitleLable => WaitsHelper.WaitForExists(_titleLabelBy);
 
         public override bool IsPageOpened()
         {
             try
             {
-                return TitleLable().Text.Trim() == "Products";
+                return TitleLable.Text.Trim() == "Products";
             }
             catch (Exception)
             {

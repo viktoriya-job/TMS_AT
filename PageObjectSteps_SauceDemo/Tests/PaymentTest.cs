@@ -1,29 +1,39 @@
 ﻿using PageObjectStepsSauceDemo.Pages;
 using PageObjectStepsSauceDemo.Helpers.Configuration;
+using PageObjectStepsSauceDemo.Steps;
 
 namespace PageObjectStepsSauceDemo.Tests
 {
     public class PaymentTest : BaseTest
     {
-        //[Test]
-        //[Order(6)]
-        //[Category("PositiveTest")]
-        //[Category("PaymentTest")]
-        //[Description("Проверка успешной оплаты - без предварительной проверки списка товаров и суммы")]
-        //public void PaymentSimpleTest()
-        //{
-        //    LoginPage loginPage = new LoginPage(Driver, true);
-        //    InventoryPage inventoryPage = loginPage.SuccessLogin(Configurator.AppSettings.Username, Configurator.AppSettings.Password);
+        [Test]
+        [Order(6)]
+        [Category("PositiveTest")]
+        [Category("PaymentTest")]
+        [Description("Проверка успешной оплаты")]
+        public void PaymentSimpleTest()
+        {
+            InventoryPage inventoryPage = LoginSteps.SuccessLogin();
+            Assert.Multiple(() =>
+            {
+                inventoryPage.ItemsSmall[0].AddItem();
+                inventoryPage.ItemsSmall[1].AddItem();
 
-        //    inventoryPage.BikeLiteItemSmall.AddItem();
-        //    inventoryPage.BackpackItemSmall.AddItem();
+                NavigationSteps.NavigateToCartPage(); 
+                //проверка на то, что в корзине именно нужные товары
 
-        //    CartPage cartPage = new CartPage(Driver, true);
-        //    CheckoutStepOnePage checkoutStepOnePage = cartPage.Checkout();
-        //    CheckoutStepTwoPage checkoutStepTwoPage = checkoutStepOnePage.Continue();
-        //    ThankYouPage thankYouPage = checkoutStepTwoPage.Finish();
+                NavigationSteps.NavigateToCheckoutStepOnePage();
+                OrderSteps.InputRecipientDetails();
 
-        //    Assert.That(thankYouPage.IsPageOpened());
-        //}
+                NavigationSteps.NavigateToCheckoutStepTwoPage();
+                //проверка на то, что в заказе именно нужные товары, корректная сумма и тд
+
+                FinishPage finishPage = OrderSteps.FinishOrder();
+                Assert.That(finishPage.IsPageOpened());
+
+                CartPage cartPage = NavigationSteps.NavigateToCartPage();
+                Assert.That(cartPage.IsCartEmpty);
+            });
+        }
     }
 }

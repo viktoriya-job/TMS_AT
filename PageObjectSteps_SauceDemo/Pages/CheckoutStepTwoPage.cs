@@ -12,14 +12,14 @@ namespace PageObjectStepsSauceDemo.Pages
         public CheckoutStepTwoPage(IWebDriver driver) : base(driver) { }
         public CheckoutStepTwoPage(IWebDriver driver, bool openPageByUrl) : base(driver, openPageByUrl) { }
 
-        public IWebElement TitleLable() => WaitsHelper.WaitForExists(_titleLabelBy);
-        public IWebElement FinishButton() => WaitsHelper.WaitForExists(_finishButtonBy);
+        public IWebElement TitleLable => WaitsHelper.WaitForExists(_titleLabelBy);
+        public IWebElement FinishButton => WaitsHelper.WaitForExists(_finishButtonBy);
 
         public override bool IsPageOpened()
         {
             try
             {
-                return TitleLable().Text.Trim() == "Checkout: Overview";
+                return TitleLable.Text.Trim() == "Checkout: Overview";
             }
             catch (Exception)
             {

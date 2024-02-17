@@ -13,15 +13,15 @@ namespace PageObjectStepsSauceDemo.Pages
 
         public CartPage(IWebDriver driver, bool openPageByUrl) : base(driver, openPageByUrl) { }
 
-        public IWebElement TitleLable() => WaitsHelper.WaitForExists(_titleLabelBy);
-        public IWebElement CheckoutButton() => WaitsHelper.WaitForExists(_checkoutButtonBy);
-        public ReadOnlyCollection<IWebElement> CartItems() => Driver.FindElements(_cartItemsBy);
+        public IWebElement TitleLable => WaitsHelper.WaitForExists(_titleLabelBy);
+        public IWebElement CheckoutButton => WaitsHelper.WaitForExists(_checkoutButtonBy);
+        public ReadOnlyCollection<IWebElement> CartItems => Driver.FindElements(_cartItemsBy);
 
         public override bool IsPageOpened()
         {
             try
             {
-                return TitleLable().Text.Trim() == "Your Cart";
+                return TitleLable.Text.Trim() == "Your Cart";
             }
             catch (Exception)
             {
@@ -29,6 +29,6 @@ namespace PageObjectStepsSauceDemo.Pages
             }
         }
         protected override string GetEndpoint() => _endPoint;
-        public bool IsCartEmpty() => CartItems().Count.Equals(0);
+        public bool IsCartEmpty() => CartItems.Count.Equals(0);
     }
 }

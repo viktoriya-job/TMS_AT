@@ -14,27 +14,27 @@ namespace PageObjectStepsSauceDemo.Steps
 
         public InventoryPage SuccessLogin()
         {
-            LoginPage.UsernameInput().SendKeys(Configurator.AppSettings.Username);
-            LoginPage.PasswordInput().SendKeys(Configurator.AppSettings.Password);
-            LoginPage.LoginButton().Click();
+            _loginPage.UsernameInput.SendKeys(Configurator.AppSettings.Username);
+            _loginPage.PasswordInput.SendKeys(Configurator.AppSettings.Password);
+            _loginPage.LoginButton.Click();
 
             return new InventoryPage(Driver);
         }
         public InventoryPage SuccessLogin(string username, string password)
         {
-            LoginPage.UsernameInput().SendKeys(username);
-            LoginPage.PasswordInput().SendKeys(password);
-            LoginPage.LoginButton().Click();
+            _loginPage.UsernameInput.SendKeys(username);
+            _loginPage.PasswordInput.SendKeys(password);
+            _loginPage.LoginButton.Click();
 
             return new InventoryPage(Driver);
         }
             public LoginPage FailureLogin(string username, string password)
         {
-            LoginPage.UsernameInput().SendKeys(username);
-            LoginPage.PasswordInput().SendKeys(password);
-            LoginPage.LoginButton().Click();
+            _loginPage.UsernameInput.SendKeys(username);
+            _loginPage.PasswordInput.SendKeys(password);
+            _loginPage.LoginButton.Click();
 
-            return LoginPage;
+            return _loginPage;
         }
     }
 }

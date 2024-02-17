@@ -14,17 +14,17 @@ namespace PageObjectStepsSauceDemo.Pages
         public LoginPage(IWebDriver driver) : base(driver) { }
         public LoginPage(IWebDriver driver, bool openPageByUrl) : base(driver, openPageByUrl) { }
 
-        public IWebElement UsernameInput() => WaitsHelper.WaitForExists(_usernameInputBy);
-        public IWebElement PasswordInput() => WaitsHelper.WaitForExists(_passwordInputBy);
-        public IWebElement LoginButton() => WaitsHelper.WaitForExists(_loginButtonBy);
-        public IWebElement ErrorLabel() => WaitsHelper.WaitForExists(_errorLabelBy);
+        public IWebElement UsernameInput => WaitsHelper.WaitForExists(_usernameInputBy);
+        public IWebElement PasswordInput => WaitsHelper.WaitForExists(_passwordInputBy);
+        public IWebElement LoginButton => WaitsHelper.WaitForExists(_loginButtonBy);
+        public IWebElement ErrorLabel => WaitsHelper.WaitForExists(_errorLabelBy);
 
         protected override string GetEndpoint() => _endPoint;
         public override bool IsPageOpened()
         {
             try
             {
-                return LoginButton().Displayed;
+                return LoginButton.Displayed;
             }
             catch (Exception)
             {

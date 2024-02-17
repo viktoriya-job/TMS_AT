@@ -28,7 +28,7 @@ namespace PageObjectStepsSauceDemo.Tests
             Assert.That(
                 LoginSteps
                 .FailureLogin(username, password)
-                .ErrorLabel().Text.Trim(), Is.EqualTo("Epic sadface: Sorry, this user has been locked out."));
+                .ErrorLabel.Text.Trim(), Is.EqualTo("Epic sadface: Sorry, this user has been locked out."));
         }
 
         [TestCaseSource(typeof(TestData), nameof(TestData.UnknownLoginUsers))]
@@ -40,7 +40,7 @@ namespace PageObjectStepsSauceDemo.Tests
         {
             Assert.That(
                 LoginSteps.FailureLogin(username, password)
-                .ErrorLabel().Text.Trim(), Is.EqualTo("Epic sadface: Username and password do not match any user in this service"));
+                .ErrorLabel.Text.Trim(), Is.EqualTo("Epic sadface: Username and password do not match any user in this service"));
         }
     }
 }

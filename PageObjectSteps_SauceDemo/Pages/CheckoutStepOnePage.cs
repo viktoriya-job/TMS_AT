@@ -15,17 +15,17 @@ namespace PageObjectStepsSauceDemo.Pages
         public CheckoutStepOnePage(IWebDriver driver) : base(driver) { }
         public CheckoutStepOnePage(IWebDriver driver, bool openPageByUrl) : base(driver, openPageByUrl) { }
 
-        public IWebElement TitleLable() => WaitsHelper.WaitForExists(_titleLabelBy);
-        public IWebElement FirstnameInput() => WaitsHelper.WaitForExists(_firstnameInputBy);
-        public IWebElement LastnameInput() => WaitsHelper.WaitForExists(_lastnameInputBy);
-        public IWebElement PostalCodeInput() => WaitsHelper.WaitForExists(_postalCodeInputBy);
-        public IWebElement ContinueButton() => WaitsHelper.WaitForExists(_continueButtonBy);
+        public IWebElement TitleLable => WaitsHelper.WaitForExists(_titleLabelBy);
+        public IWebElement FirstnameInput => WaitsHelper.WaitForExists(_firstnameInputBy);
+        public IWebElement LastnameInput => WaitsHelper.WaitForExists(_lastnameInputBy);
+        public IWebElement PostalCodeInput => WaitsHelper.WaitForExists(_postalCodeInputBy);
+        public IWebElement ContinueButton => WaitsHelper.WaitForExists(_continueButtonBy);
 
         public override bool IsPageOpened()
         {
             try
             {
-                return TitleLable().Text.Trim() == "Checkout: Your Information";
+                return TitleLable.Text.Trim() == "Checkout: Your Information";
             }
             catch (Exception)
             {
