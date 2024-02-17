@@ -16,14 +16,14 @@ namespace PageObjectStepsSauceDemo.Pages
             _element = element;
         }
 
-        public IWebElement ItemTitle() => WaitsHelper.WaitChildElement(_element, _itemTitleBy);
-        public IWebElement AddButton() => WaitsHelper.WaitChildElement(_element, _addButtonBy);
-        public IWebElement RemoveButton() => WaitsHelper.WaitChildElement(_element, _removeButtonBy);
-        public bool IsItemAddedToCart() => RemoveButton().Enabled;
-        public bool IsItemNotAddedToCart() => AddButton().Enabled;
-        public void AddItem() => AddButton().Click();
-        public void RemoveItem() => RemoveButton().Click();
-        public override bool IsPageOpened() => ItemTitle().Displayed;
+        public IWebElement ItemTitle => WaitsHelper.WaitChildElement(_element, _itemTitleBy);
+        public IWebElement AddButton => WaitsHelper.WaitChildElement(_element, _addButtonBy);
+        public IWebElement RemoveButton => WaitsHelper.WaitChildElement(_element, _removeButtonBy);
+        public bool IsItemAddedToCart() => RemoveButton.Enabled;
+        public bool IsItemNotAddedToCart() => AddButton.Enabled;
+        public void AddItem() => AddButton.Click();
+        public void RemoveItem() => RemoveButton.Click();
+        public override bool IsPageOpened() => ItemTitle.Displayed;
         protected override string GetEndpoint()
         {
             throw new NotImplementedException();

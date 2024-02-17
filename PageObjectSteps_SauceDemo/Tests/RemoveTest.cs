@@ -5,26 +5,22 @@ namespace PageObjectStepsSauceDemo.Tests
 {
     public class RemoveTest : BaseTest
     {
-        //[Test]
-        //[Order(5)]
-        //[Category("PositiveTest")]
-        //[Category("RemoveTest")]
-        //[Description("Проверка удаления товара из корзины со страницы inventory")]
-        //public void RemoveBikeLiteItemTest()
-        //{
-        //    LoginPage loginPage = new LoginPage(Driver, true);
-        //    InventoryPage inventoryPage = loginPage.SuccessLogin(Configurator.AppSettings.Username, Configurator.AppSettings.Password);
-
-        //    inventoryPage.BikeLiteItemSmall.AddItem();
-        //    inventoryPage.BikeLiteItemSmall.RemoveItem();
-
-        //    Assert.Multiple(() =>
-        //    {
-        //        Assert.That(inventoryPage.BikeLiteItemSmall.IsItemNotAddedToCart());
-
-        //        CartPage cartPage = new CartPage(Driver, true);
-        //        Assert.That(cartPage.IsCartEmpty());
-        //    });
-        //}
+        [Test]
+        [Order(5)]
+        [Category("PositiveTest")]
+        [Category("RemoveTest")]
+        [Description("Проверка удаления товара из корзины со страницы inventory")]
+        public void RemoveBikeLiteItemTest()
+        {
+            InventoryPage inventoryPage = LoginSteps.SuccessLogin();
+            Assert.Multiple(() =>
+            {
+                inventoryPage.ItemsSmall[0].AddItem();
+                inventoryPage.ItemsSmall[0].RemoveItem();
+                Assert.That(inventoryPage.ItemsSmall[0].IsItemNotAddedToCart());
+                CartPage CartPage = NavigationSteps.NavigateToCartPage();
+                Assert.That(CartPage.IsCartEmpty());
+            });
+        }
     }
 }
