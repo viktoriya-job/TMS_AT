@@ -20,13 +20,13 @@ namespace PageObjectStepsSauceDemo.Tests
                 inventoryPage.ItemsSmall[1].AddItem();
 
                 NavigationSteps.NavigateToCartPage(); 
-                //проверка на то, что в корзине именно нужные товары
+                //НЕ РЕАЛИЗОВАНО - проверка на то, что в корзине именно нужные товары
 
                 NavigationSteps.NavigateToCheckoutStepOnePage();
                 OrderSteps.InputRecipientDetails();
 
                 NavigationSteps.NavigateToCheckoutStepTwoPage();
-                //проверка на то, что в заказе именно нужные товары, корректная сумма и тд
+                //НЕ РЕАЛИЗОВАНО - проверка на то, что в заказе именно нужные товары, корректная сумма и тд
 
                 FinishPage finishPage = OrderSteps.FinishOrder();
                 Assert.That(finishPage.IsPageOpened());

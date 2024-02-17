@@ -7,6 +7,7 @@ namespace PageObjectStepsSauceDemo.Steps
     {
         private CheckoutStepOnePage _checkoutStepOnePage;
         private CheckoutStepTwoPage _checkoutStepTwoPage;
+
         public OrderSteps(IWebDriver driver) : base(driver) 
         {
             _checkoutStepOnePage = new CheckoutStepOnePage(Driver);
