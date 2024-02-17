@@ -18,6 +18,7 @@ namespace PageObjectStepsSauceDemo.Tests
                 inventoryPage.ItemsSmall[0].AddItem();
                 inventoryPage.ItemsSmall[0].RemoveItem();
                 Assert.That(inventoryPage.ItemsSmall[0].IsItemNotAddedToCart());
+
                 CartPage CartPage = NavigationSteps.NavigateToCartPage();
                 Assert.That(CartPage.IsCartEmpty());
             });
