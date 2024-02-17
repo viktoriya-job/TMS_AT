@@ -10,6 +10,7 @@ namespace PageObjectStepsSauceDemo.Pages
         private static readonly By _itemTitleBy = By.ClassName("inventory_item_name");
         private static readonly By _addButtonBy = By.ClassName("btn_primary");
         private static readonly By _removeButtonBy = By.ClassName("btn_secondary");
+
         public ItemSmall(IWebDriver? driver, IWebElement element) : base(driver)
         {
             _element = element;

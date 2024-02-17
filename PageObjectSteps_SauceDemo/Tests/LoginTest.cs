@@ -1,5 +1,4 @@
 ﻿using PageObjectStepsSauceDemo.Data;
-using PageObjectStepsSauceDemo.Pages;
 using PageObjectStepsSauceDemo.Steps;
 
 namespace PageObjectStepsSauceDemo.Tests

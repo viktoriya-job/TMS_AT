@@ -1,9 +1,5 @@
-﻿using AngleSharp.Dom;
-using NUnit.Framework;
-using OpenQA.Selenium;
+﻿using OpenQA.Selenium;
 using PageObjectStepsSauceDemo.Helpers;
-using PageObjectStepsSauceDemo.Pages.ItemsSmall;
-using System.Collections.ObjectModel;
 
 namespace PageObjectStepsSauceDemo.Pages
 {

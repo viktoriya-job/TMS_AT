@@ -1,9 +1,5 @@
-﻿using PageObjectStepsSauceDemo.Pages.ItemsSmall;
-using PageObjectStepsSauceDemo.Steps;
-using PageObjectStepsSauceDemo.Data;
-using PageObjectStepsSauceDemo.Helpers.Configuration;
+﻿using PageObjectStepsSauceDemo.Steps;
 using PageObjectStepsSauceDemo.Pages;
-using OpenQA.Selenium.DevTools.V120.CSS;
 
 namespace PageObjectStepsSauceDemo.Tests
 {

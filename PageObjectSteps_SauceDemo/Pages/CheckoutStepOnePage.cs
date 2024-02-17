@@ -1,26 +1,25 @@
 ﻿using OpenQA.Selenium;
-using System.Collections.ObjectModel;
 
 namespace PageObjectStepsSauceDemo.Pages
 {
     public class CheckoutStepOnePage : BasePage
     {
-        private static string EndPoint = "/checkout-step-one.html";
+        private static string _endPoint = "/checkout-step-one.html";
 
-        private static readonly By TitleLabelBy = By.ClassName("title");
-        private static readonly By FirstnameInputBy = By.Id("first-name");
-        private static readonly By LastnameInputBy = By.Id("last-name");
-        private static readonly By PostalCodeInputBy = By.Id("postal-code");
-        private static readonly By ContinueButtonBy = By.Id("continue");
+        private static readonly By _titleLabelBy = By.ClassName("title");
+        private static readonly By _firstnameInputBy = By.Id("first-name");
+        private static readonly By _lastnameInputBy = By.Id("last-name");
+        private static readonly By _postalCodeInputBy = By.Id("postal-code");
+        private static readonly By _continueButtonBy = By.Id("continue");
 
         public CheckoutStepOnePage(IWebDriver driver) : base(driver) { }
         public CheckoutStepOnePage(IWebDriver driver, bool openPageByUrl) : base(driver, openPageByUrl) { }
 
-        public IWebElement TitleLable() => WaitsHelper.WaitForExists(TitleLabelBy);
-        public IWebElement FirstnameInput() => WaitsHelper.WaitForExists(FirstnameInputBy);
-        public IWebElement LastnameInput() => WaitsHelper.WaitForExists(LastnameInputBy);
-        public IWebElement PostalCodeInput() => WaitsHelper.WaitForExists(PostalCodeInputBy);
-        public IWebElement ContinueButton() => WaitsHelper.WaitForExists(ContinueButtonBy);
+        public IWebElement TitleLable() => WaitsHelper.WaitForExists(_titleLabelBy);
+        public IWebElement FirstnameInput() => WaitsHelper.WaitForExists(_firstnameInputBy);
+        public IWebElement LastnameInput() => WaitsHelper.WaitForExists(_lastnameInputBy);
+        public IWebElement PostalCodeInput() => WaitsHelper.WaitForExists(_postalCodeInputBy);
+        public IWebElement ContinueButton() => WaitsHelper.WaitForExists(_continueButtonBy);
 
         public override bool IsPageOpened()
         {
@@ -33,6 +32,6 @@ namespace PageObjectStepsSauceDemo.Pages
                 return false;
             }
         }
-        protected override string GetEndpoint() => EndPoint;
+        protected override string GetEndpoint() => _endPoint;
     }
 }

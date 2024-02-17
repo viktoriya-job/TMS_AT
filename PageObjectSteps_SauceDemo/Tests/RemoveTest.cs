@@ -1,5 +1,4 @@
-﻿using PageObjectStepsSauceDemo.Pages.ItemsSmall;
-using PageObjectStepsSauceDemo.Helpers.Configuration;
+﻿using PageObjectStepsSauceDemo.Helpers.Configuration;
 using PageObjectStepsSauceDemo.Pages;
 
 namespace PageObjectStepsSauceDemo.Tests

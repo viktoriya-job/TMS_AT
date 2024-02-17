@@ -4,16 +4,16 @@ namespace PageObjectStepsSauceDemo.Pages
 {
     public class CheckoutStepTwoPage : BasePage
     {
-        private static string EndPoint = "/checkout-step-two.html";
+        private static string _endPoint = "/checkout-step-two.html";
 
-        private static readonly By TitleLabelBy = By.ClassName("title");
-        private static readonly By FinishButtonBy = By.Id("finish");
+        private static readonly By _titleLabelBy = By.ClassName("title");
+        private static readonly By _finishButtonBy = By.Id("finish");
 
         public CheckoutStepTwoPage(IWebDriver driver) : base(driver) { }
         public CheckoutStepTwoPage(IWebDriver driver, bool openPageByUrl) : base(driver, openPageByUrl) { }
 
-        public IWebElement TitleLable() => WaitsHelper.WaitForExists(TitleLabelBy);
-        public IWebElement FinishButton() => WaitsHelper.WaitForExists(FinishButtonBy);
+        public IWebElement TitleLable() => WaitsHelper.WaitForExists(_titleLabelBy);
+        public IWebElement FinishButton() => WaitsHelper.WaitForExists(_finishButtonBy);
 
         public override bool IsPageOpened()
         {
@@ -26,6 +26,6 @@ namespace PageObjectStepsSauceDemo.Pages
                 return false;
             }
         }
-        protected override string GetEndpoint() => EndPoint;
+        protected override string GetEndpoint() => _endPoint;
     }
 }

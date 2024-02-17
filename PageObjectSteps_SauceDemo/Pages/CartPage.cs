@@ -1,23 +1,21 @@
 ﻿using OpenQA.Selenium;
-using PageObjectStepsSauceDemo.Pages.ItemsSmall;
 using System.Collections.ObjectModel;
 
 namespace PageObjectStepsSauceDemo.Pages
 {
     public class CartPage : BasePage
     {
-        private static string EndPoint = "/cart.html";
+        private static string _endPoint = "/cart.html";
 
-        private static readonly By TitleLabelBy = By.ClassName("title");
-        private static readonly By CheckoutButtonBy = By.Id("checkout");
-        private static readonly By CartItemsBy = By.ClassName("cart_item");
+        private static readonly By _titleLabelBy = By.ClassName("title");
+        private static readonly By _checkoutButtonBy = By.Id("checkout");
+        private static readonly By _cartItemsBy = By.ClassName("cart_item");
 
-        public CartPage(IWebDriver driver) : base(driver) { }
         public CartPage(IWebDriver driver, bool openPageByUrl) : base(driver, openPageByUrl) { }
 
-        public IWebElement TitleLable() => WaitsHelper.WaitForExists(TitleLabelBy);
-        public IWebElement CheckoutButton() => WaitsHelper.WaitForExists(CheckoutButtonBy);
-        public ReadOnlyCollection<IWebElement> CartItems() => Driver.FindElements(CartItemsBy);
+        public IWebElement TitleLable() => WaitsHelper.WaitForExists(_titleLabelBy);
+        public IWebElement CheckoutButton() => WaitsHelper.WaitForExists(_checkoutButtonBy);
+        public ReadOnlyCollection<IWebElement> CartItems() => Driver.FindElements(_cartItemsBy);
 
         public override bool IsPageOpened()
         {
@@ -30,7 +28,7 @@ namespace PageObjectStepsSauceDemo.Pages
                 return false;
             }
         }
-        protected override string GetEndpoint() => EndPoint;
+        protected override string GetEndpoint() => _endPoint;
         public bool IsCartEmpty() => CartItems().Count.Equals(0);
     }
 }
