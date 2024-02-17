@@ -10,7 +10,7 @@ namespace PageObjectStepsSauceDemo.Tests
         [Category("PositiveTest")]
         [Category("AddTest")]
         [Description("Проверка добавления товара в корзину на странице inventory")]
-        public void AddBikeLiteItemTest()
+        public void AddItemTest()
         {
             InventoryPage inventoryPage = LoginSteps.SuccessLogin();
             Assert.Multiple(() =>

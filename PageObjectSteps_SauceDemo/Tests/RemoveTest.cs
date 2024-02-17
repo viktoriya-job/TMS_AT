@@ -10,7 +10,7 @@ namespace PageObjectStepsSauceDemo.Tests
         [Category("PositiveTest")]
         [Category("RemoveTest")]
         [Description("Проверка удаления товара из корзины со страницы inventory")]
-        public void RemoveBikeLiteItemTest()
+        public void RemoveItemTest()
         {
             InventoryPage inventoryPage = LoginSteps.SuccessLogin();
             Assert.Multiple(() =>
