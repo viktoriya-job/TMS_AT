@@ -54,6 +54,11 @@ namespace Wrappers.Helpers
             return _wait.Until(ExpectedConditions.VisibilityOfAllElementsLocatedBy(locator));
         }
 
+        public ReadOnlyCollection<IWebElement> WaitForPresenceOfAllElementsLocatedBy(By locator)
+        {
+            return _wait.Until(ExpectedConditions.PresenceOfAllElementsLocatedBy(locator));
+        }
+
         public bool WaitForVisibility(IWebElement element)
         {
             return _wait.Until(_ => element.Displayed);

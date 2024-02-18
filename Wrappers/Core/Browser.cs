@@ -1,5 +1,4 @@
 ﻿using OpenQA.Selenium;
-using PageObjectStepsSauceDemo.Core;
 using Wrappers.Helpers.Configuration;
 
 namespace Wrappers.Core

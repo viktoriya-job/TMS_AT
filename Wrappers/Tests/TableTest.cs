@@ -1,7 +1,7 @@
 ﻿using OpenQA.Selenium;
 using Wrappers.Elements;
 using Wrappers.Helpers.Configuration;
-using Wrappers.Pages;
+using Wrappers.Pages.Administration;
 using Wrappers.Pages.ProjectPages;
 
 namespace Wrappers.Tests;
