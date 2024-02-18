@@ -17,11 +17,14 @@ namespace PageObjectStepsSauceDemo.Tests
         public void RemoveItemTest()
         {
             InventoryPage inventoryPage = LoginSteps.SuccessLogin();
+            ItemSmall itemToRemove = inventoryPage.ItemsSmall[0];
+
+            AllureApi.AddTestParameter("Item to remove", itemToRemove.ItemTitle.Text);
             Assert.Multiple(() =>
             {
-                inventoryPage.ItemsSmall[0].AddItem();
-                inventoryPage.ItemsSmall[0].RemoveItem();
-                Assert.That(inventoryPage.ItemsSmall[0].IsItemNotAddedToCart());
+                itemToRemove.AddItem();
+                itemToRemove.RemoveItem();
+                Assert.That(itemToRemove.IsItemNotAddedToCart());
 
                 CartPage CartPage = NavigationSteps.NavigateToCartPage();
                 Assert.That(CartPage.IsCartEmpty());

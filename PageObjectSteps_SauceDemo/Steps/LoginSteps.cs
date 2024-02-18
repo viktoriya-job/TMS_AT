@@ -17,7 +17,9 @@ namespace PageObjectStepsSauceDemo.Steps
         [AllureStep("Enter Username and Password for success login")]
         public InventoryPage SuccessLogin()
         {
-            AllureApi.AddTestParameter(Configurator.AppSettings.Username, Configurator.AppSettings.Password, ParameterMode.Masked);
+            AllureApi.AddTestParameter("login", Configurator.AppSettings.Username);
+            AllureApi.AddTestParameter("password", Configurator.AppSettings.Password, ParameterMode.Masked);
+
             _loginPage.UsernameInput.SendKeys(Configurator.AppSettings.Username);
             _loginPage.PasswordInput.SendKeys(Configurator.AppSettings.Password);
             _loginPage.LoginButton.Click();

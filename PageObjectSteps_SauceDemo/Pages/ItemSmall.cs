@@ -24,10 +24,10 @@ namespace PageObjectStepsSauceDemo.Pages
         public bool IsItemAddedToCart() => RemoveButton.Enabled;
         public bool IsItemNotAddedToCart() => AddButton.Enabled;
 
-        [AllureStep]
+        [AllureStep("Add item")]
         public void AddItem() => AddButton.Click();
 
-        [AllureStep]
+        [AllureStep("Remove Item")]
         public void RemoveItem() => RemoveButton.Click();
 
         public override bool IsPageOpened() => ItemTitle.Displayed;
