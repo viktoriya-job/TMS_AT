@@ -2,7 +2,7 @@
 using OpenQA.Selenium;
 using System.Collections.ObjectModel;
 
-namespace PageObjectStepsSauceDemo.Pages
+namespace Wrappers.Pages
 {
     public class CartPage : BasePage
     {

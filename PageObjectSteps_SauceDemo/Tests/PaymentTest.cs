@@ -1,10 +1,10 @@
-﻿using PageObjectStepsSauceDemo.Pages;
-using PageObjectStepsSauceDemo.Helpers.Configuration;
+﻿using PageObjectStepsSauceDemo.Helpers.Configuration;
 using PageObjectStepsSauceDemo.Steps;
 using Allure.Net.Commons;
 using NUnit.Allure.Attributes;
+using Wrappers.Pages;
 
-namespace PageObjectStepsSauceDemo.Tests
+namespace Wrappers.Tests
 {
     public class PaymentTest : BaseTest
     {
@@ -29,7 +29,7 @@ namespace PageObjectStepsSauceDemo.Tests
                 itemToAdd1.AddItem();
                 itemToAdd2.AddItem();
 
-                NavigationSteps.NavigateToCartPage(); 
+                NavigationSteps.NavigateToCartPage();
                 //НЕ РЕАЛИЗОВАНО - проверка на то, что в корзине именно нужные товары
 
                 NavigationSteps.NavigateToCheckoutStepOnePage();

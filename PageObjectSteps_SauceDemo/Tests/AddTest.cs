@@ -1,9 +1,9 @@
 ﻿using PageObjectStepsSauceDemo.Steps;
-using PageObjectStepsSauceDemo.Pages;
 using Allure.Net.Commons;
 using NUnit.Allure.Attributes;
+using Wrappers.Pages;
 
-namespace PageObjectStepsSauceDemo.Tests
+namespace Wrappers.Tests
 {
     public class AddTest : BaseTest
     {

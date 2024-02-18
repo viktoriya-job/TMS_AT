@@ -2,11 +2,11 @@
 using NUnit.Allure.Core;
 using OpenQA.Selenium;
 using PageObjectStepsSauceDemo.Core;
-using PageObjectStepsSauceDemo.Helpers.Configuration;
-using PageObjectStepsSauceDemo.Steps;
 using System.Text;
+using Wrappers.Helpers.Configuration;
+using Wrappers.Steps;
 
-namespace PageObjectStepsSauceDemo.Tests
+namespace Wrappers.Tests
 {
     [Parallelizable(scope: ParallelScope.All)]
     [FixtureLifeCycle(LifeCycle.InstancePerTestCase)]

@@ -1,12 +1,12 @@
 ﻿using NUnit.Allure.Attributes;
 using OpenQA.Selenium;
-using PageObjectStepsSauceDemo.Pages;
+using Wrappers.Pages;
 
-namespace PageObjectStepsSauceDemo.Steps
+namespace Wrappers.Steps
 {
     public class NavigationSteps : BaseStep
     {
-        public NavigationSteps(IWebDriver driver) : base(driver) {}
+        public NavigationSteps(IWebDriver driver) : base(driver) { }
 
         [AllureStep("Navigate to Cart")]
         public CartPage NavigateToCartPage()

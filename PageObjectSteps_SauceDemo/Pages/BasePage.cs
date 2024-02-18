@@ -1,8 +1,8 @@
 ﻿using OpenQA.Selenium;
-using PageObjectStepsSauceDemo.Helpers;
-using PageObjectStepsSauceDemo.Helpers.Configuration;
+using Wrappers.Helpers;
+using Wrappers.Helpers.Configuration;
 
-namespace PageObjectStepsSauceDemo.Pages
+namespace Wrappers.Pages
 {
     public abstract class BasePage
     {

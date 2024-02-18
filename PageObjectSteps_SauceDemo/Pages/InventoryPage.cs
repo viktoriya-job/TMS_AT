@@ -1,7 +1,7 @@
 ﻿using OpenQA.Selenium;
 using PageObjectStepsSauceDemo.Helpers;
 
-namespace PageObjectStepsSauceDemo.Pages
+namespace Wrappers.Pages
 {
     public class InventoryPage : BasePage
     {
@@ -10,7 +10,7 @@ namespace PageObjectStepsSauceDemo.Pages
         private static readonly By _itemsSmallBy = By.ClassName("inventory_item");
         public List<ItemSmall> ItemsSmall { get; set; }
 
-        public InventoryPage(IWebDriver? driver) : base(driver) 
+        public InventoryPage(IWebDriver? driver) : base(driver)
         {
             ItemsSmall = new List<ItemSmall>();
             foreach (var item in WaitsHelper.WaitForAllVisibleElementsLocatedBy(_itemsSmallBy))

@@ -1,15 +1,15 @@
 ﻿using Allure.Net.Commons;
 using NUnit.Allure.Attributes;
 using OpenQA.Selenium;
-using PageObjectStepsSauceDemo.Helpers.Configuration;
-using PageObjectStepsSauceDemo.Pages;
+using Wrappers.Helpers.Configuration;
+using Wrappers.Pages;
 
-namespace PageObjectStepsSauceDemo.Steps
+namespace Wrappers.Steps
 {
     public class LoginSteps : BaseStep
     {
         private LoginPage _loginPage;
-        public LoginSteps(IWebDriver driver) : base(driver) 
+        public LoginSteps(IWebDriver driver) : base(driver)
         {
             _loginPage = new LoginPage(Driver);
         }

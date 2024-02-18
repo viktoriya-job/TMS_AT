@@ -1,6 +1,6 @@
 ﻿using OpenQA.Selenium;
 
-namespace PageObjectStepsSauceDemo.Pages
+namespace Wrappers.Pages
 {
     public class LoginPage : BasePage
     {

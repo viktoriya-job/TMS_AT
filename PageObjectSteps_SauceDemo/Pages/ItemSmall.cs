@@ -2,7 +2,7 @@
 using OpenQA.Selenium;
 using PageObjectStepsSauceDemo.Helpers;
 
-namespace PageObjectStepsSauceDemo.Pages
+namespace Wrappers.Pages
 {
     public class ItemSmall : BasePage
     {
@@ -20,7 +20,7 @@ namespace PageObjectStepsSauceDemo.Pages
         public IWebElement ItemTitle => WaitsHelper.WaitChildElement(_element, _itemTitleBy);
         public IWebElement AddButton => WaitsHelper.WaitChildElement(_element, _addButtonBy);
         public IWebElement RemoveButton => WaitsHelper.WaitChildElement(_element, _removeButtonBy);
-        
+
         public bool IsItemAddedToCart() => RemoveButton.Enabled;
         public bool IsItemNotAddedToCart() => AddButton.Enabled;
 

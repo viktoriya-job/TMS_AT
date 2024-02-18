@@ -1,6 +1,6 @@
 ﻿using OpenQA.Selenium;
 
-namespace PageObjectStepsSauceDemo.Pages
+namespace Wrappers.Pages
 {
     public class FinishPage : BasePage
     {
@@ -21,9 +21,9 @@ namespace PageObjectStepsSauceDemo.Pages
         {
             try
             {
-                return 
-                    CompleteMessage.Displayed 
-                    && BackButton.Displayed 
+                return
+                    CompleteMessage.Displayed
+                    && BackButton.Displayed
                     && TitleLable.Text.Trim() == "Checkout: Complete!";
             }
             catch (Exception)

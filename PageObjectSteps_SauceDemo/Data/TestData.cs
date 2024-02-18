@@ -1,4 +1,4 @@
-﻿namespace PageObjectStepsSauceDemo.Data
+﻿namespace Wrappers.Data
 {
     public class TestData
     {
