@@ -5,6 +5,7 @@ using PageObjectStepsSauceDemo.Steps;
 
 namespace PageObjectStepsSauceDemo.Tests
 {
+    [AllureSuite("LoginSuite")]
     public class LoginTest : BaseTest
     {
         [TestCaseSource(typeof(TestData), nameof(TestData.SuccessLoginUsers))]

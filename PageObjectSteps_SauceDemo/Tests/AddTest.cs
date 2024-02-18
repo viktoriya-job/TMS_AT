@@ -13,6 +13,7 @@ namespace PageObjectStepsSauceDemo.Tests
         [Category("AddTest")]
         [Description("Проверка добавления товара в корзину на странице inventory")]
         [AllureSeverity(SeverityLevel.critical)]
+        [AllureSuite("OrderSuite")]
         public void AddItemTest()
         {
             InventoryPage inventoryPage = LoginSteps.SuccessLogin();

@@ -14,6 +14,7 @@ namespace PageObjectStepsSauceDemo.Tests
         [Category("PaymentTest")]
         [Description("Проверка успешной оплаты")]
         [AllureSeverity(SeverityLevel.critical)]
+        [AllureSuite("OrderSuite")]
         public void PaymentSimpleTest()
         {
             InventoryPage inventoryPage = LoginSteps.SuccessLogin();

@@ -13,6 +13,7 @@ namespace PageObjectStepsSauceDemo.Tests
         [Category("RemoveTest")]
         [Description("Проверка удаления товара из корзины со страницы inventory")]
         [AllureSeverity(SeverityLevel.critical)]
+        [AllureSuite("OrderSuite")]
         public void RemoveItemTest()
         {
             InventoryPage inventoryPage = LoginSteps.SuccessLogin();
