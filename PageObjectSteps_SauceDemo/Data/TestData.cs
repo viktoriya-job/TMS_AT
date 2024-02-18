@@ -1,4 +1,4 @@
-﻿namespace Wrappers.Data
+﻿namespace Wrappers1.Data
 {
     public class TestData
     {

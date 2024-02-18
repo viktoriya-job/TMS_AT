@@ -2,9 +2,9 @@
 using PageObjectStepsSauceDemo.Steps;
 using Allure.Net.Commons;
 using NUnit.Allure.Attributes;
-using Wrappers.Pages;
+using Wrappers1.Pages;
 
-namespace Wrappers.Tests
+namespace Wrappers1.Tests
 {
     public class PaymentTest : BaseTest
     {

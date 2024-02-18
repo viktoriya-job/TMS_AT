@@ -1,7 +1,7 @@
 ﻿using OpenQA.Selenium;
 using PageObjectStepsSauceDemo.Helpers;
 
-namespace Wrappers.Pages
+namespace Wrappers1.Pages
 {
     public class InventoryPage : BasePage
     {

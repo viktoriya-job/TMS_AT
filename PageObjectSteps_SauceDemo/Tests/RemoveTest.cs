@@ -1,9 +1,9 @@
 ﻿using Allure.Net.Commons;
 using NUnit.Allure.Attributes;
 using PageObjectStepsSauceDemo.Helpers.Configuration;
-using Wrappers.Pages;
+using Wrappers1.Pages;
 
-namespace Wrappers.Tests
+namespace Wrappers1.Tests
 {
     public class RemoveTest : BaseTest
     {

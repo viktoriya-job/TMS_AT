@@ -1,6 +1,6 @@
 ﻿using OpenQA.Selenium;
 
-namespace Wrappers.Steps
+namespace Wrappers1.Steps
 {
     public class BaseStep
     {

@@ -1,8 +1,8 @@
 ﻿using NUnit.Allure.Attributes;
 using OpenQA.Selenium;
-using Wrappers.Pages;
+using Wrappers1.Pages;
 
-namespace Wrappers.Steps
+namespace Wrappers1.Steps
 {
     public class NavigationSteps : BaseStep
     {

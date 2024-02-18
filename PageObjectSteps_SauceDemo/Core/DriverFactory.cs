@@ -5,7 +5,7 @@ using WebDriverManager;
 using WebDriverManager.DriverConfigs.Impl;
 using LogLevel = OpenQA.Selenium.LogLevel;
 
-namespace Wrappers.Core
+namespace Wrappers1.Core
 {
     public class DriverFactory
     {

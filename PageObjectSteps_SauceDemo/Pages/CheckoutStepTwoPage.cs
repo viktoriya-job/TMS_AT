@@ -1,6 +1,6 @@
 ﻿using OpenQA.Selenium;
 
-namespace Wrappers.Pages
+namespace Wrappers1.Pages
 {
     public class CheckoutStepTwoPage : BasePage
     {

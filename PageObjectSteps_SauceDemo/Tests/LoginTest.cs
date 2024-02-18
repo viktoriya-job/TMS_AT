@@ -1,9 +1,9 @@
 ﻿using Allure.Net.Commons;
 using NUnit.Allure.Attributes;
 using PageObjectStepsSauceDemo.Steps;
-using Wrappers.Data;
+using Wrappers1.Data;
 
-namespace Wrappers.Tests
+namespace Wrappers1.Tests
 {
     [AllureSuite("LoginSuite")]
     public class LoginTest : BaseTest

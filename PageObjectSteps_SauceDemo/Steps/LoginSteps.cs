@@ -1,10 +1,10 @@
 ﻿using Allure.Net.Commons;
 using NUnit.Allure.Attributes;
 using OpenQA.Selenium;
-using Wrappers.Helpers.Configuration;
-using Wrappers.Pages;
+using Wrappers1.Helpers.Configuration;
+using Wrappers1.Pages;
 
-namespace Wrappers.Steps
+namespace Wrappers1.Steps
 {
     public class LoginSteps : BaseStep
     {
