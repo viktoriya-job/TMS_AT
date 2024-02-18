@@ -29,17 +29,39 @@ namespace PageObjectStepsSauceDemo.Tests
                 itemToAdd1.AddItem();
                 itemToAdd2.AddItem();
 
-                NavigationSteps.NavigateToCartPage(); 
+                NavigationSteps.NavigateToCartPage();
                 //НЕ РЕАЛИЗОВАНО - проверка на то, что в корзине именно нужные товары
 
                 NavigationSteps.NavigateToCheckoutStepOnePage();
                 OrderSteps.InputRecipientDetails();
 
-                NavigationSteps.NavigateToCheckoutStepTwoPage();
-                //НЕ РЕАЛИЗОВАНО - проверка на то, что в заказе именно нужные товары, корректная сумма и тд
+                //НЕ РЕАЛИЗОВАНО - проверка на то, что на CheckoutStepTwoPage именно нужные товары, корректная сумма и тд
 
                 FinishPage finishPage = OrderSteps.FinishOrder();
                 Assert.That(finishPage.IsPageOpened());
+
+                CartPage cartPage = NavigationSteps.NavigateToCartPage();
+                Assert.That(cartPage.IsCartEmpty);
+            });
+        }
+
+        [Test]
+        [Order(6)]
+        [Category("PositiveTest")]
+        [Category("PaymentTest")]
+        [Description("Проверка успешной оплаты")]
+        [AllureSeverity(SeverityLevel.critical)]
+        [AllureSuite("OrderSuite")]
+        public void PaymentSimpleTest2()
+        {
+            LoginSteps.SuccessLogin();
+            OrderSteps.AddSomeItemsAndCheckCart();
+            NavigationSteps.NavigateToCheckoutStepOnePage();
+            OrderSteps.InputRecipientDetails();
+
+            Assert.Multiple(() =>
+            {
+                Assert.That(OrderSteps.FinishOrder().IsPageOpened());
 
                 CartPage cartPage = NavigationSteps.NavigateToCartPage();
                 Assert.That(cartPage.IsCartEmpty);
