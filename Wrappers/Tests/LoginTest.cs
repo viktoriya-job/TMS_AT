@@ -1,52 +1,42 @@
-﻿using Allure.Net.Commons;
-using NUnit.Allure.Attributes;
-using PageObjectStepsSauceDemo.Steps;
-using Wrappers1.Data;
+﻿using Wrappers.Helpers.Configuration;
+using Wrappers.Pages;
+using Wrappers.Steps;
 
-namespace Wrappers1.Tests
+namespace Wrappers.Tests;
+
+public class LoginTest : BaseTest
 {
-    [AllureSuite("LoginSuite")]
-    public class LoginTest : BaseTest
+    [Test]
+    public void SuccessfulLoginTest()
     {
-        [TestCaseSource(typeof(TestData), nameof(TestData.SuccessLoginUsers))]
-        [Order(1)]
-        [Category("PositiveTest")]
-        [Category("LoginTest")]
-        [Description("Проверка успешного входа в систему")]
-        [AllureSeverity(SeverityLevel.blocker)]
-        public void UserLoginTest(string username, string password)
-        {
-            Assert.That(
-                LoginSteps
-                .SuccessLogin(username, password)
-                .IsPageOpened());
-        }
+        LoginPage _loginPage = new LoginPage(Driver);
+        _loginPage.EmailInput.SendKeys(Configurator.AppSettings.Username);
+        _loginPage.PswInput.SendKeys(Configurator.AppSettings.Password);
+        _loginPage.ClickLoginInButton();
 
-        [TestCaseSource(typeof(TestData), nameof(TestData.LockedOutLoginUsers))]
-        [Order(2)]
-        [Category("NegativeTest")]
-        [Category("LoginTest")]
-        [Description("Проверка логина заблокированного пользователя")]
-        [AllureSeverity(SeverityLevel.minor)]
-        public void FailureLockedOutUserLoginTest(string username, string password)
-        {
-            Assert.That(
-                LoginSteps
-                .FailureLogin(username, password)
-                .ErrorLabel.Text.Trim(), Is.EqualTo("Epic sadface: Sorry, this user has been locked out."));
-        }
+        DashboardPage dashboardPage = new DashboardPage(Driver);
 
-        [TestCaseSource(typeof(TestData), nameof(TestData.UnknownLoginUsers))]
-        [Order(3)]
-        [Category("NegativeTest")]
-        [Category("LoginTest")]
-        [Description("Проверка логина неизвестного пользователя")]
-        [AllureSeverity(SeverityLevel.normal)]
-        public void FailureUnknownUserLoginTest(string username, string password)
-        {
-            Assert.That(
-                LoginSteps.FailureLogin(username, password)
-                .ErrorLabel.Text.Trim(), Is.EqualTo("Epic sadface: Username and password do not match any user in this service"));
-        }
+        Assert.That(dashboardPage.IsPageOpened);
+    }
+
+    [Test]
+    public void SuccessfulLoginTest1()
+    {
+        UserSteps userSteps = new UserSteps(Driver);
+        DashboardPage dashboardPage = userSteps
+            .SuccessfulLogin(Configurator.AppSettings.Username, Configurator.AppSettings.Password);
+
+        Assert.That(dashboardPage.IsPageOpened);
+    }
+
+    //[Test]
+    public void InvalidUsernameLoginTest()
+    {
+        // Проверка
+        Assert.That(
+            new UserSteps(Driver)
+                .IncorrectLogin("ssdd", "")
+                .GetErrorLabelText(),
+            Is.EqualTo("Email/Login or Password is incorrect. Please try again."));
     }
 }

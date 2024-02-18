@@ -2,8 +2,9 @@
 using System.Collections.ObjectModel;
 using OpenQA.Selenium.Support.UI;
 using SeleniumExtras.WaitHelpers;
+using Wrappers.Elements;
 
-namespace Wrappers1.Helpers
+namespace Wrappers.Helpers
 {
     public class WaitsHelper(IWebDriver driver, TimeSpan timeout)
     {
@@ -69,9 +70,14 @@ namespace Wrappers1.Helpers
             return wait.Until(d => driver.FindElement(locator));
         }
 
-        public IWebElement WaitChildElement(IWebElement webElement, By by)
+        public IWebElement WaitChildElementIWebElement(IWebElement webElement, By by)
         {
             return _wait.Until(_ => webElement.FindElement(by));
+        }
+
+        public UIElement WaitChildElement(IWebElement webElement, By by)
+        {
+            return new UIElement(driver, _wait.Until(_ => webElement.FindElement(by)));
         }
     }
 }

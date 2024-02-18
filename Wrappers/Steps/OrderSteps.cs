@@ -1,10 +1,10 @@
 ﻿using NUnit.Allure.Attributes;
 using OpenQA.Selenium;
-using Wrappers1.Pages;
+using Wrappers.Pages;
 
-namespace Wrappers1.Steps
+namespace Wrappers.Steps
 {
-    public class OrderSteps : BaseStep
+    public class OrderSteps : BaseSteps
     {
         private CheckoutStepOnePage _checkoutStepOnePage;
         private CheckoutStepTwoPage _checkoutStepTwoPage;

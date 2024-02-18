@@ -1,9 +1,8 @@
 ﻿using OpenQA.Selenium;
 using PageObjectStepsSauceDemo.Core;
-using Wrappers.Core;
-using Wrappers1.Helpers.Configuration;
+using Wrappers.Helpers.Configuration;
 
-namespace Wrappers1.Core
+namespace Wrappers.Core
 {
     public class Browser
     {

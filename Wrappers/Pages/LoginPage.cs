@@ -1,35 +1,47 @@
 ﻿using OpenQA.Selenium;
+using Wrappers.Elements;
 
-namespace Wrappers1.Pages
+namespace Wrappers.Pages
 {
     public class LoginPage : BasePage
     {
-        private static string _endPoint = "";
+        private static string END_POINT = "";
 
-        private static readonly By _usernameInputBy = By.Id("user-name");
-        private static readonly By _passwordInputBy = By.Id("password");
-        private static readonly By _loginButtonBy = By.Id("login-button");
-        private static readonly By _errorLabelBy = By.CssSelector("[data-test='error']");
+        // Описание элементов
+        private static readonly By EmailInputBy = By.Id("name");
+        private static readonly By PswInputBy = By.Id("password");
+        private static readonly By RememberMeCheckboxBy = By.Id("rememberme");
+        private static readonly By LoginInButtonBy = By.Id("button_primary");
+        private static readonly By ErrorLabelBy = By.CssSelector("[data-testid='loginErrorText']");
 
-        public LoginPage(IWebDriver driver) : base(driver) { }
-        public LoginPage(IWebDriver driver, bool openPageByUrl) : base(driver, openPageByUrl) { }
+        // Инициализация класса
+        public LoginPage(IWebDriver driver) : base(driver)
+        {
+        }
 
-        public IWebElement UsernameInput => WaitsHelper.WaitForExists(_usernameInputBy);
-        public IWebElement PasswordInput => WaitsHelper.WaitForExists(_passwordInputBy);
-        public IWebElement LoginButton => WaitsHelper.WaitForExists(_loginButtonBy);
-        public IWebElement ErrorLabel => WaitsHelper.WaitForExists(_errorLabelBy);
+        protected override string GetEndpoint()
+        {
+            return END_POINT;
+        }
 
-        protected override string GetEndpoint() => _endPoint;
         public override bool IsPageOpened()
         {
-            try
-            {
-                return LoginButton.Displayed;
-            }
-            catch (Exception)
-            {
-                return false;
-            }
+            return LoginInButton.Displayed && EmailInput.Displayed;
         }
+
+        // Методы
+        // Методы поиска элементов
+        public IWebElement EmailInput => WaitsHelper.WaitForExists(EmailInputBy);
+        public IWebElement ErrorLabel => WaitsHelper.WaitForExists(ErrorLabelBy);
+        public IWebElement PswInput => WaitsHelper.WaitForExists(PswInputBy);
+        public IWebElement RememberMeCheckbox => WaitsHelper.WaitForExists(RememberMeCheckboxBy);
+        // public IWebElement LoginInButton => WaitsHelper.WaitForExists(LoginInButtonBy);
+        public Button LoginInButton => new Button(Driver, LoginInButtonBy);
+
+        // Методы действий с элементами
+        public void ClickLoginInButton() => LoginInButton.Click();
+
+        // Методы получения свойств
+        public string GetErrorLabelText() => ErrorLabel.Text.Trim();
     }
 }

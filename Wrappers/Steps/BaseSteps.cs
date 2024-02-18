@@ -1,12 +1,12 @@
 ﻿using OpenQA.Selenium;
 
-namespace Wrappers1.Steps
+namespace Wrappers.Steps
 {
-    public class BaseStep
+    public class BaseSteps
     {
         protected IWebDriver Driver;
 
-        public BaseStep(IWebDriver driver)
+        public BaseSteps(IWebDriver driver)
         {
             Driver = driver;
         }
