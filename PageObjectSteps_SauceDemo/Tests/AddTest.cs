@@ -1,5 +1,7 @@
 ﻿using PageObjectStepsSauceDemo.Steps;
 using PageObjectStepsSauceDemo.Pages;
+using Allure.Net.Commons;
+using NUnit.Allure.Attributes;
 
 namespace PageObjectStepsSauceDemo.Tests
 {
@@ -10,6 +12,7 @@ namespace PageObjectStepsSauceDemo.Tests
         [Category("PositiveTest")]
         [Category("AddTest")]
         [Description("Проверка добавления товара в корзину на странице inventory")]
+        [AllureSeverity(SeverityLevel.critical)]
         public void AddItemTest()
         {
             InventoryPage inventoryPage = LoginSteps.SuccessLogin();

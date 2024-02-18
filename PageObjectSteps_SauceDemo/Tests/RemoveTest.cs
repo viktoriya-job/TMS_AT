@@ -1,4 +1,6 @@
-﻿using PageObjectStepsSauceDemo.Helpers.Configuration;
+﻿using Allure.Net.Commons;
+using NUnit.Allure.Attributes;
+using PageObjectStepsSauceDemo.Helpers.Configuration;
 using PageObjectStepsSauceDemo.Pages;
 
 namespace PageObjectStepsSauceDemo.Tests
@@ -10,6 +12,7 @@ namespace PageObjectStepsSauceDemo.Tests
         [Category("PositiveTest")]
         [Category("RemoveTest")]
         [Description("Проверка удаления товара из корзины со страницы inventory")]
+        [AllureSeverity(SeverityLevel.critical)]
         public void RemoveItemTest()
         {
             InventoryPage inventoryPage = LoginSteps.SuccessLogin();

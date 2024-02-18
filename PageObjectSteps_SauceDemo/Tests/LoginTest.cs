@@ -1,4 +1,6 @@
-﻿using PageObjectStepsSauceDemo.Data;
+﻿using Allure.Net.Commons;
+using NUnit.Allure.Attributes;
+using PageObjectStepsSauceDemo.Data;
 using PageObjectStepsSauceDemo.Steps;
 
 namespace PageObjectStepsSauceDemo.Tests
@@ -10,6 +12,7 @@ namespace PageObjectStepsSauceDemo.Tests
         [Category("PositiveTest")]
         [Category("LoginTest")]
         [Description("Проверка успешного входа в систему")]
+        [AllureSeverity(SeverityLevel.blocker)]
         public void UserLoginTest(string username, string password)
         {
             Assert.That(
@@ -23,6 +26,7 @@ namespace PageObjectStepsSauceDemo.Tests
         [Category("NegativeTest")]
         [Category("LoginTest")]
         [Description("Проверка логина заблокированного пользователя")]
+        [AllureSeverity(SeverityLevel.minor)]
         public void FailureLockedOutUserLoginTest(string username, string password)
         {
             Assert.That(
@@ -36,6 +40,7 @@ namespace PageObjectStepsSauceDemo.Tests
         [Category("NegativeTest")]
         [Category("LoginTest")]
         [Description("Проверка логина неизвестного пользователя")]
+        [AllureSeverity(SeverityLevel.normal)]
         public void FailureUnknownUserLoginTest(string username, string password)
         {
             Assert.That(

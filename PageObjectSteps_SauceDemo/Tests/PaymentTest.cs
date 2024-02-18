@@ -1,6 +1,8 @@
 ﻿using PageObjectStepsSauceDemo.Pages;
 using PageObjectStepsSauceDemo.Helpers.Configuration;
 using PageObjectStepsSauceDemo.Steps;
+using Allure.Net.Commons;
+using NUnit.Allure.Attributes;
 
 namespace PageObjectStepsSauceDemo.Tests
 {
@@ -11,6 +13,7 @@ namespace PageObjectStepsSauceDemo.Tests
         [Category("PositiveTest")]
         [Category("PaymentTest")]
         [Description("Проверка успешной оплаты")]
+        [AllureSeverity(SeverityLevel.critical)]
         public void PaymentSimpleTest()
         {
             InventoryPage inventoryPage = LoginSteps.SuccessLogin();
