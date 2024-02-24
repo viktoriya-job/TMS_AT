@@ -12,11 +12,10 @@ public class TableTest : BaseTest
     public void AddProjectCorrectTest()
     {
         UserSteps
-            .SuccessfulLogin(Configurator.AppSettings.Username, Configurator.AppSettings.Password)
-            .AddProjectButton.Click();
+            .SuccessfulLogin();
 
         ProjectsPage projectsPage = new ProjectsPage(Driver, true);
-        TableCell tableCell = projectsPage.ProjectsTable.GetCell("Project", "Test2", "Project");
+        TableCell tableCell = projectsPage.ProjectsTable.GetCell("Project", "asd", "Project");
         tableCell.GetLink().Click();
     }
 }

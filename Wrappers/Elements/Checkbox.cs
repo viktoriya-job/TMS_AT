@@ -17,8 +17,20 @@ public class Checkbox
 
     public bool Displayed => _uiElement.Displayed;
 
+    public bool IsChecked()
+    {
+        return !string.IsNullOrEmpty(_uiElement.GetAttribute("checked"));
+    }
     public void Click()
     {
+        _uiElement.Click();
+    }
 
+    public void SetState(bool state)
+    {
+        if (IsChecked() != state)
+        {
+            Click();
+        }
     }
 }
