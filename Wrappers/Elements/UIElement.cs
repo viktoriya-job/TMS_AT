@@ -1,5 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 using System.Drawing;
+using NUnit.Framework.Internal;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;
 using Wrappers.Helpers;
@@ -94,6 +95,27 @@ public class UIElement : IWebElement
                 ((IJavaScriptExecutor)_webDriver).ExecuteScript("arguments[0].click();", _webElement);
             }
         }
+    }
+
+    public void Click(Func<IWebElement> element)
+    {
+        for (int i = 0; i <= 500; i++)
+        {
+            try
+            {
+                Console.WriteLine($"Try #{i} to click on element.");
+                element().Click();
+                Console.WriteLine("Clicking on the element was successful.");
+                return;
+            }
+            catch (StaleElementReferenceException)
+            {
+                Console.WriteLine($"StaleElementReferenceException was thrown: try #{i}.");
+            }
+        }
+
+        Console.WriteLine("Failed to click on element.");
+        throw new NoSuchElementException("Stale element not found");
     }
 
     public string GetAttribute(string attributeName)

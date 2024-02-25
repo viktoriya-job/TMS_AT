@@ -16,17 +16,12 @@ namespace Wrappers.Tests
                 .SuccessfulLogin();
 
             AddTestCasePage addTestCasePage = new AddTestCasePage(Driver, true);
+            //Console.WriteLine(addTestCasePage.TypeDropDown.DropElement.GetCssValue("display"));
+            Console.WriteLine(addTestCasePage.TypeDropDown.DropDownMenuDisplayed);
 
-            Thread.Sleep(2000);
-
-            Assert.That(addTestCasePage.PageTitle.Text.Trim(), Is.EqualTo("Add Test Case"));
-            Assert.That(addTestCasePage.TemplateDropDown.Displayed);
-            addTestCasePage.TemplateDropDown.SelectByIndex(0);
-
-            addTestCasePage.TemplateDropDown.SelectByText("");
-
-            Console.WriteLine(addTestCasePage.SectionDropDown.SelectedOption.Text);
-            Console.WriteLine(addTestCasePage.TemplateDropDown.SelectedOption.Text);
+            addTestCasePage.TypeDropDown.Click();
+            Console.WriteLine(addTestCasePage.TypeDropDown.DropDownMenuDisplayed);
+            //Console.WriteLine(addTestCasePage.TypeDropDown.DropElement.GetCssValue("display"));
         }
     }
 }
