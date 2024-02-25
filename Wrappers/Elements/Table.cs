@@ -63,4 +63,16 @@ public class Table
 
         return null;
     }
+
+    public List<string> GetValues(string targetColumn)
+    {
+        List<string> result = new List<string>();
+
+        foreach (var row in _rows)
+        {
+            result.Add(row.GetCell(_columns.IndexOf(targetColumn)).Text);
+        }
+
+        return result;
+    }
 }
