@@ -1,5 +1,6 @@
 ﻿using OpenQA.Selenium;
 using PageObjectStepsSauceDemo.Helpers;
+using PageObjectStepsSauceDemo.Pages.ItemsSmall;
 
 namespace PageObjectStepsSauceDemo.Pages
 {
@@ -7,18 +8,14 @@ namespace PageObjectStepsSauceDemo.Pages
     {
         private static string _endPoint = "/inventory.html";
         private static readonly By _titleLabelBy = By.ClassName("title");
-        private static readonly By _itemsSmallBy = By.ClassName("inventory_item");
-        public List<ItemSmall> ItemsSmall { get; set; }
 
-        public InventoryPage(IWebDriver? driver) : base(driver) 
+        public InventoryPage(IWebDriver driver) : base(driver) 
         {
-            ItemsSmall = new List<ItemSmall>();
-            foreach (var item in WaitsHelper.WaitForAllVisibleElementsLocatedBy(_itemsSmallBy))
-            {
-                ItemsSmall.Add(new ItemSmall(driver, item));
-            }
+            Driver = driver;
         }
+
         public IWebElement TitleLable => WaitsHelper.WaitForExists(_titleLabelBy);
+        public SauceLabsBikeLightItemSmall sauceLabsBikeLightItemSmall = new (Driver);
 
         public override bool IsPageOpened()
         {

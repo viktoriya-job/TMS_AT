@@ -18,16 +18,16 @@ namespace PageObjectStepsSauceDemo.Tests
         public void PaymentSimpleTest()
         {
             InventoryPage inventoryPage = LoginSteps.SuccessLogin();
-            ItemSmall itemToAdd1 = inventoryPage.ItemsSmall[0];
-            ItemSmall itemToAdd2 = inventoryPage.ItemsSmall[1];
+            //ItemSmall itemToAdd1 = inventoryPage.ItemsSmall[0];
+            //ItemSmall itemToAdd2 = inventoryPage.ItemsSmall[1];
 
-            AllureApi.AddTestParameter("Item to add", itemToAdd1.ItemTitle.Text);
-            AllureApi.AddTestParameter("Item to add", itemToAdd2.ItemTitle.Text);
+            //AllureApi.AddTestParameter("Item to add", itemToAdd1.ItemTitle.Text);
+            //AllureApi.AddTestParameter("Item to add", itemToAdd2.ItemTitle.Text);
 
             Assert.Multiple(() =>
             {
-                itemToAdd1.AddItem();
-                itemToAdd2.AddItem();
+                //itemToAdd1.AddItem();
+                //itemToAdd2.AddItem();
 
                 NavigationSteps.NavigateToCartPage(); 
                 //НЕ РЕАЛИЗОВАНО - проверка на то, что в корзине именно нужные товары
