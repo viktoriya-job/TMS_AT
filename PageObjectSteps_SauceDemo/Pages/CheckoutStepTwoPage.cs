@@ -26,6 +26,7 @@ namespace PageObjectStepsSauceDemo.Pages
                 return false;
             }
         }
+
         protected override string GetEndpoint() => _endPoint;
     }
 }

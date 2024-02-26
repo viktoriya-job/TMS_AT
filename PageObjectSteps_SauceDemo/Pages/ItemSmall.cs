@@ -31,6 +31,7 @@ namespace PageObjectStepsSauceDemo.Pages
         public void RemoveItem() => RemoveButton.Click();
 
         public override bool IsPageOpened() => ItemTitle.Displayed;
+
         protected override string GetEndpoint()
         {
             throw new NotImplementedException();

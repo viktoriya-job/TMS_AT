@@ -20,6 +20,7 @@ namespace PageObjectStepsSauceDemo.Pages
         public IWebElement ErrorLabel => WaitsHelper.WaitForExists(_errorLabelBy);
 
         protected override string GetEndpoint() => _endPoint;
+
         public override bool IsPageOpened()
         {
             try
