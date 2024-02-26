@@ -5,9 +5,9 @@ namespace PageObjectStepsSauceDemo.Pages.ItemsSmall
 {
     public class SauceLabsBoltTShirtItemSmall : BasePage
     {
-        private static readonly By _itemTitleBy = By.ClassName("inventory_item_name");
-        private static readonly By _addButtonBy = By.ClassName("btn_primary");
-        private static readonly By _removeButtonBy = By.ClassName("btn_secondary");
+        private static readonly By _itemTitleBy = By.XPath("//div[text()='Sauce Labs Bolt T-Shirt']");
+        private static readonly By _addButtonBy = By.Id("add-to-cart-sauce-labs-bolt-t-shirt");
+        private static readonly By _removeButtonBy = By.Id("remove-sauce-labs-bolt-t-shirt");
 
         public SauceLabsBoltTShirtItemSmall(IWebDriver driver) : base(driver) { }
 

@@ -6,6 +6,7 @@ namespace PageObjectStepsSauceDemo.Steps
 {
     public class OrderSteps : BaseStep
     {
+        private InventoryPage _inventoryPage;
         private CheckoutStepOnePage _checkoutStepOnePage;
         private CheckoutStepTwoPage _checkoutStepTwoPage;
 
@@ -13,20 +14,32 @@ namespace PageObjectStepsSauceDemo.Steps
         {
             _checkoutStepOnePage = new CheckoutStepOnePage(Driver);
             _checkoutStepTwoPage = new CheckoutStepTwoPage(Driver);
+            _inventoryPage = new InventoryPage(Driver);
         }
 
         [AllureStep("Input Recipient Details")]
-        public void InputRecipientDetails()
+        public InventoryPage AddItemToCart()
+        {
+            _inventoryPage.SauceLabsBoltTShirtItemSmall.AddItem();
+
+            return _inventoryPage;
+        }
+
+        [AllureStep("Input Recipient Details")]
+        public CheckoutStepOnePage InputRecipientDetails()
         {
             _checkoutStepOnePage.FirstnameInput.SendKeys("A");
             _checkoutStepOnePage.LastnameInput.SendKeys("B");
             _checkoutStepOnePage.PostalCodeInput.SendKeys("C");
+
+            return _checkoutStepOnePage;
         }
 
         [AllureStep("Finish Order")]
         public FinishPage FinishOrder()
         {
             _checkoutStepTwoPage.FinishButton.Click();
+
             return new FinishPage(Driver);
         }
     }
