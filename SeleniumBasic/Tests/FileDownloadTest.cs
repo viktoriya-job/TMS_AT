@@ -15,12 +15,12 @@ namespace SeleniumAdvanced.Tests
         {
             Driver.Navigate().GoToUrl("http://the-internet.herokuapp.com/download");
 
-            string fileName = "text.txt";
+            string fileName = "test-file.txt";
             string filePath = Path.Combine(DriverFactory.PathForDownload, fileName);
 
             WaitsHelper.WaitForVisibilityLocatedBy(By.LinkText(fileName)).Click();
 
-            Assert.That(WaitsHelper.WaitFileForExist(filePath, TimeSpan.FromSeconds(10)));
+            Assert.That(WaitsHelper.WaitFileForExist1(filePath));
         }
     }
 }

@@ -90,5 +90,10 @@ namespace SeleniumAdvanced.Helpers
                 Thread.Sleep(polling);
             }
         }
+
+        public bool WaitFileForExist1(string path)
+        {
+            return _wait.Until(_ => File.Exists(path));
+        }
     }
 }
