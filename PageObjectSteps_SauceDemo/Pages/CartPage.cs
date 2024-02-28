@@ -18,6 +18,7 @@ namespace PageObjectStepsSauceDemo.Pages
         public IWebElement CheckoutButton => WaitsHelper.WaitForExists(_checkoutButtonBy);
         public ReadOnlyCollection<IWebElement> CartItems => Driver.FindElements(_cartItemsBy);
 
+        [AllureStep("Checking is the Cart page opened")]
         public override bool IsPageOpened()
         {
             try
@@ -31,7 +32,7 @@ namespace PageObjectStepsSauceDemo.Pages
         }
         protected override string GetEndpoint() => _endPoint;
 
-        [AllureStep("Checking is the cart is empty")]
+        [AllureStep("Checking is the cart empty")]
         public bool IsCartEmpty() => CartItems.Count.Equals(0);
     }
 }

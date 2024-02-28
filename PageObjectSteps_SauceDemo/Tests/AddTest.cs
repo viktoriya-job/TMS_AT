@@ -17,16 +17,15 @@ namespace PageObjectStepsSauceDemo.Tests
         public void AddItemTest()
         {
             InventoryPage inventoryPage = LoginSteps.SuccessLogin();
-            //ItemSmall itemToAdd = inventoryPage.ItemsSmall[0];
-
-            //AllureApi.AddTestParameter("Item to add", itemToAdd.ItemTitle.Text);
+            AllureApi.AddTestParameter("Item to add", inventoryPage.SauceLabsBoltTShirtItemSmall.ItemTitle.Text);
 
             Assert.Multiple(() =>
             {
-                //inventoryPage.ItemsSmall[0].AddItem();
-                //Assert.That(itemToAdd.IsItemAddedToCart());
+                inventoryPage.SauceLabsBoltTShirtItemSmall.AddItem();
+                Assert.That(inventoryPage.SauceLabsBoltTShirtItemSmall.IsItemAddedToCart);
 
                 CartPage CartPage = NavigationSteps.NavigateToCartPage();
+
                 //надо бы проверять, что в корзине именно нужный товар, но пока так
                 Assert.That(!CartPage.IsCartEmpty());
             });

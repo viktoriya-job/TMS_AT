@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using NUnit.Allure.Attributes;
+using OpenQA.Selenium;
 
 namespace PageObjectStepsSauceDemo.Pages
 {
@@ -21,6 +22,7 @@ namespace PageObjectStepsSauceDemo.Pages
         public IWebElement PostalCodeInput => WaitsHelper.WaitForExists(_postalCodeInputBy);
         public IWebElement ContinueButton => WaitsHelper.WaitForExists(_continueButtonBy);
 
+        [AllureStep("Checking is the CheckoutStepOne page opened")]
         public override bool IsPageOpened()
         {
             try

@@ -17,10 +17,10 @@ namespace PageObjectStepsSauceDemo.Steps
             _inventoryPage = new InventoryPage(Driver);
         }
 
-        [AllureStep("Input Recipient Details")]
         public InventoryPage AddItemToCart()
         {
             _inventoryPage.SauceLabsBoltTShirtItemSmall.AddItem();
+            Assert.That(_inventoryPage.SauceLabsBoltTShirtItemSmall.IsItemAddedToCart);
 
             return _inventoryPage;
         }

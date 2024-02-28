@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using NUnit.Allure.Attributes;
+using OpenQA.Selenium;
 
 namespace PageObjectStepsSauceDemo.Pages
 {
@@ -17,6 +18,7 @@ namespace PageObjectStepsSauceDemo.Pages
         public IWebElement CompleteMessage => WaitsHelper.WaitForExists(_completeMessageBy);
         public IWebElement BackButton => WaitsHelper.WaitForExists(_backButtonBy);
 
+        [AllureStep("Checking is the Finish page opened")]
         public override bool IsPageOpened()
         {
             try
