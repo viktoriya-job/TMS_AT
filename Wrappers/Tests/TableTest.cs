@@ -17,9 +17,6 @@ public class TableTest : BaseTest
         ProjectsPage projectsPage = new ProjectsPage(Driver, true);
 
         TableCell tableCell = projectsPage.ProjectsTable.GetCell("Project", "asd", "Project");
-        Console.WriteLine(tableCell.GetLink().GetAttribute("href"));
-        Console.WriteLine(tableCell.GetOverviewLink().GetAttribute("href"));
-
         tableCell.GetOverviewLink().Click();
     }
 }

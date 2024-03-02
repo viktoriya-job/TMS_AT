@@ -1,5 +1,5 @@
-﻿using Wrappers.Elements;
-using Wrappers.Pages;
+﻿using Wrappers.Elements.HerokuappTable;
+using Wrappers.Pages.HerokuappPages;
 using Wrappers.Pages.LaminatePages;
 using Wrappers.Pages.ProjectPages;
 
@@ -63,7 +63,15 @@ namespace Wrappers.Tests
                 laminateMainPage.RadioButtonLaminate.SelectByIndex(0);
                 Assert.That(laminateMainPage.RadioButtonLaminate.SelectedOptionText == "Укладка по длине 0°");
             });
+        }
 
+        [Test]
+        public void TableTest()
+        {
+            HerokuappTablesPage herokuappTablesPage = new HerokuappTablesPage(Driver, true);
+
+            herokuappTablesPage.TableExample1.EditRow("Email", "jdoe@hotmail.com");
+            herokuappTablesPage.TableExample1.DeleteRow("First Name", "John");
         }
     }
 }
