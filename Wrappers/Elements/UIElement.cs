@@ -99,7 +99,7 @@ public class UIElement : IWebElement
 
     public void Click(Func<IWebElement> element)
     {
-        for (int i = 0; i <= 500; i++)
+        for (int i = 0; i <= 20; i++)
         {
             try
             {

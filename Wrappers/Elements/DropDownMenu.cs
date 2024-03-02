@@ -13,16 +13,16 @@ namespace Wrappers.Elements
     {
         private UIElement _uiElement;
         private List<UIElement> _options;
-        private WebDriverWait _wait;
-        private By _locator;
         private By _locatorOptions = By.CssSelector(".chzn-results>li");
+        //private WebDriverWait _wait;
+        //private By _locator;
 
         public DropDownMenu(IWebDriver webDriver, By locator)
         {
             _uiElement = new UIElement(webDriver, locator);
-            _wait = new WebDriverWait(webDriver, TimeSpan.FromSeconds(Configurator.WaitsTimeout));
             _options = _uiElement.FindUIElements(_locatorOptions);
-            _locator = locator;
+            //_wait = new WebDriverWait(webDriver, TimeSpan.FromSeconds(Configurator.WaitsTimeout));
+            //_locator = locator;
         }
 
         public bool Displayed => _uiElement.Displayed;

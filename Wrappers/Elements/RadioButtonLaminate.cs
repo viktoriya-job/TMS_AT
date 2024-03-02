@@ -1,0 +1,75 @@
+﻿using OpenQA.Selenium;
+using Wrappers.Helpers.Configuration;
+using Wrappers.Helpers;
+
+namespace Wrappers.Elements
+{
+    public class RadioButtonLaminate
+    {
+        private List<UIElement> _uiElements;
+        private List<string> _values;
+        private List<string> _texts;
+
+        public RadioButtonLaminate(IWebDriver webDriver, By by)
+        {
+            _uiElements = new List<UIElement>();
+            _values = new List<string>();
+            _texts = new List<string>();
+
+            WaitsHelper _waitsHelper = new WaitsHelper(webDriver, TimeSpan.FromSeconds(Configurator.WaitsTimeout));
+
+            foreach (var webElement in _waitsHelper.WaitForPresenceOfAllElementsLocatedBy(by))
+            {
+                UIElement uiElement = new UIElement(webDriver, webElement);
+                _uiElements.Add(uiElement);
+                _values.Add(uiElement.GetAttribute("value"));
+                _texts.Add(uiElement.FindUIElement(By.XPath("parent::*/label")).Text.Trim());
+            }
+        }
+
+        public string SelectedOptionText
+        {
+            get
+            {
+                string result = null;
+
+                foreach (UIElement element in _uiElements)
+                {
+                    if (element.GetAttribute("checked") == "true")
+                    {
+                        result = _texts[_uiElements.IndexOf(element)];
+                    }
+                }
+                return result;
+            }
+        }
+
+        public void SelectByIndex(int index)
+        {
+            if (index < _uiElements.Count)
+            {
+                _uiElements[index].Click();
+            }
+            else
+            {
+                throw new AssertionException("Cannot locate option with index: " + index);
+            }
+        }
+
+        public void SelectByValue(string value)
+        {
+            _uiElements[_values.IndexOf(value)].Click();
+        }
+
+        public void SelectByText(string text)
+        {
+            var index = _texts.IndexOf(text);
+            _uiElements[index].Click();
+        }
+
+        public List<string> GetOptions()
+        {
+            return _texts;
+        }
+    }
+}

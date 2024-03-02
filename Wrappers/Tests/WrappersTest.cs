@@ -1,4 +1,7 @@
-﻿using Wrappers.Pages.ProjectPages;
+﻿using Wrappers.Elements;
+using Wrappers.Pages;
+using Wrappers.Pages.LaminatePages;
+using Wrappers.Pages.ProjectPages;
 
 namespace Wrappers.Tests
 {
@@ -27,7 +30,7 @@ namespace Wrappers.Tests
 
             addTestCasePage.SectionDropDown.SelectByIndex(0);
             addTestCasePage.TemplateDropDown.SelectByText("Test Case (Steps)");
-            Thread.Sleep(2000); //не до конца победила 'stale element not found' >=O
+            Thread.Sleep(2000); //не до конца победила 'stale element not found' >=O  Часть кода, где пыталась победить, закомментировала
             addTestCasePage.TypeDropDown.SelectByText("Accessibility");
             addTestCasePage.PriorityDropDown.SelectByText("Low");
             addTestCasePage.AssignedToDropDown.SelectByText("Me");
@@ -42,6 +45,25 @@ namespace Wrappers.Tests
                 Assert.That(addTestCasePage.AutomationTypeDropDown.SelectedOption.Text.Trim(), Is.EqualTo("Ranorex"));
                 Assert.That(addTestCasePage.TemplateDropDown.SelectedOption.Text.Trim(), Is.EqualTo("Test Case (Steps)"));
             });
+        }
+
+        [Test]
+        public void CalcLaminateTest()
+        {
+            LaminateMainPage laminateMainPage = new LaminateMainPage(Driver);
+
+            Assert.Multiple(() =>
+            {
+                laminateMainPage.RadioButtonLaminate.SelectByValue("1");
+                Assert.That(laminateMainPage.RadioButtonLaminate.SelectedOptionText == "Укладка по ширине 90°");
+
+                laminateMainPage.RadioButtonLaminate.SelectByText("Укладка по диагонали 135°");
+                Assert.That(laminateMainPage.RadioButtonLaminate.SelectedOptionText == "Укладка по диагонали 135°");
+
+                laminateMainPage.RadioButtonLaminate.SelectByIndex(0);
+                Assert.That(laminateMainPage.RadioButtonLaminate.SelectedOptionText == "Укладка по длине 0°");
+            });
+
         }
     }
 }
