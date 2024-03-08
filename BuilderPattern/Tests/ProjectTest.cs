@@ -9,12 +9,13 @@ public class ProjectTest : BaseTest
     {
         _navigationSteps.SuccessfulLogin(Admin);
 
-        Project expectedProject = new Project.Builder()
-            .SetProjectName("WP Test 01")
-            .SetAnnouncement("Test Details")
-            .SetShowAnnouncement(false)
-            .SetProjectType(1)
-            .Build();
+        Project expectedProject = new Project()
+        {
+            ProjectName = "WP Test 01",
+            Announcement = "Test Details",
+            IsShowAnnouncement = false,
+            ProjectType = 1
+        };
 
         Assert.That(_projectSteps.AddProject(expectedProject).SuccessMessage.Text.Trim(),
             Is.EqualTo("Successfully added the new project."));
