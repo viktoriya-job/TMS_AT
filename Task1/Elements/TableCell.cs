@@ -1,6 +1,6 @@
 ﻿using OpenQA.Selenium;
 
-namespace ChainOfInvocations.Elements;
+namespace Task1.Elements;
 
 public class TableCell
 {

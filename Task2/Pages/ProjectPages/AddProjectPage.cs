@@ -1,7 +1,7 @@
-using ChainOfInvocations.Elements;
 using OpenQA.Selenium;
+using Task2.Elements;
 
-namespace ChainOfInvocations.Pages.ProjectPages;
+namespace Task2.Pages.ProjectPages;
 
 public class AddProjectPage : ProjectBasePage
 {

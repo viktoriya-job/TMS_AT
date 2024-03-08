@@ -1,6 +1,7 @@
 using OpenQA.Selenium;
+using Task1.Pages;
 
-namespace ChainOfInvocations.Pages.ProjectPages;
+namespace Task1.Pages.ProjectPages;
 
 public class ProjectBasePage : BasePage
 {

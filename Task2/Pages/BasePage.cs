@@ -1,8 +1,8 @@
-using ChainOfInvocations.Helpers;
-using ChainOfInvocations.Helpers.Configuration;
 using OpenQA.Selenium;
+using Task2.Helpers;
+using Task2.Helpers.Configuration;
 
-namespace ChainOfInvocations.Pages;
+namespace Task2.Pages;
 
 public abstract class BasePage
 {

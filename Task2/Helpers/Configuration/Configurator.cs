@@ -1,7 +1,7 @@
 using System.Reflection;
 using Microsoft.Extensions.Configuration;
 
-namespace ChainOfInvocations.Helpers.Configuration
+namespace Task2.Helpers.Configuration
 {
     public static class Configurator
     {

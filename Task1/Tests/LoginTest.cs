@@ -1,8 +1,8 @@
-using ChainOfInvocations.Helpers.Configuration;
-using ChainOfInvocations.Pages;
-using ChainOfInvocations.Steps;
+using Task1.Steps;
+using Task1.Helpers.Configuration;
+using Task1.Pages;
 
-namespace ChainOfInvocations.Tests;
+namespace Task1.Tests;
 
 public class LoginTest : BaseTest
 {

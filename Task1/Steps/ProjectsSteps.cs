@@ -1,8 +1,8 @@
-using ChainOfInvocations.Pages;
-using ChainOfInvocations.Pages.ProjectPages;
 using OpenQA.Selenium;
+using Task1.Pages;
+using Task1.Pages.ProjectPages;
 
-namespace ChainOfInvocations.Steps;
+namespace Task1.Steps;
 
 public class ProjectsSteps : BaseSteps
 {

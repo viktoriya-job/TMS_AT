@@ -1,8 +1,8 @@
-using ChainOfInvocations.Elements;
-using ChainOfInvocations.Pages.ProjectPages;
 using OpenQA.Selenium;
+using Task2.Elements;
+using Task2.Pages.ProjectPages;
 
-namespace ChainOfInvocations.Pages
+namespace Task2.Pages
 {
     public class DashboardPage : BasePage
     {

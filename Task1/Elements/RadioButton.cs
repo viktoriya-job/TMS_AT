@@ -1,8 +1,8 @@
 ﻿using OpenQA.Selenium;
-using ChainOfInvocations.Helpers;
-using ChainOfInvocations.Helpers.Configuration;
+using Task1.Helpers.Configuration;
+using Task1.Helpers;
 
-namespace ChainOfInvocations.Elements;
+namespace Task1.Elements;
 
 public class RadioButton
 {

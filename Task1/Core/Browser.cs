@@ -1,7 +1,7 @@
-﻿using ChainOfInvocations.Helpers.Configuration;
-using OpenQA.Selenium;
+﻿using OpenQA.Selenium;
+using Task1.Helpers.Configuration;
 
-namespace ChainOfInvocations.Core
+namespace Task1.Core
 {
     public class Browser
     {

@@ -1,10 +1,10 @@
-using ChainOfInvocations.Helpers;
-using ChainOfInvocations.Helpers.Configuration;
-using ChainOfInvocations.Steps;
 using OpenQA.Selenium;
-using ChainOfInvocations.Core;
+using Task1.Core;
+using Task1.Helpers.Configuration;
+using Task1.Steps;
+using Task1.Helpers;
 
-namespace ChainOfInvocations.Tests;
+namespace Task1.Tests;
 
 //[Parallelizable(scope: ParallelScope.All)]
 //[FixtureLifeCycle(LifeCycle.InstancePerTestCase)]

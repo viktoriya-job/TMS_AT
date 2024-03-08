@@ -2,10 +2,10 @@
 using System.Drawing;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;
-using ChainOfInvocations.Helpers;
-using ChainOfInvocations.Helpers.Configuration;
+using Task1.Helpers.Configuration;
+using Task1.Helpers;
 
-namespace ChainOfInvocations.Elements;
+namespace Task1.Elements;
 
 public class UIElement : IWebElement
 {

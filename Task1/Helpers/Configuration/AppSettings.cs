@@ -1,4 +1,4 @@
-namespace ChainOfInvocations.Helpers.Configuration;
+namespace Task1.Helpers.Configuration;
 
 public class AppSettings
 {

@@ -1,6 +1,6 @@
 ﻿using OpenQA.Selenium;
 
-namespace ChainOfInvocations.Elements;
+namespace Task2.Elements;
 
 public class Checkbox
 {

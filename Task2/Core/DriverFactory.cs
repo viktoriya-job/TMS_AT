@@ -4,7 +4,7 @@ using OpenQA.Selenium.Firefox;
 using WebDriverManager;
 using WebDriverManager.DriverConfigs.Impl;
 
-namespace ChainOfInvocations.Core;
+namespace Task2.Core;
 
 public class DriverFactory
 {

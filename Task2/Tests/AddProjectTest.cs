@@ -1,8 +1,8 @@
-﻿using ChainOfInvocations.Helpers.Configuration;
-using ChainOfInvocations.Pages;
-using ChainOfInvocations.Steps;
+﻿using Task2.Steps;
+using Task2.Helpers.Configuration;
+using Task2.Pages;
 
-namespace ChainOfInvocations.Tests
+namespace Task2.Tests
 {
     public class AddProjectTest : BaseTest
     {
