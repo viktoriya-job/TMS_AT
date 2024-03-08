@@ -26,6 +26,6 @@ public class AddProjectPage : ProjectBasePage
     }
 
     // Атомарные Методы
-    public IWebElement AddButton => Driver.FindElement(AddButtonBy);
+    public Button AddButton => new(Driver, AddButtonBy);
     public Checkbox ShowAnnouncementCheckbox => new Checkbox(Driver, ShowAnnouncementCheckboxBy);
 }
