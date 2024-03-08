@@ -8,10 +8,10 @@ public class AddProjectPage : ProjectBasePage
     private static string END_POINT = "index.php?/admin/projects/add";
 
     private static readonly By _nameInputBy = By.Id("name");
-    private static readonly By _announcemenInputBy = By.Id("announcement_display");
-    private static readonly By _showAnnouncemenCheckboxBy = By.Id("show_announcement");
-    private static readonly By _suiteModeRadioBy = By.Name("suite_mode");
-    private static readonly By _caseStatusesEnabledCheckboxBy = By.Id("case_statuses_enabled");
+    private static readonly By _announcementInputBy = By.Id("announcement_display");
+    private static readonly By _showAnnouncementCheckboxBy = By.Id("show_announcement");
+    private static readonly By _projectTypeRadioBy = By.Name("suite_mode");
+    private static readonly By _caseApprovalsCheckboxBy = By.Id("case_statuses_enabled");
     private static readonly By _addButtonBy = By.Id("accept");
 
     public AddProjectPage(IWebDriver driver) : base(driver) { }
@@ -21,10 +21,10 @@ public class AddProjectPage : ProjectBasePage
     public override bool IsPageOpened() => throw new NotImplementedException();
 
     public UIElement NameInput => new(Driver, _nameInputBy);
-    public UIElement AnnouncemenInput => new(Driver, _announcemenInputBy);
-    public Checkbox ShowAnnouncemenCheckbox => new(Driver, _showAnnouncemenCheckboxBy);
-    public RadioButton SuiteModeRadio => new(Driver, _suiteModeRadioBy);
-    public Checkbox CaseStatusesEnabledCheckbox => new(Driver, _caseStatusesEnabledCheckboxBy);
+    public UIElement AnnouncementInput => new(Driver, _announcementInputBy);
+    public Checkbox ShowAnnouncementCheckbox => new(Driver, _showAnnouncementCheckboxBy);
+    public RadioButton ProjectTypeRadio => new(Driver, _projectTypeRadioBy);
+    public Checkbox CaseApprovalsCheckbox => new(Driver, _caseApprovalsCheckboxBy);
     public Button AddButton => new(Driver, _addButtonBy);
 
     public AddProjectPage InputNameValue(string value)
@@ -33,27 +33,33 @@ public class AddProjectPage : ProjectBasePage
         return this;
     }
 
-    public AddProjectPage InputAnnouncemenValue(string value)
+    public AddProjectPage InputAnnouncementValue(string value)
     {
-        AnnouncemenInput.SendKeys(value);
+        AnnouncementInput.SendKeys(value);
         return this;
     }
 
-    public AddProjectPage CheckShowAnnouncemenCheckbox(bool value)
+    public AddProjectPage CheckShowAnnouncementCheckbox(bool value)
     {
-        ShowAnnouncemenCheckbox.SetState(value);
+        ShowAnnouncementCheckbox.SetState(value);
         return this;
     }
 
-    public AddProjectPage ChooseSuiteModeRadio(string value)
+    public AddProjectPage ChooseProjectType(string value)
     {
-        SuiteModeRadio.SelectByText(value);
+        ProjectTypeRadio.SelectByText(value);
         return this;
     }
 
-    public AddProjectPage CheckCaseStatusesEnabledCheckbox(bool value)
+    public AddProjectPage ChooseProjectType(int index)
     {
-        CaseStatusesEnabledCheckbox.SetState(value);
+        ProjectTypeRadio.SelectByIndex(index);
+        return this;
+    }
+
+    public AddProjectPage CheckCaseApprovalsCheckbox(bool value)
+    {
+        CaseApprovalsCheckbox.SetState(value);
         return this;
     }
 

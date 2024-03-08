@@ -1,38 +1,22 @@
 using OpenQA.Selenium;
 using Task2.Pages;
-using Task2.Pages.ProjectPages;
+using Test2.Models;
 
 namespace Task2.Steps;
 
-public class ProjectsSteps : BaseSteps
+public class ProjectsSteps(IWebDriver driver) : BaseSteps(driver)
 {
-    public ProjectsSteps(IWebDriver driver) : base(driver)
+    public ProjectsPage AddProject(Project project)
     {
-        AddProjectPage addProjectPage = new AddProjectPage(Driver);
         DashboardPage dashboardPage = new DashboardPage(Driver);
-    }
 
-    public void AddProductToCart(List<string> Products)
-    {
-    }
-
-    public void CreateProject()
-    {
-
-    }
-
-    public void UpdateProject()
-    {
-
-    }
-
-    public void ReadProject()
-    {
-
-    }
-
-    public void DeleteProject()
-    {
-
+        return dashboardPage
+                .ClickSidebarProjectsAddButton()
+                .InputNameValue(project.ProjectName)
+                .InputAnnouncementValue(project.Announcement)
+                .CheckShowAnnouncementCheckbox(project.IsShowAnnouncement)
+                .ChooseProjectType(project.ProjectType)
+                .CheckCaseApprovalsCheckbox(project.IsTestCaseApprovals)
+                .ClickAddButton();
     }
 }

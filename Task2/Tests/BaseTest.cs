@@ -3,6 +3,7 @@ using Task2.Core;
 using Task2.Steps;
 using Task2.Helpers.Configuration;
 using Task2.Helpers;
+using Task2.Models;
 
 namespace Task2.Tests;
 
@@ -16,6 +17,8 @@ public class BaseTest
     protected NavigationSteps NavigationSteps;
     protected ProjectsSteps ProjectSteps;
 
+    protected User Admin { get; private set; }
+
     [SetUp]
     public void Setup()
     {
@@ -25,6 +28,12 @@ public class BaseTest
         // Инициализация Steps
         NavigationSteps = new NavigationSteps(Driver);
         ProjectSteps = new ProjectsSteps(Driver);
+
+        Admin = new User
+        {
+            Email = Configurator.AppSettings.Username,
+            Password = Configurator.AppSettings.Password
+        };
 
         Driver.Navigate().GoToUrl(Configurator.AppSettings.URL);
     }

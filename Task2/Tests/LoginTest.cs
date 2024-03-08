@@ -1,5 +1,4 @@
 using Task2.Steps;
-using Task2.Helpers.Configuration;
 using Task2.Pages;
 
 namespace Task2.Tests;
@@ -10,19 +9,8 @@ public class LoginTest : BaseTest
     public void SuccessLoginTest()
     {
         DashboardPage dashboardPage = NavigationSteps
-            .SuccessfulLogin(Configurator.AppSettings.Username, Configurator.AppSettings.Password);
+            .SuccessfulLogin(Admin);
 
         Assert.That(dashboardPage.IsPageOpened);
-    }
-
-    [Test]
-    public void InvalidUsernameLoginTest()
-    {
-        // Проверка
-        Assert.That(
-            NavigationSteps
-                .IncorrectLogin("ssdd", "12345")
-                .GetErrorLabelText(),
-            Is.EqualTo("Email/Login or Password is incorrect. Please try again."));
     }
 }

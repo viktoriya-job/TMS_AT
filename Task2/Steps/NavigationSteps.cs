@@ -1,4 +1,5 @@
 using OpenQA.Selenium;
+using Task2.Models;
 using Task2.Pages;
 
 namespace Task2.Steps;
@@ -8,14 +9,14 @@ public class NavigationSteps(IWebDriver driver) : BaseSteps(driver)
     public LoginPage NavigateToLoginPage() => new LoginPage(Driver, true);
     public DashboardPage NavigateToDashboardPage() => new DashboardPage(Driver, true);
 
-    public DashboardPage SuccessfulLogin(string username, string password) => Login<DashboardPage>(username, password);
-    public LoginPage IncorrectLogin(string username, string password) => Login<LoginPage>(username, password);
+    public DashboardPage SuccessfulLogin(User user) => Login<DashboardPage>(user);
+    public LoginPage IncorrectLogin(User user) => Login<LoginPage>(user);
 
-    private T Login<T>(string username, string password) where T : BasePage
+    private T Login<T>(User user) where T : BasePage
     {
         LoginPage = new LoginPage(Driver);
-        LoginPage.EmailInput.SendKeys(username);
-        LoginPage.PswInput.SendKeys(password);
+        LoginPage.EmailInput.SendKeys(user.Email);
+        LoginPage.PswInput.SendKeys(user.Password);
         LoginPage.LoginInButton.Click();
 
         return (T)Activator.CreateInstance(typeof(T), Driver, false);

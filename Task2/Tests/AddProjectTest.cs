@@ -1,5 +1,5 @@
 ﻿using Task2.Steps;
-using Task2.Helpers.Configuration;
+using Test2.Models;
 using Task2.Pages;
 
 namespace Task2.Tests
@@ -9,17 +9,21 @@ namespace Task2.Tests
         [Test]
         public void SuccessAddProjectTest()
         {
-            ProjectsPage projectsPage = NavigationSteps
-                .SuccessfulLogin(Configurator.AppSettings.Username, Configurator.AppSettings.Password)
-                .ClickSidebarProjectsAddButton()
-                .InputNameValue("FeedTheCatProject")
-                .InputAnnouncemenValue("TestProjectAnnouncemen")
-                .CheckShowAnnouncemenCheckbox(true)
-                .ChooseSuiteModeRadio("Use a single repository for all cases (recommended)")
-                .CheckCaseStatusesEnabledCheckbox(true)
-                .ClickAddButton();
+            Random random = new Random();
+            Project project = new Project
+            {
+                ProjectName = $"FeedTheCatProject_{random.Next(1000)}",
+                Announcement = $"TestProjectAnnouncemen_{random.Next(1000)}",
+                IsShowAnnouncement = random.Next(0, 1) == 0,
+                ProjectType = random.Next(0, 2),
+                IsTestCaseApprovals = random.Next(0, 1) == 1
+            };
 
-            Assert.That(projectsPage.ProjectsTable.GetCell("Project", "FeedTheCatProject", 0).GetLink().Enabled);
+            NavigationSteps.SuccessfulLogin(Admin);
+
+            ProjectsPage projectsPage = ProjectSteps.AddProject(project);
+
+            Assert.That(projectsPage.ProjectsTable.GetCell("Project", project.ProjectName, 0).GetLink().Enabled);
         }
     }
 }

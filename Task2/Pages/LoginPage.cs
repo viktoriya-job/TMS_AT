@@ -14,12 +14,8 @@ namespace Task2.Pages
         private static readonly By ErrorLabelBy = By.CssSelector("[data-testid='loginErrorText']");
 
         // Инициализация класса
-        public LoginPage(IWebDriver driver, bool openPageByUrl) : base(driver, openPageByUrl)
-        {
-        }
-        public LoginPage(IWebDriver driver) : base(driver, false)
-        {
-        }
+        public LoginPage(IWebDriver driver, bool openPageByUrl) : base(driver, openPageByUrl) { }
+        public LoginPage(IWebDriver driver) : base(driver, false) { }
 
         public override bool IsPageOpened()
         {

@@ -1,5 +1,4 @@
 using OpenQA.Selenium;
-using Task1.Pages;
 
 namespace Task1.Pages.ProjectPages;
 
@@ -7,13 +6,8 @@ public class ProjectBasePage : BasePage
 {
     private static readonly By NameInputBy = By.Id("name");
 
-    public ProjectBasePage(IWebDriver driver) : base(driver)
-    {
-    }
-
-    public ProjectBasePage(IWebDriver driver, bool openPageByUrl) : base(driver, openPageByUrl)
-    {
-    }
+    public ProjectBasePage(IWebDriver driver) : base(driver) { }
+    public ProjectBasePage(IWebDriver driver, bool openPageByUrl) : base(driver, openPageByUrl) { }
 
     protected override string GetEndpoint()
     {

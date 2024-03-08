@@ -9,17 +9,19 @@ namespace Task1.Tests
         [Test]
         public void SuccessAddProjectTest()
         {
-            ProjectsPage projectsPage = NavigationSteps
-                .SuccessfulLogin(Configurator.AppSettings.Username, Configurator.AppSettings.Password)
-                .ClickSidebarProjectsAddButton()
-                .InputNameValue("FeedTheCatProject")
-                .InputAnnouncemenValue("TestProjectAnnouncemen")
-                .CheckShowAnnouncemenCheckbox(true)
-                .ChooseSuiteModeRadio("Use a single repository for all cases (recommended)")
-                .CheckCaseStatusesEnabledCheckbox(true)
-                .ClickAddButton();
+            Random random = new Random();
+            string projectName = $"FeedTheCatProject_{random.Next(1000)}";
 
-            Assert.That(projectsPage.ProjectsTable.GetCell("Project", "FeedTheCatProject", 0).GetLink().Enabled);
+            NavigationSteps.SuccessfulLogin(Configurator.AppSettings.Username, Configurator.AppSettings.Password);
+
+            ProjectsPage projectsPage = ProjectSteps.AddProject(
+                projectName,
+                $"TestProjectAnnouncemen_{random.Next(1000)}",
+                random.Next(0, 1) == 0,
+                random.Next(0, 2),
+                random.Next(0, 1) == 0);
+
+            Assert.That(projectsPage.ProjectsTable.GetCell("Project", projectName, 0).GetLink().Enabled);
         }
     }
 }

@@ -7,5 +7,4 @@ public class Project
     public bool? IsShowAnnouncement { get; set; }
     public int ProjectType { get; set; }
     public bool IsTestCaseApprovals { get; set; }
-    public string NewField { get; set; }
 }
