@@ -1,5 +1,4 @@
 using OpenQA.Selenium;
-using Task3.Pages;
 
 namespace Task3.Pages.ProjectPages;
 

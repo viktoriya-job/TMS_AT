@@ -27,7 +27,6 @@ namespace Task3.Pages
             {
                 return false;
             }
-
         }
 
         protected override string GetEndpoint()

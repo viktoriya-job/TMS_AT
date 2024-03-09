@@ -15,7 +15,7 @@ public class BaseTest
     protected WaitsHelper WaitsHelper { get; private set; }
 
     protected NavigationSteps NavigationSteps;
-    protected ProjectsSteps ProjectSteps;
+    protected ProjectsSteps ProjectsSteps;
 
     protected User Admin { get; private set; }
 
@@ -27,7 +27,7 @@ public class BaseTest
 
         // Инициализация Steps
         NavigationSteps = new NavigationSteps(Driver);
-        ProjectSteps = new ProjectsSteps(Driver);
+        ProjectsSteps = new ProjectsSteps(Driver);
 
         Admin = new User
         {

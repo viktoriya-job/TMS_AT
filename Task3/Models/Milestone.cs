@@ -6,13 +6,13 @@ namespace Task3.Models
     {
         public string Name { get; }
         public string References { get; }
-        public int Parent { get; }
+        public int? Parent { get; }
         public string Description { get; }
         public int StartDate { get; }
         public int EndDate { get; }
         public bool IsMilestoneCompleted { get; }
 
-        private Milestone(string name, string references, int parent, string description, int startDate, int endDate, bool isMilestoneCompleted)
+        private Milestone(string name, string references, int? parent, string description, int startDate, int endDate, bool isMilestoneCompleted)
         {
             Name = name;
             References = references;
@@ -32,17 +32,6 @@ namespace Task3.Models
             public int StartDate { get; set; }
             public int EndDate { get; set; }
             public bool IsMilestoneCompleted { get; set; }
-
-            private Builder(string name, string references, int parent, string description, int startDate, int endDate, bool isMilestoneCompleted)
-            {
-                Name = name;
-                References = references;
-                Parent = parent;
-                Description = description;
-                StartDate = startDate;
-                EndDate = endDate;
-                IsMilestoneCompleted = isMilestoneCompleted;
-            }
 
             public Builder SetName(string name)
             {
@@ -80,7 +69,7 @@ namespace Task3.Models
                 return this;
             }
 
-            public Builder SetEndDate(bool isMilestoneCompleted)
+            public Builder SetIsMilestoneCompleted(bool isMilestoneCompleted)
             {
                 IsMilestoneCompleted = isMilestoneCompleted;
                 return this;

@@ -10,6 +10,8 @@ namespace Task2.Tests
         public void SuccessAddProjectTest()
         {
             Random random = new Random();
+            NavigationSteps.SuccessfulLogin(Admin);
+
             Project project = new Project
             {
                 ProjectName = $"FeedTheCatProject_{random.Next(1000)}",
@@ -18,8 +20,6 @@ namespace Task2.Tests
                 ProjectType = random.Next(0, 2),
                 IsTestCaseApprovals = random.Next(0, 1) == 1
             };
-
-            NavigationSteps.SuccessfulLogin(Admin);
 
             ProjectsPage projectsPage = ProjectSteps.AddProject(project);
 

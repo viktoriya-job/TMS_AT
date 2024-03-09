@@ -42,7 +42,7 @@ namespace Task3.Models
                 return this;
             }
 
-            public Builder AnnouncementID(string announcement)
+            public Builder SetAnnouncement(string announcement)
             {
                 Announcement = announcement;
                 return this;

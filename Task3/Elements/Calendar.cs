@@ -16,7 +16,7 @@ namespace Task3.Elements
 
         public void Click() => _uiElement.Click();
 
-        private void SelectValue(UIElement value)
+        public void SelectDay(int value)
         {
             _uiElement.Click();
             _uiElement.FindUIElement(By.XPath($"//a[text()='{value}']")).Click();

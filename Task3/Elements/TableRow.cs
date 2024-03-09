@@ -27,5 +27,4 @@ public class TableRow
     {
         return _cells[columnIndex];
     }
-
 }

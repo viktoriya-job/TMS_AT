@@ -1,6 +1,7 @@
 using OpenQA.Selenium;
 using Task3.Models;
 using Task3.Pages;
+using Task3.Pages.ProjectPages;
 
 namespace Task3.Steps;
 
@@ -18,5 +19,20 @@ public class ProjectsSteps(IWebDriver driver) : BaseSteps(driver)
                 .ChooseProjectType(project.ProjectType)
                 .CheckCaseApprovalsCheckbox(project.IsTestCaseApprovals)
                 .ClickAddButton();
+    }
+
+    public ProjectMilestonesPage AddMilestone(Milestone milestone)
+    {
+        ProjectPage projectPage = new ProjectPage(Driver);
+
+        return projectPage
+            .ClickAddMilestoneButton()
+            .InputName(milestone.Name)
+            .InputReference(milestone.References)
+            .InputDescription(milestone.Description)
+            .ChooseStartDate(milestone.StartDate)
+            .ChooseEndDate(milestone.EndDate)
+            .CheckIsCompleted(milestone.IsMilestoneCompleted)
+            .ClickAddButton();
     }
 }
