@@ -13,18 +13,14 @@
   <ItemGroup>
     <None Remove="appsettings.json" />
     <None Remove="C:\Users\User\.nuget\packages\nlog.config\4.7.15\contentFiles\any\any\NLog.config" />
-    <None Remove="NLog.config.colored" />
-    <None Remove="NLog.config.General" />
+    <None Remove="NLog.config" />
   </ItemGroup>
 
   <ItemGroup>
     <Content Include="appsettings.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="NLog.config.colored">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="NLog.config.general">
+    <Content Include="NLog.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
