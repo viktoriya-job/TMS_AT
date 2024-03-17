@@ -51,5 +51,15 @@ namespace Task1.Pages
 
         // Методы получения свойств
         public string GetErrorLabelText() => ErrorLabel.Text.Trim();
+
+        public void SetEmail(string value)
+        {
+            EmailInput.SendKeys(value);
+        }
+
+        public void SetPassword(string value)
+        {
+            PswInput.SendKeys(value);
+        }
     }
 }

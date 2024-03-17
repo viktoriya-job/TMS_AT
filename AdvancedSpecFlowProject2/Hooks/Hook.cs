@@ -1,6 +1,6 @@
-﻿using NUnit.Framework;
-using Task1.Core;
-using Task1.Helpers.Configuration;
+﻿using CoreProject.Core;
+using CoreProject.Helpers.Configuration;
+using NUnit.Framework;
 
 [assembly: Parallelizable(ParallelScope.Fixtures)]
 
