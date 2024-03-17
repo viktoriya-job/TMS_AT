@@ -7,7 +7,7 @@
 		Given открыт браузер 
 
 	Scenario: Простой тест с Given и When
-		Given открыт новый браузер 
+		Given открыт браузер 
 		When страница логина открыта
 
 	Scenario: Простой тест с Given и Then

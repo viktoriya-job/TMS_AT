@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Task1", "Task1\Task1.csproj
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpecFlowTestProject2", "SpecFlowTestProject2\SpecFlowTestProject2.csproj", "{D02927B3-D175-4E16-BC45-D8A1880C726F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdvancedSpecFlowProject2", "AdvancedSpecFlowProject2\AdvancedSpecFlowProject2.csproj", "{8922507C-40D6-40BA-853B-0E6D1C733255}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{D02927B3-D175-4E16-BC45-D8A1880C726F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D02927B3-D175-4E16-BC45-D8A1880C726F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D02927B3-D175-4E16-BC45-D8A1880C726F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8922507C-40D6-40BA-853B-0E6D1C733255}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8922507C-40D6-40BA-853B-0E6D1C733255}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8922507C-40D6-40BA-853B-0E6D1C733255}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8922507C-40D6-40BA-853B-0E6D1C733255}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

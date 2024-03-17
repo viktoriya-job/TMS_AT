@@ -136,7 +136,7 @@ namespace SpecFlowTestProject2.Features
             {
                 this.ScenarioStart();
 #line 10
-  testRunner.Given("открыт новый браузер", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+  testRunner.Given("открыт браузер", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 11
   testRunner.When("страница логина открыта", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
