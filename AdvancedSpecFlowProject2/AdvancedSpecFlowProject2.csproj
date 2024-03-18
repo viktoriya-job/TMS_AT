@@ -15,15 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <SpecFlowFeatureFiles Remove="Features\ApiLogin.feature" />
-  </ItemGroup>
-
-  <ItemGroup>
     <SpecFlowObsoleteCodeBehindFiles Remove="Features\Login.feature.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Include="Features\ApiLogin.feature" />
   </ItemGroup>
 
   <ItemGroup>
