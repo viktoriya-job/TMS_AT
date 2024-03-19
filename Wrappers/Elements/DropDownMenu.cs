@@ -1,11 +1,4 @@
-﻿using AngleSharp.Dom;
-using Microsoft.VisualStudio.TestPlatform.ObjectModel;
-using OpenQA.Selenium;
-using OpenQA.Selenium.Support.UI;
-using SeleniumExtras.WaitHelpers;
-using System.Threading;
-using Wrappers.Helpers;
-using Wrappers.Helpers.Configuration;
+﻿using OpenQA.Selenium;
 
 namespace Wrappers.Elements
 {
@@ -14,15 +7,11 @@ namespace Wrappers.Elements
         private UIElement _uiElement;
         private List<UIElement> _options;
         private By _locatorOptions = By.CssSelector(".chzn-results>li");
-        //private WebDriverWait _wait;
-        //private By _locator;
 
         public DropDownMenu(IWebDriver webDriver, By locator)
         {
             _uiElement = new UIElement(webDriver, locator);
             _options = _uiElement.FindUIElements(_locatorOptions);
-            //_wait = new WebDriverWait(webDriver, TimeSpan.FromSeconds(Configurator.WaitsTimeout));
-            //_locator = locator;
         }
 
         public bool Displayed => _uiElement.Displayed;
@@ -59,7 +48,7 @@ namespace Wrappers.Elements
 
         public string GetCssValue(string propertyName) => _uiElement.GetCssValue(propertyName);
 
-        public void Click() => _uiElement.Click();
+        private void Click() => _uiElement.Click();
 
         public List<string> GetOptions()
         {
@@ -110,10 +99,7 @@ namespace Wrappers.Elements
         private void SelectOption(UIElement option)
         {
             _uiElement.Click();
-            //_uiElement.Click(() => _wait.Until(ExpectedConditions.ElementExists(Locator)));
-            //_wait.Until(d => DropDownMenuDisplayed);
             option.Click();
-            //option.Click(() => _wait.Until(ExpectedConditions.ElementExists(_locatorOptions)));
         }
     }
 }

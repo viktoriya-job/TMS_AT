@@ -30,7 +30,7 @@ namespace Wrappers.Tests
 
             addTestCasePage.SectionDropDown.SelectByIndex(0);
             addTestCasePage.TemplateDropDown.SelectByText("Test Case (Steps)");
-            Thread.Sleep(2000); //не до конца победила 'stale element not found' >=O  Часть кода, где пыталась победить, закомментировала
+            Thread.Sleep(2000); 
             addTestCasePage.TypeDropDown.SelectByText("Accessibility");
             addTestCasePage.PriorityDropDown.SelectByText("Low");
             addTestCasePage.AssignedToDropDown.SelectByText("Me");
