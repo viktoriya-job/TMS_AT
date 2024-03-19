@@ -12,5 +12,6 @@ public class TableCell
     }
 
     public UIElement GetLink() => _uiElement.FindUIElement(By.TagName("a"));
+    public UIElement GetOverviewLink() => _uiElement.FindUIElement(By.CssSelector("span>a"));
     public string Text => _uiElement.Text;
 }

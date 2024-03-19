@@ -1,5 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 using System.Drawing;
+using NUnit.Framework.Internal;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;
 using Wrappers.Helpers;
@@ -96,6 +97,27 @@ public class UIElement : IWebElement
         }
     }
 
+    public void Click(Func<IWebElement> element)
+    {
+        for (int i = 0; i <= 20; i++)
+        {
+            try
+            {
+                Console.WriteLine($"Try #{i} to click on element.");
+                element().Click();
+                Console.WriteLine("Clicking on the element was successful.");
+                return;
+            }
+            catch (StaleElementReferenceException)
+            {
+                Console.WriteLine($"StaleElementReferenceException was thrown: try #{i}.");
+            }
+        }
+
+        Console.WriteLine("Failed to click on element.");
+        throw new NoSuchElementException("Stale element not found");
+    }
+
     public string GetAttribute(string attributeName)
     {
         return _webElement.GetAttribute(attributeName);
@@ -137,18 +159,17 @@ public class UIElement : IWebElement
     {
         get
         {
-            /*
+            
             if (_webElement.Text != null || _webElement.Text.Equals(""))
             {
-                if (GetAttribute("value").Equals(""))
-                {
+            //    if (GetAttribute("value").Equals(""))
+            //    {
                     return GetAttribute("innerText");
-                }
+            //    }
 
-                return GetAttribute("value");
+            //    return GetAttribute("value");
             }
-            */
-
+            
             return _webElement.Text;
         }
     }

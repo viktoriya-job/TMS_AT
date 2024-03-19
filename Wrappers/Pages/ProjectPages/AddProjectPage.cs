@@ -1,4 +1,5 @@
 ﻿using OpenQA.Selenium;
+using Wrappers.Elements;
 
 namespace Wrappers.Pages.ProjectPages;
 
@@ -8,6 +9,7 @@ public class AddProjectPage : ProjectBasePage
 
     // Описание элементов
     private static readonly By AddButtonBy = By.Id("name");
+    private static readonly By ShowAnnouncementCheckboxBy = By.Id("show_announcement");
 
     public AddProjectPage(IWebDriver driver) : base(driver)
     {
@@ -24,5 +26,6 @@ public class AddProjectPage : ProjectBasePage
     }
 
     // Атомарные Методы
-    public IWebElement AddButton => Driver.FindElement(AddButtonBy);
+    public Button AddButton => new(Driver, AddButtonBy);
+    public Checkbox ShowAnnouncementCheckbox => new Checkbox(Driver, ShowAnnouncementCheckboxBy);
 }
