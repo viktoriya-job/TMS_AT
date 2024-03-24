@@ -2,7 +2,7 @@
 using NLog;
 using RestSharp;
 
-namespace RestSharpApi.Tests.Api;
+namespace RestSharpApi.Tests;
 
 public class ReqresInTest
 {
@@ -13,8 +13,8 @@ public class ReqresInTest
     [Test]
     public void SimpleGetTest()
     {
-        const string endpoint = "/api/users/2";     // 200 Ok
-        // const string endpoint = "/api/users/23"; // 404 Not Found
+        //const string endpoint = "/api/users/2"; // OK
+        const string endpoint = "/api/users/23"; // 404 Not Found
 
         // Setup Rest Client
         var client = new RestClient(BaseRestUri);
@@ -25,7 +25,8 @@ public class ReqresInTest
         // Execute Request
         var response = client.ExecuteGet(request);
 
-        Logger.Debug(response.Content);
+        Logger.Info(response.Content);
+
         Assert.That(response.StatusCode, Is.EqualTo(HttpStatusCode.OK));
     }
 
@@ -44,7 +45,8 @@ public class ReqresInTest
         // Execute Request
         var response = client.ExecutePost(request);
 
-        Logger.Debug(response.Content);
+        Logger.Info(response.Content);
+
         Assert.That(response.StatusCode, Is.EqualTo(HttpStatusCode.Created));
     }
 }

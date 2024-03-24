@@ -5,15 +5,14 @@ public class HttpClientTest
     [Test]
     public async Task SimpleHttpClientTest()
     {
-        const string restUrl = "https://reqres.in";
+        const string restUrl = "https://reqres.in/";
 
         // Создаем экземпляр HttpClient
         using (HttpClient client = new HttpClient())
         {
             try
             {
-                // Выполняем GET-запрос к указанному URL
-                //HttpResponseMessage response = await client.GetAsync("https://jsonplaceholder.typicode.com/posts/1");
+                // Настраиваем и выполняем GET-запрос к указанному URL
                 HttpResponseMessage response = await client.GetAsync(restUrl);
 
                 // Проверяем успешность запроса
@@ -30,7 +29,8 @@ public class HttpClientTest
             }
             catch (HttpRequestException e)
             {
-                Console.WriteLine($"Ошибка HTTP: {e.Message}");
+                Console.WriteLine(e);
+                throw;
             }
         }
     }
