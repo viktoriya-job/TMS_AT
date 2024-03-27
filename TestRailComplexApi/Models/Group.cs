@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace TestRailComplexApi.Models;
 
-namespace TestRailComplexApi.Models
+public record Group
 {
-    public class Group
-    {
-    }
+    public string Password { get; init; } = string.Empty;
 }

@@ -19,7 +19,7 @@ namespace TestRailComplexApi.Tests
         [OneTimeTearDown]
         public void TearDownApi()
         {
-            ProjectService.Dispose();
+            ProjectService?.Dispose();
         }
     }
 }

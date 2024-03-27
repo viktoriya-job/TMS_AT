@@ -19,7 +19,7 @@ namespace TestRailComplexApi.Helpers.Configuration
         {
             var basePath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
             var builder = new ConfigurationBuilder()
-                .SetBasePath(basePath ?? throw new InvalidOperationException())
+                .SetBasePath(basePath)
                 .AddJsonFile("appsettings.json");
 
             var appSettingFiles = Directory.EnumerateFiles(basePath ?? string.Empty, "appsettings.*.json");
@@ -50,21 +50,19 @@ namespace TestRailComplexApi.Helpers.Configuration
         {
             get
             {
-                List<User> users = new List<User?>();
+                List<User?> users = new List<User?>();
                 var child = Configuration.GetSection("Users");
-
-                foreach(var section in child.GetChildren())
+                foreach (var section in child.GetChildren())
                 {
-                    var user = new User()
+                    var user = new User
                     {
-                        Username = section["Username"],
-                        Password = section["Password"]
+                        Password = section["Password"],
+                        Username = section["Username"]
                     };
-
                     user.UserType = section["UserType"].ToLower() switch
                     {
                         "admin" => UserType.Admin,
-                        "standart" => UserType.Standart,
+                        "user" => UserType.Standard,
                         _ => user.UserType
                     };
 
@@ -76,7 +74,7 @@ namespace TestRailComplexApi.Helpers.Configuration
         }
 
         public static User? Admin => Users.Find(x => x?.UserType == UserType.Admin);
-        public static string? BrowserType => Configuration[nameof(BrowserType)];
-        public static double WaitsTimeout => double.Parse(Configuration[nameof(WaitsTimeout)]);
+
+        public static User? UserByUsername(string username) => Users.Find(x => x?.Username == username);
     }
 }

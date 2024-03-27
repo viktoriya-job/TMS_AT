@@ -1,9 +1,6 @@
 ﻿using System.Net;
 using RestSharp;
 using TestRailComplexApi.Clients;
-using TestRail.ApiTesting;
-using TestRailComplexApi.Clients;
-using TestRailComplexApi.Services;
 using TestRailComplexApi.Models;
 
 namespace TestRailComplexApi.Services;
