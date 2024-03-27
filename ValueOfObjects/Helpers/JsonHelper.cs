@@ -5,7 +5,7 @@ namespace ValueOfObjects.Helpers;
 
 public static class JsonHelper
 {
-    public static JsonObject1 FromJson(string path)
+    public static JsonObject1 FromJson(string path, FileMode open)
     {
         using FileStream fs = new FileStream(path, FileMode.Open);
         return JsonSerializer.Deserialize<JsonObject1>(fs);

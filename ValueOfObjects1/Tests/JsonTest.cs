@@ -1,7 +1,8 @@
 ﻿using System.Text.Json;
-using ValueOfObjects.Models;
-using ValueOfObjects.Helpers;
-namespace ValueOfObjects.Tests;
+using ValueOfObjects1.Helpers;
+using ValueOfObjects1.Models;
+
+namespace ValueOfObjects1.Tests;
 
 public class JsonTest
 {
@@ -16,7 +17,7 @@ public class JsonTest
             AnyObject = new string("Test Object")
         };
 
-        string jsonString = JsonSerializer.Serialize<JsonObject1>(testObj);
+        string jsonString = JsonSerializer.Serialize(testObj);
 
         Console.WriteLine(jsonString);
     }
@@ -93,7 +94,7 @@ public class JsonTest
     [Test]
     public void JsonDeserializerTest5()
     {
-        JsonObject1 jsonObject1 = JsonHelper.FromJson(@"Resources/testObject2.json", FileMode.Open);
+        JsonObject1 jsonObject1 = JsonHelper<JsonObject1>.FromJson(@"Resources/testObject2.json", FileMode.Open);
 
         Console.WriteLine(jsonObject1.ToString());
     }
